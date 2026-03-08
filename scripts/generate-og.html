@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devtimize OG Image Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-display { font-family: 'Space Grotesk', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(to right, #00E8FF, #7C3AED);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-[#050505] flex items-center justify-center min-h-screen">
+    <div id="og-card" class="w-[1200px] h-[630px] bg-[#050505] relative overflow-hidden border-[16px] border-[#111111] flex flex-col justify-center px-24">
+        <!-- Background Decorative Elements -->
+        <div class="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(0,232,255,0.08)_0%,transparent_70%)]"></div>
+        <div class="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(124,58,237,0.1)_0%,transparent_70%)]"></div>
+        
+        <!-- Content -->
+        <div class="relative z-10">
+            <div class="flex items-center gap-4 mb-12">
+                <div class="w-16 h-16 bg-gradient-to-br from-[#00E8FF] to-[#7C3AED] rounded-2xl flex items-center justify-center text-white text-4xl font-bold">D</div>
+                <span class="text-3xl font-mono text-[#00E8FF] tracking-[0.3em] uppercase">Devtimize</span>
+            </div>
+            
+            <h1 class="font-display text-8xl font-bold text-white leading-tight mb-8">
+                Future-Ready<br />
+                <span class="gradient-text">Software Studio.</span>
+            </h1>
+            
+            <p class="text-4xl text-gray-400 max-w-3xl leading-relaxed">
+                Web · Mobile · Desktop · AI Solutions<br />
+                Built for the modern era.
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="absolute bottom-16 left-24 right-24 flex justify-between items-center">
+            <div class="flex gap-8 text-xl font-mono text-gray-500">
+                <span>React</span>
+                <span>Python</span>
+                <span>Flutter</span>
+                <span>.NET</span>
+            </div>
+            <div class="text-2xl font-bold text-white">devtimize.com</div>
+        </div>
+    </div>
+</body>
+</html>

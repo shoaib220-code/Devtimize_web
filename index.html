@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Preconnect to Google Fonts CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- DNS prefetch for external services -->
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <link rel="dns-prefetch" href="//api.anthropic.com">
+
+    <!-- Theme color for mobile browser -->
+    <meta name="theme-color" content="#080C14">
+
+    <!-- Google Analytics 4 — Replace G-DEVTIMIZE01 with real Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PV0DEWF85F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DEVTIMIZE01', {
+        page_path: window.location.pathname,
+        send_page_view: true
+      });
+    </script>
+
+    <!--
+      SETUP INSTRUCTIONS FOR SHOAIB & HAMZA:
+      1. Go to search.google.com/search-console
+      2. Click "Add Property" → URL prefix → https://devtimize.com/
+      3. Choose "HTML tag" verification method
+      4. Copy the content="..." value and replace REPLACE_WITH_GSC_CODE below
+      5. Deploy the site
+      6. Click "Verify" in Search Console
+      7. Go to Sitemaps tab → enter "sitemap.xml" → click Submit
+      8. Go to URL Inspection → enter https://devtimize.com/ → click "Request Indexing"
+    -->
+    <!-- Google Search Console Verification — Replace content value with real code -->
+    <meta name="google-site-verification" content="G-PV0DEWF85F" />
+
+    <title>Devtimize — Web · Mobile · Desktop · AI Development Studio</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

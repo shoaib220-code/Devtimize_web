@@ -1,6 +1,9 @@
 import React from 'react';
 import { motion } from 'motion/react';
+<<<<<<< HEAD
 import { Link } from 'react-router-dom';
+=======
+>>>>>>> 2b70879c8c30a332d2c1835c581d77b31660ddb4
 import { SEO } from '../components/SEO';
 import { Calendar, Clock, User, ArrowRight } from 'lucide-react';
 
@@ -112,7 +115,11 @@ export const BlogPage = () => {
                 </div>
                 
                 <h2 className="font-display text-2xl font-bold text-text-primary mb-4 group-hover:text-acid-cyan transition-colors">
+<<<<<<< HEAD
                   <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+=======
+                  <a href={`/blog/${post.slug}`}>{post.title}</a>
+>>>>>>> 2b70879c8c30a332d2c1835c581d77b31660ddb4
                 </h2>
                 
                 <p className="text-text-secondary text-sm leading-relaxed mb-8 flex-grow">
@@ -134,13 +141,22 @@ export const BlogPage = () => {
                   </div>
                 </div>
 
+<<<<<<< HEAD
                 <Link 
                   to={`/blog/${post.slug}`}
+=======
+                <a 
+                  href={`/blog/${post.slug}`}
+>>>>>>> 2b70879c8c30a332d2c1835c581d77b31660ddb4
                   className="inline-flex items-center gap-2 text-xs font-mono text-acid-cyan uppercase tracking-widest group/link"
                 >
                   Read Article 
                   <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
+<<<<<<< HEAD
                 </Link>
+=======
+                </a>
+>>>>>>> 2b70879c8c30a332d2c1835c581d77b31660ddb4
               </div>
             </motion.article>
           ))}

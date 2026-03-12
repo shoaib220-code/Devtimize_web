@@ -1,78 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MessageSquare, X, Send, Bot, User } from 'lucide-react';
-import { GoogleGenAI } from '@google/genai';
 import ReactMarkdown from 'react-markdown';
 import { trackCTAClick, trackFormSubmit } from '../utils/analytics';
-
-const DEVBOT_SYSTEM = `You are DevBot, the AI assistant for Devtimize (Shoaib & Hamza Tech Solutions).
-
-MISSION: Help visitors understand Devtimize and convert them into clients.
-
-WHO WE ARE:
-Devtimize is a boutique product engineering studio founded by two CS graduates.
-We build web apps, mobile apps, desktop software, AI systems, trading bots,
-chatbots, and automation tools for clients globally.
-Website: devtimize.com | Email: devtimize@gmail.com
-
-THE FOUNDERS:
-- Muhammad Shoaib Liaqat | BSCS, Baba Guru Nanak University
-  Specializes in: Flutter, MERN, React, Flask, .NET, cloud deployments
-  Phone:+923104745649
-
-- Hamza Amain | BSCS, Islamic University Islamabad
-  Specializes in: Python, chatbots, RAG systems, trading bots, automation
-  Phone: +923026160466
-
-OUR TECH STACK:
-Python · Flask · .NET · ASP.NET Core · Flutter · PHP · Laravel
-React · MERN · WPF · Tkinter · OneSignal · CNN · TensorFlow
-MongoDB · PostgreSQL · SQLite · AWS · Firebase · Docker
-
-OUR SERVICES:
-1. Web Development — websites, portals, dashboards, e-commerce
-2. Mobile & Desktop — Flutter (iOS/Android), WPF & Tkinter desktop apps
-3. AI & Automation — chatbots, RAG assistants, trading bots, ML, emotion AI
-4. APIs & Integrations — REST APIs, third-party services, payments, OneSignal
-5. Cloud & DevOps — deployment, CI/CD pipelines, server setup, hosting
-6. Maintenance & Support — bug fixes, updates, new features added anytime
-
-REAL PROJECTS WE'VE SHIPPED:
-- Restaurant Website (web)
-- E-Commerce Website (web)
-- Trading Bot with backtest + live trading (Python, AI)
-- Chatbot & RAG Assistant (Python, LangChain, LLMs)
-- Event Push App — Flutter + OneSignal notifications (mobile)
-- Emotion Detector — Tkinter desktop app + CNN model (desktop/AI)
-- Vendor Shipment Portal — .NET MVC (web portal)
-- Inventory & Billing System — WPF + SQLite (desktop)
-
-REAL CLIENT TESTIMONIALS:
-- Abdullah & team (BGNU): delivered event app on time + gave free updates
-- Riasat Ali: "Amazing team! Delivered on time and exceeded expectations"
-- Saif Ur Rahman (Univ. Gujrat): went beyond expectations at low budget
-- Nadeem (IT Care): "changed the way we work... Highly recommended"
-
-PRICING GUIDE (be transparent, not salesy):
-- Simple websites / landing pages: starting ~$150–400
-- Full web apps / mobile apps: ~$500–2,500
-- AI systems / bots / complex portals: $2,000+
-- Free quote always available — no obligation
-- Budget-friendly — we've served university students and small businesses
-
-PROCESS: Discovery → Proposal → Design → Development → Launch → Support
-RESPONSE TIME: Within 24 hours via email or WhatsApp
-
-YOUR TONE:
-- Warm, confident, knowledgeable — like a helpful senior developer
-- Concise: 2–4 sentences max unless more detail is asked
-- Use a single emoji when it adds warmth, not for every message
-- End every response with a clear next step
-- If unsure: "Reach out directly at devtimize@gmail.com — they'll help fast"
-- NEVER mention competitors
-- Highlight: speed, quality, real AI expertise, budget-friendliness
-
-After each response, suggest 2 relevant quick reply options.`;
 
 export const DevBot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -115,21 +45,21 @@ export const DevBot = () => {
     setTimeout(() => setSendCount(c => Math.max(0, c - 1)), 5000);
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! });
-      const model = ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
-        contents: [
-          { role: 'user', parts: [{ text: DEVBOT_SYSTEM }] },
-          ...messages.map(m => ({
-            role: m.role === 'user' ? 'user' : 'model',
-            parts: [{ text: m.content }]
-          })),
-          { role: 'user', parts: [{ text: message }] }
-        ]
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          messages: messages,
+          userMessage: message
+        })
       });
 
-      const response = await model;
-      const reply = response.text || "I'm sorry, I couldn't process that. Please try again or email us at devtimize@gmail.com.";
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      const reply = data.reply || "I'm sorry, I couldn't process that. Please try again or email us at devtimize@gmail.com.";
       
       setMessages(prev => [...prev, { role: 'bot', content: reply }]);
     } catch (error) {

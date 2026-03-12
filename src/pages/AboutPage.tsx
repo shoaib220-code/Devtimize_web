@@ -97,7 +97,7 @@ export const AboutPage = () => {
                 edu: 'BSCS · Islamic University Islamabad',
                 bio: 'Passionate about intelligent systems. Hamza focuses on AI integrations, RAG systems, and automated trading bots that push the boundaries of what software can do.',
                 skills: ['Python', 'LangChain', 'TensorFlow', 'Chatbots', 'ML'],
-                image: 'https://picsum.photos/seed/hamza/400/400'
+                image: '/images/team/hamza.png'
               }
             ].map((founder, i) => (
               <div key={i} className="bg-bg-surface border border-bg-stroke rounded-3xl p-10 flex flex-col md:flex-row gap-10 items-center md:items-start">

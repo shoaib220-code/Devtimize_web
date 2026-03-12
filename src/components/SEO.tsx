@@ -129,7 +129,7 @@ const PROJECT_LIST_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   "name": "Devtimize Project Portfolio",
-  "description": "Web, mobile, desktop, and AI projects delivered by Devtimize — Shoaib & Hamza Tech Solutions.",
+  "description": "Web, mobile, desktop, and AI projects delivered by Devtimize.",
   "url": "https://devtimize.com/projects/",
   "numberOfItems": 8,
   "itemListElement": [

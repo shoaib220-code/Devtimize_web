@@ -15,11 +15,7 @@ const team = [
   {
     name: 'Hamza Amin',
     role: 'Co-founder',
-<<<<<<< HEAD
     image: '/images/team/hamza.png',
-=======
-    image: 'https://picsum.photos/seed/hamza/400/400',
->>>>>>> 2b70879c8c30a332d2c1835c581d77b31660ddb4
     bio: 'Specialist in mobile ecosystems and frontend excellence. Hamza focuses on creating intuitive user experiences that bridge the gap between complex logic and human interaction.',
     skills: ['Flutter', 'React Native', 'UI/UX', 'Node.js'],
     social: { github: '#', linkedin: '#', twitter: '#' }

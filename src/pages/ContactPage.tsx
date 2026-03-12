@@ -16,10 +16,6 @@ import { SEO } from '../components/SEO';
 */
 
 export const ContactPage = () => {
-<<<<<<< HEAD
-=======
-
->>>>>>> 2b70879c8c30a332d2c1835c581d77b31660ddb4
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -70,12 +66,7 @@ export const ContactPage = () => {
       setIsSubmitting(false);
     }
   };
-<<<<<<< HEAD
   return (
-=======
-    return (
-
->>>>>>> 2b70879c8c30a332d2c1835c581d77b31660ddb4
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

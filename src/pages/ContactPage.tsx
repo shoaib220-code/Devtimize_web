@@ -16,10 +16,6 @@ import { SEO } from '../components/SEO';
 */
 
 export const ContactPage = () => {
-  // Initialize EmailJS
-  useEffect(() => {
-    emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
-  }, []);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -70,6 +66,7 @@ export const ContactPage = () => {
       setIsSubmitting(false);
     }
   };
+  return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

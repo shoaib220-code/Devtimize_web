@@ -18,7 +18,7 @@ export const Team = () => {
       edu: 'BSCS · Islamic University Islamabad',
       skills: 'Python · Chatbots · RAG · Trading Bots · Automation · ML',
       phone: '+923026160466',
-      image: 'https://picsum.photos/seed/hamza/400/400'
+      image: '/images/team/hamza.png'
     }
   ];
 

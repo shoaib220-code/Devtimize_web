@@ -23,12 +23,12 @@ export const Team = () => {
 
   return (
     <section id="team" className="py-24 md:py-32 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         <div className="relative mb-20">
           <span className="font-mono text-[11px] text-acid-cyan tracking-[0.25em] uppercase block mb-4">
             03 — The Team
           </span>
-          <h2 className="font-display text-4xl md:text-6xl font-bold text-text-primary">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-6xl font-bold text-text-primary">
             Hands-On Founders<br />
             <span className="text-text-secondary">Who Ship.</span>
           </h2>
@@ -86,7 +86,7 @@ export const Team = () => {
         </div>
 
         <div className="mt-24 text-center">
-          <h4 className="font-display text-2xl md:text-4xl text-text-secondary max-w-3xl mx-auto leading-tight">
+          <h4 className="font-display text-xl sm:text-2xl md:text-4xl text-text-secondary max-w-3xl mx-auto leading-tight">
             "Two CS graduates building software<br />
             <span className="text-text-primary">the world actually uses."</span>
           </h4>

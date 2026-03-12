@@ -22,7 +22,7 @@ export const ServicesPage = () => {
           { name: 'Services', url: 'https://devtimize.com/services/' }
         ]}
       />
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         <div className="mb-20">
           <span className="font-mono text-[11px] text-acid-cyan tracking-[0.25em] uppercase block mb-4">
             Our Expertise

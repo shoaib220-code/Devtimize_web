@@ -65,12 +65,12 @@ export const TestimonialsPage = () => {
           { name: 'Testimonials', url: 'https://devtimize.com/testimonials/' }
         ]}
       />
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         <div className="mb-20 text-center">
           <span className="font-mono text-[11px] text-acid-cyan tracking-[0.25em] uppercase block mb-4">
             Client Success
           </span>
-          <h1 className="font-display text-5xl md:text-7xl font-bold text-text-primary mb-6">
+          <h1 className="font-display text-3xl sm:text-5xl md:text-7xl font-bold text-text-primary mb-6">
             What They <span className="gradient-text">Say.</span>
           </h1>
           <p className="text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed">
@@ -114,7 +114,7 @@ export const TestimonialsPage = () => {
 
         <div className="mt-24 text-center">
           <h2 className="font-display text-3xl font-bold text-text-primary mb-8">Ready to be our next success story?</h2>
-          <button className="px-10 py-4 bg-grad-brand text-white font-bold rounded-xl hover:scale-105 transition-transform">
+          <button className="w-full sm:w-auto px-10 py-4 bg-grad-brand text-white font-bold rounded-xl hover:scale-105 transition-transform">
             Start Your Project
           </button>
         </div>

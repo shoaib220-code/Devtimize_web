@@ -168,7 +168,7 @@ export const BlogPost = () => {
         {JSON.stringify(postSchema)}
       </script>
 
-      <div className="max-w-4xl mx-auto px-6 md:px-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-12">
         <Link 
           to="/blog" 
           className="inline-flex items-center gap-2 text-xs font-mono text-text-muted uppercase tracking-widest hover:text-acid-cyan transition-colors mb-12"

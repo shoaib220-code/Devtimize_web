@@ -10,7 +10,7 @@ const projects = [
     slug: 'trading-bot',
     name: 'Trading Bot (Backtest + Live)',
     category: 'AI & Bots',
-    image: 'https://picsum.photos/seed/trading/800/450',
+    image: '/images/projects/trading-bot.jfif',
     stack: 'Python · Backtrader · Pandas · Flask',
     features: [
       'Backtesting engine on historical data',
@@ -24,7 +24,7 @@ const projects = [
     slug: 'chatbot-rag',
     name: 'Chatbot & RAG Assistant',
     category: 'AI & Bots',
-    image: 'https://picsum.photos/seed/ai/800/450',
+    image: '/images/projects/rag-chatbot.jfif',
     stack: 'Python · LangChain · LLMs · Vector DB',
     features: [
       'Vector search for custom knowledge base',
@@ -38,7 +38,7 @@ const projects = [
     slug: 'restaurant-site',
     name: 'Restaurant Website',
     category: 'Web',
-    image: 'https://picsum.photos/seed/food/800/450',
+    image: '/images/projects/resturent-website.jfif',
     stack: 'PHP · Laravel · MySQL · Tailwind',
     features: [
       'Menu management system',
@@ -52,7 +52,7 @@ const projects = [
     slug: 'ecommerce-platform',
     name: 'E-Commerce Platform',
     category: 'Web',
-    image: 'https://picsum.photos/seed/shop/800/450',
+    image: '/images/projects/ecom-website.jfif',
     stack: 'MERN · React · Node.js · MongoDB',
     features: [
       'Product catalog with advanced filters',
@@ -66,7 +66,7 @@ const projects = [
     slug: 'event-push-app',
     name: 'Event Push App',
     category: 'Mobile',
-    image: 'https://picsum.photos/seed/mobile/800/450',
+    image: '/images/projects/event-push-app.png',
     stack: 'Flutter · OneSignal · Firebase',
     features: [
       'Real-time push notifications',
@@ -80,7 +80,7 @@ const projects = [
     slug: 'emotion-detector',
     name: 'Emotion Detector',
     category: 'Desktop/AI',
-    image: 'https://picsum.photos/seed/face/800/450',
+    image: '/images/projects/emotion-detection.jfif',
     stack: 'Tkinter · CNN · TensorFlow',
     features: [
       'Real-time face detection',
@@ -94,7 +94,7 @@ const projects = [
     slug: 'vendor-portal',
     name: 'Vendor Shipment Portal',
     category: 'Portals',
-    image: 'https://picsum.photos/seed/logistics/800/450',
+    image: '/images/projects/vendor-shipment-3pl.jfif',
     stack: '.NET MVC · SQL Server · Azure',
     features: [
       'Shipment tracking & status updates',
@@ -108,7 +108,7 @@ const projects = [
     slug: 'inventory-billing',
     name: 'Inventory & Billing System',
     category: 'Desktop',
-    image: 'https://picsum.photos/seed/billing/800/450',
+    image: '/images/projects/inventory&billing.jfif',
     stack: 'WPF · C# · SQLite',
     features: [
       'Inventory control & low stock alerts',
@@ -134,12 +134,12 @@ export const Projects = () => {
 
   return (
     <section id="projects" className="py-24 md:py-32 bg-bg-base relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         <div className="relative mb-16">
           <span className="font-mono text-[11px] text-acid-cyan tracking-[0.25em] uppercase block mb-4">
             02 — Our Work
           </span>
-          <h2 className="font-display text-4xl md:text-6xl font-bold text-text-primary">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-6xl font-bold text-text-primary">
             Real Projects.<br />
             <span className="text-text-secondary">Real Results.</span>
           </h2>
@@ -193,7 +193,7 @@ export const Projects = () => {
                 <div className="inline-block px-3 py-1 rounded-full bg-acid-cyan/10 border border-acid-cyan/20 text-acid-cyan text-[10px] font-bold uppercase tracking-widest mb-4">
                   {filteredProjects[currentIndex]?.category}
                 </div>
-                <h3 className="font-display text-3xl md:text-4xl font-bold text-text-primary mb-6">
+                <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
                   {filteredProjects[currentIndex]?.name}
                 </h3>
                 

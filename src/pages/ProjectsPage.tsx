@@ -31,12 +31,12 @@ export const ProjectsPage = () => {
           { name: 'Projects', url: 'https://devtimize.com/projects/' }
         ]}
       />
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         <div className="mb-16">
           <span className="font-mono text-[11px] text-acid-cyan tracking-[0.25em] uppercase block mb-4">
             Our Portfolio
           </span>
-          <h1 className="font-display text-5xl md:text-7xl font-bold text-text-primary mb-6">
+          <h1 className="font-display text-3xl sm:text-5xl md:text-7xl font-bold text-text-primary mb-6">
             Selected <span className="gradient-text">Works.</span>
           </h1>
           <div className="flex flex-wrap gap-3 mt-10">

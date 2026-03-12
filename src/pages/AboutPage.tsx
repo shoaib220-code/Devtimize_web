@@ -21,14 +21,14 @@ export const AboutPage = () => {
           { name: 'About', url: 'https://devtimize.com/about/' }
         ]}
       />
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         {/* Hero Section */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
           <div>
             <span className="font-mono text-[11px] text-acid-cyan tracking-[0.25em] uppercase block mb-4">
               Our Story
             </span>
-            <h1 className="font-display text-5xl md:text-7xl font-bold text-text-primary mb-8">
+            <h1 className="font-display text-3xl sm:text-5xl md:text-7xl font-bold text-text-primary mb-8">
               Engineering <span className="gradient-text">Excellence.</span>
             </h1>
             <p className="text-xl text-text-secondary leading-relaxed mb-8">
@@ -48,8 +48,8 @@ export const AboutPage = () => {
           <div className="relative">
             <div className="aspect-square rounded-3xl overflow-hidden border border-bg-stroke">
               <img 
-                src="https://picsum.photos/seed/office/800/800" 
-                alt="Devtimize Office" 
+                src="/images/team/shoaib&hamza.png" 
+                alt="Devtimize Founders" 
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 referrerPolicy="no-referrer"
               />

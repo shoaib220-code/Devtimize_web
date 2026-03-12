@@ -42,7 +42,7 @@ export const ServiceDetail = () => {
           { name: service.title, url: `https://devtimize.com/services/${service.slug}/` }
         ]}
       />
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         <Link to="/services" className="inline-flex items-center gap-2 text-text-secondary hover:text-acid-cyan transition-colors mb-12 group">
           <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" /> Back to Services
         </Link>

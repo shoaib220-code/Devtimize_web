@@ -10,7 +10,7 @@ export const Hero = () => {
       <div className="absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] bg-[radial-gradient(circle,rgba(0,232,255,0.04)_0%,transparent_70%)] pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-5%] w-[50vw] h-[50vw] bg-[radial-gradient(circle,rgba(124,58,237,0.06)_0%,transparent_70%)] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 grid lg:grid-cols-2 gap-12 items-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -26,7 +26,7 @@ export const Hero = () => {
             Product Engineering Studio · Est. 2024
           </p>
 
-          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] text-text-primary mb-6">
+          <h1 className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] text-text-primary mb-6">
             Future-Ready<br />
             <span className="gradient-text">Software.</span>
           </h1>

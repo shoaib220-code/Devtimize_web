@@ -38,7 +38,7 @@ export const Loader = () => {
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.05 + i * 0.08, duration: 0.35 }}
-                  className="font-display text-4xl md:text-7xl lg:text-8xl font-bold tracking-[0.18em] gradient-text"
+                  className="font-display text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bold tracking-[0.18em] gradient-text"
                 >
                   {char}
                 </motion.span>

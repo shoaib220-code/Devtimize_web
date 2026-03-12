@@ -40,7 +40,7 @@ export const TeamPage = () => {
           { name: 'Team', url: 'https://devtimize.com/team/' }
         ]}
       />
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         <div className="mb-20 text-center">
           <span className="font-mono text-[11px] text-acid-cyan tracking-[0.25em] uppercase block mb-4">
             The Minds Behind

@@ -31,12 +31,12 @@ export const Testimonials = () => {
 
   return (
     <section id="testimonials" className="py-24 md:py-32 bg-bg-base relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         <div className="relative mb-20">
           <span className="font-mono text-[11px] text-acid-cyan tracking-[0.25em] uppercase block mb-4">
             04 — Testimonials
           </span>
-          <h2 className="font-display text-4xl md:text-6xl font-bold text-text-primary">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-6xl font-bold text-text-primary">
             Hear It From<br />
             <span className="text-text-secondary">Those Who Shipped With Us.</span>
           </h2>

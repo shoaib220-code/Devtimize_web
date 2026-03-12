@@ -33,7 +33,7 @@ export const Navbar = () => {
     <nav className={`fixed top-0 left-0 w-full h-[72px] z-[500] transition-all duration-300 ${
       isScrolled ? 'glass-nav border-b-acid-cyan/10' : 'bg-transparent border-b-transparent'
     }`}>
-      <div className="max-w-7xl mx-auto h-full px-6 md:px-12 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto h-full px-4 sm:px-6 md:px-12 flex items-center justify-between">
         <Link to="/" className="font-display text-xl font-bold tracking-tighter gradient-text">
           DEVTIMIZE
         </Link>

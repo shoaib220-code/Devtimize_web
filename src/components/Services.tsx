@@ -52,12 +52,12 @@ export const Services = () => {
 
   return (
     <section id="services" className="py-24 md:py-32 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         <div className="relative mb-20">
           <span className="font-mono text-[11px] text-acid-cyan tracking-[0.25em] uppercase block mb-4">
             01 — Our Services
           </span>
-          <h2 className="font-display text-4xl md:text-6xl font-bold text-text-primary">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-6xl font-bold text-text-primary">
             Full-Stack Solutions,<br />
             <span className="text-text-secondary">Start to Finish.</span>
           </h2>

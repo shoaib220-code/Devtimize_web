@@ -1,5 +1,3 @@
-import { GoogleGenAI } from '@google/genai';
-
 const DEVBOT_SYSTEM = `You are DevBot, the AI assistant for Devtimize (Shoaib & Hamza Tech Solutions).
 
 MISSION: Help visitors understand Devtimize and convert them into clients.
@@ -126,52 +124,65 @@ export default async function handler(req: any, res: any) {
 
     const apiKey = process.env.GEMINI_API_KEY;
     console.log('API Key exists:', !!apiKey);
-    console.log('API Key length:', apiKey?.length);
     
     if (!apiKey) {
       console.error('GEMINI_API_KEY not set in environment');
       return res.status(500).json({ 
         error: 'API key not configured',
-        debug: 'GEMINI_API_KEY is missing from environment variables'
+        debug: 'GEMINI_API_KEY is missing'
       });
     }
 
-    console.log('Initializing GoogleGenAI...');
-    const ai = new GoogleGenAI({ apiKey });
+    console.log('Calling Gemini API...');
     
-    console.log('Creating model request...');
-    const model = ai.models.generateContent({
-      model: 'gemini-2.0-flash',
-      contents: [
-        { role: 'user', parts: [{ text: DEVBOT_SYSTEM }] },
-        ...messages.map((m: any) => ({
-          role: m.role === 'user' ? 'user' : 'model',
-          parts: [{ text: m.content }]
-        })),
-        { role: 'user', parts: [{ text: message }] }
-      ]
+    // Build conversation history
+    const contents = [
+      { role: 'user', parts: [{ text: DEVBOT_SYSTEM }] },
+      ...messages.map((m: any) => ({
+        role: m.role === 'user' ? 'user' : 'model',
+        parts: [{ text: m.content }]
+      })),
+      { role: 'user', parts: [{ text: message }] }
+    ];
+
+    const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-goog-api-key': apiKey
+      },
+      body: JSON.stringify({
+        contents: contents,
+        generationConfig: {
+          temperature: 0.7,
+          maxOutputTokens: 500
+        }
+      })
     });
 
-    console.log('Waiting for Gemini response...');
-    const response = await model;
-    const reply = response.text || "I'm sorry, I couldn't process that. Please try again or email us at devtimize@gmail.com.";
+    console.log('Gemini API Response Status:', response.status);
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error('Gemini API Error:', errorData);
+      throw new Error(`Gemini API error: ${response.status} - ${JSON.stringify(errorData)}`);
+    }
+
+    const data = await response.json();
+    console.log('Gemini response received');
+
+    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text 
+      || "I'm sorry, I couldn't process that. Please try again or email us at devtimize@gmail.com.";
 
     console.log('Successfully generated response');
     return res.status(200).json({ reply });
   } catch (error) {
     console.error('DevBot API Error:', error);
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-    const errorStack = error instanceof Error ? error.stack : '';
     
-    console.error('Error details:', {
-      message: errorMessage,
-      stack: errorStack
-    });
-
     return res.status(500).json({ 
       error: 'Failed to process request',
-      details: errorMessage,
-      stack: process.env.NODE_ENV === 'development' ? errorStack : undefined
+      details: errorMessage
     });
   }
 }

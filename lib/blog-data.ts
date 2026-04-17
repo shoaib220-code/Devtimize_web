@@ -189,7 +189,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: '4',
     slug: 'how-much-does-chatbot-cost',
-    title: 'How Much Does It Cost to Build a Custom Chatbot in 2025?',
+    title: 'How Much Does It Cost to Build a Custom Chatbot in 2026?',
     excerpt: 'Real pricing breakdown for custom AI chatbot development — from simple FAQ bots to full RAG systems.',
     metaDescription: 'Real pricing for custom AI chatbot development — from simple FAQ bots to full RAG systems with custom knowledge bases. Transparent breakdown from Devtimize.',
     content: `

@@ -1,0 +1,49 @@
+# Devtimize
+> A boutique product engineering studio building web apps, mobile apps,
+> desktop software, AI chatbots, trading bots, and automation tools.
+> Founded by Shoaib Liaqat and Hamza Amin — two CS graduates
+> from Pakistan serving clients globally.
+
+## Contact
+- Email: devtimize@gmail.com
+- Shoaib: +923016672356
+- Hamza: +923026160466
+- Website: https://devtimize.com
+- Instagram: https://www.instagram.com/devtimize/
+- Facebook: https://www.facebook.com/p/Devtimize-61579934221770/
+
+## Services
+- Web Development: React, MERN, Laravel, Flask, ASP.NET Core, .NET
+- Mobile & Desktop: Flutter (iOS/Android), WPF, Tkinter
+- AI & Automation: Python chatbots, RAG systems, trading bots, TensorFlow, LangChain
+- APIs & Integrations: REST APIs, Stripe, OneSignal, third-party services
+- Cloud & DevOps: AWS, Docker, CI/CD pipelines, Vercel
+- Maintenance & Support: ongoing updates, retainers, bug fixes
+
+## Key Projects Delivered
+- Trading Bot (Backtest + Live): Python algorithmic trading with real-time execution
+- Chatbot & RAG Assistant: LangChain-based Q&A system with custom knowledge base
+- Event Push App: Flutter mobile app with OneSignal push notifications
+- Emotion Detector: Desktop app with CNN-based facial emotion recognition
+- Vendor Shipment Portal: ASP.NET MVC web portal for logistics management
+- Inventory & Billing System: WPF + SQLite desktop software
+- Restaurant Website: Full-featured restaurant web presence
+- E-Commerce Website: MERN-based online store with payments
+
+## Founders
+- Shoaib Liaqat | BSCS, Baba Guru Nanak University
+  Specializes in Flutter, React, MERN, Flask, .NET, cloud deployments
+- Hamza Amin | BSCS, Islamic University Islamabad
+  Specializes in Python, AI automation, chatbots, trading bots, RAG
+
+## Client Testimonials
+- 5/5 stars from Abdullah (BGNU) — event app delivered on time with free updates
+- 5/5 stars from Riasat Ali — exceeded expectations
+- 5/5 stars from Saif Ur Rahman (University of Gujrat) — beyond expectations at low budget
+- 5/5 stars from Nadeem (IT Care) — changed the way their team works
+
+## Pricing
+- Simple sites: from $150
+- Web/mobile apps: $500–$2,500
+- AI systems & bots: $2,000+
+- Free custom quote: devtimize@gmail.com

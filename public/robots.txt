@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# update the hostname to your production domain before going live
+Sitemap: https://devtimize.com/sitemap.xml

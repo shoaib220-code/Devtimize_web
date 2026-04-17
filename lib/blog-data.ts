@@ -15,7 +15,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: '1',
     slug: 'how-to-build-trading-bot-python',
-    title: 'How to Build a Trading Bot in Python (2025 Full Guide)',
+    title: 'How to Build a Trading Bot in Python (2026 Full Guide)',
     excerpt: 'A complete walkthrough of building an algorithmic trading bot in Python — from backtesting historical data to live execution.',
     metaDescription: 'Step-by-step guide to building a Python trading bot with backtesting on historical data and live trading. Real code from the Devtimize team.',
     content: `

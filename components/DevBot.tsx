@@ -73,57 +73,78 @@ export const DevBot = () => {
   };
 
   return (
-    <div className="fixed bottom-7 right-7 z-[9000]">
+    <>
+      {/* Chat Window */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 16, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 16, scale: 0.97 }}
-            className="absolute bottom-20 right-0 w-[380px] h-[540px] bg-bg-page/97 backdrop-blur-3xl border border-acid-cyan/15 rounded-2xl shadow-[0_24px_80px_rgba(0,0,0,0.7),0_0_24px_rgba(0,232,255,0.1)] flex flex-col overflow-hidden"
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+            className="fixed bottom-4 right-4 w-[360px] max-w-[calc(100vw-2rem)] h-[550px] max-h-[70vh] z-50 flex flex-col overflow-hidden bg-bg-page/97 backdrop-blur-3xl border border-acid-cyan/15 rounded-2xl shadow-[0_24px_80px_rgba(0,0,0,0.7),0_0_24px_rgba(0,232,255,0.1)]"
           >
-            <div className="p-4 bg-bg-raised border-b border-bg-stroke flex justify-between items-center">
-              <div>
+            {/* Header */}
+            <div className="shrink-0 p-4 sm:p-5 bg-bg-raised border-b border-bg-stroke flex items-center justify-between gap-4">
+              <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-jade rounded-full animate-pulse" />
-                  <span className="font-display font-semibold text-text-primary">DevBot</span>
+                  <div className="w-2 h-2 bg-jade rounded-full animate-pulse flex-shrink-0" />
+                  <span className="font-display font-semibold text-text-primary text-sm sm:text-base truncate">DevBot</span>
                 </div>
-                <span className="text-[10px] text-text-secondary uppercase tracking-wider">Online · Powered by Gemini AI</span>
+                <span className="text-xs sm:text-[11px] text-text-secondary uppercase tracking-wider block">Online · Gemini 2.0 Flash</span>
               </div>
-              <button onClick={() => setIsOpen(false)} className="text-text-secondary hover:text-acid-cyan transition-colors">
-                <X size={20} />
+              <button 
+                onClick={() => setIsOpen(false)} 
+                className="flex-shrink-0 text-text-secondary hover:text-acid-cyan transition-colors p-1"
+                aria-label="Close"
+              >
+                <X size={20} className="sm:w-5 sm:h-5" />
               </button>
             </div>
 
-            <div className="flex-1 overflow-y-auto p-5 flex flex-col gap-4">
+            {/* Messages */}
+            <div className="flex-1 min-h-0 overflow-y-auto p-4 sm:p-5 flex flex-col gap-3">
               {messages.map((m, i) => (
-                <div key={i} className={cn(
-                  "max-w-[85%] p-3 rounded-2xl text-sm leading-relaxed",
-                  m.role === 'bot' 
-                    ? "bg-bg-raised border border-bg-stroke text-text-primary self-start rounded-tl-none" 
-                    : "bg-grad-cta text-white self-end rounded-tr-none shadow-lg"
-                )}>
-                  <ReactMarkdown>{m.content}</ReactMarkdown>
+                <div 
+                  key={i} 
+                  className={cn(
+                    "flex w-full",
+                    m.role === 'bot' ? 'justify-start' : 'justify-end'
+                  )}
+                >
+                  <div 
+                    className={cn(
+                      "max-w-xs sm:max-w-sm md:max-w-md px-3 py-2 sm:px-4 sm:py-3 rounded-2xl text-xs sm:text-sm leading-relaxed break-words",
+                      m.role === 'bot' 
+                        ? "bg-bg-raised border border-bg-stroke text-text-primary rounded-tl-none" 
+                        : "bg-grad-cta text-white rounded-tr-none"
+                    )}
+                  >
+                    <ReactMarkdown>{m.content}</ReactMarkdown>
+                  </div>
                 </div>
               ))}
               {isLoading && (
-                <div className="bg-bg-raised border border-bg-stroke text-text-primary self-start p-3 rounded-2xl rounded-tl-none text-sm">
-                  <div className="flex gap-1">
-                    <div className="w-1.5 h-1.5 bg-acid-cyan rounded-full animate-bounce" />
-                    <div className="w-1.5 h-1.5 bg-acid-cyan rounded-full animate-bounce [animation-delay:0.2s]" />
-                    <div className="w-1.5 h-1.5 bg-acid-cyan rounded-full animate-bounce [animation-delay:0.4s]" />
+                <div className="flex justify-start w-full">
+                  <div className="bg-bg-raised border border-bg-stroke text-text-primary px-3 py-2 sm:px-4 sm:py-3 rounded-2xl rounded-tl-none text-sm">
+                    <div className="flex gap-1">
+                      <div className="w-1.5 h-1.5 bg-acid-cyan rounded-full animate-bounce" />
+                      <div className="w-1.5 h-1.5 bg-acid-cyan rounded-full animate-bounce [animation-delay:0.2s]" />
+                      <div className="w-1.5 h-1.5 bg-acid-cyan rounded-full animate-bounce [animation-delay:0.4s]" />
+                    </div>
                   </div>
                 </div>
               )}
             </div>
 
-            <div className="p-4 border-t border-bg-stroke bg-bg-page/50">
-              <div className="flex gap-2 mb-3 overflow-x-auto no-scrollbar">
+            {/* Input Area */}
+            <div className="shrink-0 p-4 sm:p-5 border-t border-bg-stroke bg-bg-page/50 space-y-3">
+              <div className="flex gap-2 overflow-x-auto no-scrollbar -mx-1 px-1">
                 {['💼 Projects', '💰 Pricing', '⚡ Tech Stack', '📞 Contact'].map(chip => (
                   <button
                     key={chip}
                     onClick={() => handleSend(chip)}
-                    className="whitespace-nowrap px-3 py-1.5 rounded-full bg-bg-raised border border-bg-stroke text-acid-cyan text-xs hover:border-acid-cyan hover:bg-acid-cyan/5 transition-all"
+                    className="shrink-0 px-3 py-1.5 rounded-full bg-bg-raised border border-bg-stroke text-acid-cyan text-xs hover:border-acid-cyan hover:bg-acid-cyan/5 transition-all whitespace-nowrap"
                   >
                     {chip}
                   </button>
@@ -135,15 +156,16 @@ export const DevBot = () => {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                  placeholder="Type a message..."
-                  className="flex-1 bg-bg-raised border border-bg-stroke rounded-xl px-4 py-2.5 text-sm text-text-primary outline-none focus:border-acid-cyan transition-colors"
+                  placeholder="Type message..."
+                  className="flex-1 min-w-0 bg-bg-raised border border-bg-stroke rounded-lg px-3 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm text-text-primary outline-none focus:border-acid-cyan transition-colors"
                 />
                 <button
                   onClick={() => handleSend()}
                   disabled={isLoading}
-                  className="bg-grad-cta p-2.5 rounded-xl text-white hover:opacity-90 transition-opacity disabled:opacity-50"
+                  className="shrink-0 bg-grad-cta p-2 sm:p-2.5 rounded-lg text-white hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center"
+                  aria-label="Send"
                 >
-                  <Send size={18} />
+                  <Send size={18} className="sm:w-5 sm:h-5" />
                 </button>
               </div>
             </div>
@@ -151,35 +173,36 @@ export const DevBot = () => {
         )}
       </AnimatePresence>
 
-      <div className="relative">
+      {/* Floating Button & Pill */}
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 z-40">
         <AnimatePresence>
           {showPill && !isOpen && (
             <motion.div
               initial={{ opacity: 0, y: 10, scale: 0.8 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 10, scale: 0.8 }}
-              className="absolute bottom-16 right-0 bg-bg-raised border border-acid-cyan/30 px-4 py-2 rounded-full text-xs text-acid-cyan whitespace-nowrap shadow-xl"
+              className="absolute bottom-20 sm:bottom-24 right-0 bg-bg-raised border border-acid-cyan/30 px-4 py-2 rounded-full text-xs text-acid-cyan whitespace-nowrap shadow-xl"
             >
               Ask DevBot 👋
             </motion.div>
           )}
         </AnimatePresence>
+        
         <motion.button
           whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+          whileTap={{ scale: 0.95 }}
           onClick={() => {
             setIsOpen(!isOpen);
             setShowPill(false);
             if (!isOpen) trackCTAClick('Open DevBot', 'floating_button');
           }}
-          className="w-14 h-14 rounded-full bg-bg-raised border border-acid-cyan flex items-center justify-center text-acid-cyan shadow-[0_0_24px_rgba(0,232,255,0.25)] relative overflow-hidden group"
+          className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-bg-raised border border-acid-cyan flex items-center justify-center text-acid-cyan shadow-[0_0_24px_rgba(0,232,255,0.25)] hover:shadow-[0_0_32px_rgba(0,232,255,0.35)] transition-shadow relative"
         >
-          <div className="absolute inset-0 bg-acid-cyan/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-          <MessageSquare size={24} />
+          <MessageSquare size={24} className="sm:w-7 sm:h-7" />
           <div className="absolute inset-0 border-2 border-acid-cyan rounded-full animate-ping opacity-20" />
         </motion.button>
       </div>
-    </div>
+    </>
   );
 };
 

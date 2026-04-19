@@ -23,6 +23,20 @@ export const Navbar = () => {
     setIsMenuOpen(false);
   }, [pathname]);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
+
   const navLinks = [
     { name: 'Services', href: '/services' },
     { name: 'Projects', href: '/projects' },
@@ -137,7 +151,7 @@ export const Navbar = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-[600] bg-bg-base flex flex-col p-8 pt-24"
+            className="fixed inset-0 z-[600] bg-bg-base flex flex-col p-8 pt-24 overflow-y-auto"
           >
             <button
               className="absolute top-6 right-6 text-text-primary"

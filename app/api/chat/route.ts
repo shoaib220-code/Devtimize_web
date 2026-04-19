@@ -168,6 +168,14 @@ export async function POST(req: Request) {
     if (!response.ok) {
       const errorData = await response.json();
       console.error('Gemini API Error:', errorData);
+      
+      // Check if it's a quota exceeded error
+      if (response.status === 429 && errorData?.error?.status === 'RESOURCE_EXHAUSTED') {
+        console.log('Gemini API quota exceeded, providing fallback response');
+        const fallbackReply = "Hey! I'm currently experiencing high demand. For immediate assistance, please reach out to us directly:\n\n📧 devtimize@gmail.com\n📱 Shoaib: +923104745649\n📱 Hamza: +923026160466\n\nWe typically respond within 24 hours! 🚀";
+        return Response.json({ reply: fallbackReply }, { status: 200 });
+      }
+      
       throw new Error(`Gemini API error: ${response.status} - ${JSON.stringify(errorData)}`);
     }
 

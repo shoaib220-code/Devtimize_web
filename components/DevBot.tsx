@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { MessageSquare, X, Send, Bot, User } from 'lucide-react';
+import { MessageSquare, X, Send, Bot, User, GripVertical } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { trackCTAClick, trackFormSubmit } from '../utils/analytics';
 
@@ -14,6 +14,8 @@ export const DevBot = () => {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showPill, setShowPill] = useState(false);
+  const [isResizing, setIsResizing] = useState(false);
+  const [customHeight, setCustomHeight] = useState(550);
   // simple rate limiter: max 5 sends in 5 seconds
   const [sendCount, setSendCount] = useState(0);
 
@@ -21,6 +23,31 @@ export const DevBot = () => {
     const timer = setTimeout(() => setShowPill(true), 8000);
     return () => clearTimeout(timer);
   }, []);
+
+  // Handle resize
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!isResizing) return;
+
+      const newHeight = window.innerHeight - e.clientY - 16;
+      // Constrain between 300px and 80vh
+      const constrainedHeight = Math.max(300, Math.min(newHeight, window.innerHeight * 0.8));
+      setCustomHeight(constrainedHeight);
+    };
+
+    const handleMouseUp = () => {
+      setIsResizing(false);
+    };
+
+    if (isResizing) {
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('mouseup', handleMouseUp);
+      return () => {
+        document.removeEventListener('mousemove', handleMouseMove);
+        document.removeEventListener('mouseup', handleMouseUp);
+      };
+    }
+  }, [isResizing]);
 
   const handleSend = async (text?: string) => {
     let message = text || input;
@@ -82,8 +109,18 @@ export const DevBot = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="fixed bottom-4 right-4 w-[360px] max-w-[calc(100vw-2rem)] h-[550px] max-h-[70vh] z-50 flex flex-col overflow-hidden bg-bg-page/97 backdrop-blur-3xl border border-acid-cyan/15 rounded-2xl shadow-[0_24px_80px_rgba(0,0,0,0.7),0_0_24px_rgba(0,232,255,0.1)]"
+            style={{ height: `${customHeight}px` }}
+            className="fixed bottom-4 right-4 w-[360px] max-w-[calc(100vw-2rem)] max-h-[80vh] z-50 flex flex-col overflow-hidden bg-bg-page/97 backdrop-blur-3xl border border-acid-cyan/15 rounded-2xl shadow-[0_24px_80px_rgba(0,0,0,0.7),0_0_24px_rgba(0,232,255,0.1)]"
           >
+            {/* Resize Handle - Top */}
+            <div
+              onMouseDown={() => setIsResizing(true)}
+              className="shrink-0 h-2 bg-gradient-to-r from-transparent via-acid-cyan/30 to-transparent hover:via-acid-cyan/60 transition-colors cursor-ns-resize flex items-center justify-center group active:via-acid-cyan/80"
+              title="Drag to resize"
+            >
+              <GripVertical size={14} className="text-acid-cyan/40 group-hover:text-acid-cyan/70 transition-colors" />
+            </div>
+
             {/* Header */}
             <div className="shrink-0 p-4 sm:p-5 bg-bg-raised border-b border-bg-stroke flex items-center justify-between gap-4">
               <div className="min-w-0 flex-1">

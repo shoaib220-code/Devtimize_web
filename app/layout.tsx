@@ -32,6 +32,10 @@ export const metadata: Metadata = {
   title: 'Devtimize | Product engineering studio | USA, UK, Canada & Europe',
   description:
     'Product engineering studio serving USA, UK, Canada, Europe, and Australia with web apps, mobile apps, AI systems, and SEO optimization.',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+  },
   alternates: {
     canonical: '/',
     languages: {

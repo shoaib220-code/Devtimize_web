@@ -763,4 +763,274 @@ export const blogPosts: BlogPost[] = [
     category: 'Dentists',
     readTime: '6 min read',
   },
+  {
+    id: '11',
+    slug: 'ai-receptionist-for-small-business-2026-guide',
+    title: 'AI Receptionist for Small Business: The Complete 2026 Guide',
+    excerpt: 'Missing calls is missing revenue. Here is exactly how AI receptionists work, what they cost, and whether your business actually needs one in 2026.',
+    metaDescription: 'Complete guide to AI receptionists for small business in 2026. How they work, real costs, ROI calculator, and which businesses benefit most.',
+    content: `
+<p class="text-xl text-text-secondary mb-12 leading-relaxed">
+Every missed call is a missed customer. For a small business getting 20 calls a week, missing just 3 of them could mean losing £1,500 to £6,000 in monthly revenue. An AI receptionist solves this — but is it right for your business? Here is everything you need to know.
+</p>
+
+<h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">What Is an AI Receptionist?</h2>
+<p class="text-text-secondary mb-8 leading-relaxed">
+An AI receptionist is a voice or chat system that answers your business calls and messages automatically, 24 hours a day. It speaks naturally, answers common questions, captures caller details, and books appointments directly into your calendar — all without a human being involved.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+It is not a basic voicemail. It is not a clunky phone menu. It is a conversational system that sounds like a real person and actually helps your callers get what they need.
+</p>
+
+<h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">Which Small Businesses Need One Most?</h2>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Clinics and medical practices:</strong> Patients call to book appointments, ask about services, and confirm times. Missed calls mean missed bookings.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>HVAC and trade businesses:</strong> Emergency calls happen at midnight. If you do not answer, the customer calls your competitor.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Law firms:</strong> Potential clients call once. If they reach voicemail, they call the next firm on Google.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Beauty salons and spas:</strong> Booking enquiries come in constantly. An AI handles them instantly while your staff focus on clients in front of them.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Real estate agencies:</strong> Buyers and sellers want immediate responses. Delay costs you listings.
+</p>
+
+<h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">How It Actually Works</h2>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Step 1 — Customer calls your number:</strong> The AI answers within 2 rings, 24 hours a day.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Step 2 — Natural conversation:</strong> The AI introduces itself as your business receptionist and asks how it can help. It uses your business name, your services, and your tone.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Step 3 — Handles the enquiry:</strong> It answers FAQs, captures the caller's name and number, checks your availability, and books appointments directly into your calendar.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Step 4 — Notifies you instantly:</strong> You receive a text and email with a full summary of the call — who called, what they needed, and what was booked.
+</p>
+
+<h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">Real Cost Breakdown for 2026</h2>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Setup fee:</strong> £150 — £300 one time. This covers configuration, training the AI on your business, and integration with your calendar.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Monthly cost:</strong> £80 — £150 per month depending on call volume and whether you need WhatsApp as well.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Human receptionist for comparison:</strong> £1,800 — £2,500 per month for a part-time hire. That does not include evenings or weekends.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Answering service for comparison:</strong> £200 — £500 per month. They take messages but cannot book appointments or answer specific questions about your business.
+</p>
+
+<h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">ROI Calculator: Does It Pay for Itself?</h2>
+<p class="text-text-secondary mb-8 leading-relaxed">
+Take your average job or appointment value. Multiply it by the number of calls you miss per week. That is your weekly revenue loss.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+Example: A clinic charges £80 per appointment. They miss 4 calls per week. That is £320 per week — £1,280 per month in lost revenue. An AI receptionist at £100 per month pays for itself 12 times over.
+</p>
+
+<h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">Common Concerns — Answered Honestly</h2>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>"Will customers know they're talking to AI?"</strong> Modern AI voices are natural and warm. Most callers do not notice. You can also choose to be transparent — many businesses say "You've reached our automated booking system" and customers appreciate the instant response.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>"What if it says something wrong?"</strong> The AI only uses information you provide. It does not guess or make up answers. If a question is outside its training, it takes a message and flags it for you.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>"How long does setup take?"</strong> 24 to 48 hours. You provide your business details, services, and FAQs. We configure it and you test it before going live.
+</p>
+
+<div class="bg-acid-cyan/5 border border-acid-cyan/20 p-8 rounded-2xl my-16">
+<h3 class="font-display text-2xl font-bold text-text-primary mb-4">See It Live Before You Commit</h3>
+<p class="text-text-secondary mb-6 leading-relaxed">
+We offer a 2-week free trial on your actual phone number. You hear exactly how it handles your real callers before paying anything.
+</p>
+<a href="/contact" class="inline-flex items-center gap-2 text-acid-cyan font-mono text-sm uppercase tracking-widest hover:gap-4 transition-all">
+Book your free demo →
+</a>
+</div>
+
+<h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">Conclusion</h2>
+<p class="text-text-secondary mb-8 leading-relaxed">
+An AI receptionist is not a luxury. For any small business that relies on calls and bookings, it is the most cost-effective hire you will ever make. One captured job covers months of the subscription cost.
+</p>
+`,
+    author: 'Hamza Amin',
+    date: '2026-04-15',
+    category: 'AI & Automation',
+    readTime: '8 min read',
+  },
+  {
+    id: '12',
+    slug: 'ai-receptionist-for-clinics-medical-practices',
+    title: 'AI Receptionist for Clinics: How Medical Practices Are Capturing Every Patient Call',
+    excerpt: 'Clinics lose patients every day to missed calls and slow responses. Here is how an AI receptionist fixes that — and what it costs.',
+    metaDescription: 'How AI receptionists help clinics and medical practices capture every patient call, book appointments 24/7, and reduce front desk workload.',
+    content: `
+<p class="text-xl text-text-secondary mb-12 leading-relaxed">
+A patient calls your clinic to book an appointment. Your front desk is busy with a patient in front of them. The call goes to voicemail. The patient hangs up and calls the clinic down the street. You just lost a patient — and potentially a long-term customer worth hundreds of pounds per year.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+This happens dozens of times per week in most clinics. An AI receptionist stops it completely.
+</p>
+
+<h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">The Real Cost of Missed Calls in a Clinic</h2>
+<p class="text-text-secondary mb-8 leading-relaxed">
+The average clinic appointment is worth £60 — £150. If you miss 5 calls per week and each one was a new patient booking, that is £300 — £750 per week in lost revenue. Over a year, that is £15,000 — £39,000 walking out of your door.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+And that is just the first appointment. A retained patient visits multiple times per year. The lifetime value of a lost patient is far higher.
+</p>
+
+<h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">What an AI Receptionist Does for a Clinic</h2>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Answers every call instantly:</strong> No more ringing out. No more voicemail. Every patient gets a response within 2 rings, 24 hours a day including evenings and weekends.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Books appointments automatically:</strong> The AI checks your real-time availability and books the patient directly into your calendar. Confirmation is sent automatically.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Answers common patient questions:</strong> Opening hours, services offered, what to bring to an appointment, parking, pricing. The AI handles all of these without interrupting your staff.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Handles WhatsApp enquiries:</strong> Patients increasingly message rather than call. The AI responds instantly on WhatsApp, qualifies the enquiry, and books the appointment.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Reduces front desk pressure:</strong> Your receptionist stops spending 60% of their time on the phone and starts focusing on patients in the room.
+</p>
+
+<h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">Is It Compliant for Medical Practices?</h2>
+<p class="text-text-secondary mb-8 leading-relaxed">
+Yes. The AI does not access patient medical records. It handles only booking and general enquiries. It does not provide medical advice. It captures contact details and appointment preferences only — the same information a human receptionist would take.
+</p>
+
+<h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">Setup and Integration</h2>
+<p class="text-text-secondary mb-8 leading-relaxed">
+The AI integrates with your existing booking software. Whether you use Fresha, Pabau, Cliniko, or a custom system, we connect the AI directly so bookings appear in real-time.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+Setup takes 24 to 48 hours. We train it on your specific services, pricing, and FAQs. You test it before it goes live.
+</p>
+
+<div class="bg-acid-cyan/5 border border-acid-cyan/20 p-8 rounded-2xl my-16">
+<h3 class="font-display text-2xl font-bold text-text-primary mb-4">Free 2-Week Trial for Clinics</h3>
+<p class="text-text-secondary mb-6 leading-relaxed">
+We set it up on your actual clinic number and let it run for 2 weeks at no cost. You see exactly how many calls it captures before committing to anything.
+</p>
+<a href="/contact" class="inline-flex items-center gap-2 text-acid-cyan font-mono text-sm uppercase tracking-widest hover:gap-4 transition-all">
+Start your free trial →
+</a>
+</div>
+
+<h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">Conclusion</h2>
+<p class="text-text-secondary mb-8 leading-relaxed">
+Every missed call in a clinic is a missed patient. At £80 — £150 per appointment, the maths are simple. An AI receptionist at £80 — £150 per month captures patients that would otherwise go to your competitors. It pays for itself within days.
+</p>
+`,
+    author: 'Hamza Amin',
+    date: '2026-04-20',
+    category: 'AI & Automation',
+    readTime: '6 min read',
+  },
+  {
+    id: '13',
+    slug: 'hire-developer-pakistan-complete-vetting-guide',
+    title: 'How to Hire a Developer from Pakistan in 2026: Complete Vetting Guide',
+    excerpt: 'Pakistan produces world-class developers at a fraction of Western rates. Here is how to find them, vet them properly, and avoid the common mistakes.',
+    metaDescription: 'How to hire a developer from Pakistan in 2026: real rates, vetting process, red flags, platforms to use, and how to structure the engagement.',
+    content: `
+<p class="text-xl text-text-secondary mb-12 leading-relaxed">
+Pakistan is producing some of the best software engineers in the world right now. Top companies in the US and UK are quietly building engineering teams here. The talent is real. The cost advantage is real. But hiring remotely from anywhere requires a process. Here is the one that works.
+</p>
+
+<h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">Why Pakistan Specifically?</h2>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Cost:</strong> A senior developer in Pakistan costs $25 — $50 per hour. The same profile in the US costs $80 — $150 per hour. You get the same output for 1/3 the price.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>English fluency:</strong> Pakistan's tech industry communicates in English. University education is English-medium. You will not have communication problems with experienced professionals.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Time zone:</strong> Pakistan Standard Time (PKT, UTC+5) overlaps well with European business hours. A 9am call in London is 2pm in Lahore.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Technical depth:</strong> Pakistan produces 25,000+ engineering graduates per year. The top tier — those working with international clients — are genuinely strong.
+</p>
+
+<h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">Realistic Rates in 2026</h2>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Junior Developer (0 — 2 years):</strong> $8 — $15 per hour. Good for supporting tasks, not for leading projects.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Mid-Level Developer (2 — 5 years):</strong> $15 — $35 per hour. Can own features and communicate independently.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Senior Developer (5+ years):</strong> $35 — $60 per hour. Architects solutions, leads projects, mentors others.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>AI / ML Engineer:</strong> $40 — $80 per hour. High demand, specialized skill.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+Red flag: anyone quoting $2 — $5 per hour for serious work. You will get what you pay for.
+</p>
+
+<h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">Where to Find Them</h2>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Upwork:</strong> Largest pool. Filter by Job Success Score above 90% and at least 10 completed contracts. Read reviews carefully.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>LinkedIn:</strong> Search for Pakistani developers with your required stack. Check their GitHub and portfolio directly.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Toptal:</strong> Pre-vetted talent. More expensive but lower risk.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Direct agency engagement:</strong> Working with a small agency like Devtimize means you get a team with accountability, not a solo freelancer who can disappear.
+</p>
+
+<h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">The Vetting Process That Works</h2>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Step 1 — Portfolio review:</strong> Look at real projects. Ask for GitHub. If they cannot show you code they have written, move on.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Step 2 — Technical screen:</strong> Give them a real problem from your domain. 45 minutes. Observe how they think, not just whether they get the right answer.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Step 3 — Communication test:</strong> Pay them for a small 3 — 5 day task before any long-term commitment. Observe their communication frequency, how they handle blockers, and whether they meet the deadline.
+</p>
+<p class="text-text-secondary mb-8 leading-relaxed">
+<strong>Step 4 — Reference check:</strong> Actually contact previous clients. Ask specifically about reliability and communication under pressure.
+</p>
+
+<h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">Red Flags to Watch For</h2>
+<p class="text-text-secondary mb-8 leading-relaxed">
+No GitHub profile. Vague about what they personally built. Cannot explain architectural decisions in their own projects. Disappears during the trial task. Over-promises on timeline without asking questions first.
+</p>
+
+<div class="bg-acid-cyan/5 border border-acid-cyan/20 p-8 rounded-2xl my-16">
+<h3 class="font-display text-2xl font-bold text-text-primary mb-4">Why Work With Devtimize</h3>
+<p class="text-text-secondary mb-6 leading-relaxed">
+We are a small agency built on exactly the principles above. Our code is on GitHub. Our clients can speak for us. We communicate clearly and we deliver. If you are looking for a reliable Pakistani development team, start here.
+</p>
+<a href="/contact" class="inline-flex items-center gap-2 text-acid-cyan font-mono text-sm uppercase tracking-widest hover:gap-4 transition-all">
+Talk to our team →
+</a>
+</div>
+
+<h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">Conclusion</h2>
+<p class="text-text-secondary mb-8 leading-relaxed">
+The best Pakistani developers are genuinely world-class. The vetting process above filters out the risk. Do it properly and you will build a reliable remote team at a fraction of Western rates.
+</p>
+`,
+    author: 'Shoaib Liaqat',
+    date: '2026-04-25',
+    category: 'Hiring',
+    readTime: '7 min read',
+  },
 ];

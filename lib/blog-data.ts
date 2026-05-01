@@ -861,7 +861,7 @@ Book your free demo →
 An AI receptionist is not a luxury. For any small business that relies on calls and bookings, it is the most cost-effective hire you will ever make. One captured job covers months of the subscription cost.
 </p>
 `,
-    author: 'Hamza Amin',
+    author: 'Shoaib Liaqat',
     date: '2026-04-15',
     category: 'AI & Automation',
     readTime: '8 min read',
@@ -933,7 +933,7 @@ Start your free trial →
 Every missed call in a clinic is a missed patient. At £80 — £150 per appointment, the maths are simple. An AI receptionist at £80 — £150 per month captures patients that would otherwise go to your competitors. It pays for itself within days.
 </p>
 `,
-    author: 'Hamza Amin',
+    author: 'Shoaib Liaqat',
     date: '2026-04-20',
     category: 'AI & Automation',
     readTime: '6 min read',

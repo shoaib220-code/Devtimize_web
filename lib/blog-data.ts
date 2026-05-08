@@ -1276,7 +1276,7 @@ The best Pakistani developers are genuinely world-class. The vetting process abo
         Understanding and reducing that dependency is one of the most practical steps any organization can take.
       </p>
     `,
-    author: 'Hamza Amin',
+    author: 'Shoaib Liaqat',
     date: '2026-05-09',
     category: 'Security',
     readTime: '12 min read',

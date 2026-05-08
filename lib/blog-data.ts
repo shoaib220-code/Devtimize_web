@@ -132,10 +132,10 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: '3',
-    slug: 'flutter-vs-react-native-2025',
-    title: 'Flutter vs React Native in 2025: An Honest Comparison',
+    slug: 'flutter-vs-react-native-2026',
+    title: 'Flutter vs React Native in 2026: An Honest Comparison',
     excerpt: 'We have shipped apps in both. Here is an unbiased breakdown of Flutter vs React Native to help you choose.',
-    metaDescription: 'Flutter vs React Native 2025 comparison. Real-world performance, learning curve, ecosystem quality, and deployment from Devtimize.',
+    metaDescription: 'Flutter vs React Native 2026 comparison. Real-world performance, learning curve, ecosystem quality, and deployment from Devtimize.',
     content: `
       <p class="text-xl text-text-secondary mb-12 leading-relaxed">
         The Flutter vs React Native debate is older than both frameworks. We have shipped iOS and Android apps using both technologies. Here is what we genuinely think.
@@ -178,7 +178,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">Conclusion</h2>
       <p class="text-text-secondary mb-8 leading-relaxed">
-        Both are solid frameworks in 2025. The choice depends on your team, your performance requirements, and your timeline. Either way, you will build something good.
+        Both are solid frameworks in 2026. The choice depends on your team, your performance requirements, and your timeline. Either way, you will build something good.
       </p>
     `,
     author: 'Shoaib Liaqat',
@@ -308,10 +308,10 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: '6',
-    slug: 'best-tech-stack-saas-2025',
-    title: 'The Best Tech Stack for a SaaS MVP in 2025',
+    slug: 'best-tech-stack-saas-2026',
+    title: 'The Best Tech Stack for a SaaS MVP in 2026',
     excerpt: 'After building multiple SaaS tools, here is the stack we recommend for fast, scalable MVPs.',
-    metaDescription: 'Best tech stack for SaaS MVP 2025: Frontend, backend, database, hosting. Proven recommendations for speed and scalability.',
+    metaDescription: 'Best tech stack for SaaS MVP 2026: Frontend, backend, database, hosting. Proven recommendations for speed and scalability.',
     content: `
       <p class="text-xl text-text-secondary mb-12 leading-relaxed">
         We have shipped 4 different SaaS products and made plenty of mistakes. We also got some things right. Here is the tech stack we now recommend for building an MVP fast and scaling it smart.

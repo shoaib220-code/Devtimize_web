@@ -1,8 +1,9 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'motion/react';
-import { Github, Linkedin, Phone } from 'lucide-react';
+import { Linkedin, Phone } from 'lucide-react';
 
 export const Team = () => {
   const founders = [
@@ -11,8 +12,9 @@ export const Team = () => {
       role: 'FOUNDER & CEO',
       edu: 'BSCS · Baba Guru Nanak University',
       skills: 'Flutter · MERN · Flask · .NET · Cloud · React · Mobile',
-      phone: '03016672356',
-      image: '/images/team/shoaib.png'
+      phone: '+923104745649',
+      image: '/images/team/shoaib.png',
+      linkedin: 'https://pk.linkedin.com/in/shoaib-liaqat-0755363a0',
     },
     {
       name: 'Hamza Amin',
@@ -20,7 +22,9 @@ export const Team = () => {
       edu: 'BSCS · Islamic University Islamabad',
       skills: 'Python · Chatbots · RAG · Trading Bots · Automation · ML',
       phone: '+923026160466',
-      image: '/images/team/hamza.png'}
+      image: '/images/team/hamza.png',
+      linkedin: undefined as string | undefined,
+    }
   ];
 
   return (
@@ -49,12 +53,13 @@ export const Team = () => {
               transition={{ delay: i * 0.2 }}
               className="group bg-bg-surface border border-bg-stroke rounded-2xl p-8 lg:p-12 hover:border-acid-cyan/20 transition-all duration-500"
             >
-              <div className="aspect-square w-full max-w-[300px] mx-auto mb-10 rounded-xl overflow-hidden border border-acid-cyan/10 group-hover:border-acid-cyan/30 transition-colors">
-                <img 
-                  src={founder.image} 
-                  alt={founder.name} 
-                  className="w-full h-full object-cover saturate-[0.8] group-hover:saturate-[1.1] transition-all duration-700"
-                  referrerPolicy="no-referrer"
+              <div className="relative aspect-square w-full max-w-[300px] mx-auto mb-10 rounded-xl overflow-hidden border border-acid-cyan/10 group-hover:border-acid-cyan/30 transition-colors">
+                <Image
+                  src={founder.image}
+                  alt={founder.name}
+                  fill
+                  sizes="300px"
+                  className="object-cover saturate-[0.8] group-hover:saturate-[1.1] transition-all duration-700"
                 />
               </div>
 
@@ -76,8 +81,9 @@ export const Team = () => {
                 </p>
 
                 <div className="flex items-center justify-center gap-6">
-                  <a href="#" className="text-text-muted hover:text-acid-cyan transition-colors"><Github size={20} /></a>
-                  <a href="https://pk.linkedin.com/in/shoaib-liaqat-0755363a0" className="text-text-muted hover:text-acid-cyan transition-colors"><Linkedin size={20} /></a>
+                  {founder.linkedin && (
+                    <a href={founder.linkedin} className="text-text-muted hover:text-acid-cyan transition-colors"><Linkedin size={20} /></a>
+                  )}
                   <a href={`tel:${founder.phone}`} className="text-text-muted hover:text-acid-cyan transition-colors flex items-center gap-2 text-xs font-mono">
                     <Phone size={16} /> {founder.phone}
                   </a>

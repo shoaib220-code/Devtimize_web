@@ -1,24 +1,31 @@
 # Devtimize
-> A boutique product engineering studio building web apps, mobile apps,
+> A product engineering studio building web apps, mobile apps,
 > desktop software, AI chatbots, trading bots, and automation tools.
-> Founded by Shoaib Liaqat and Hamza Amin — two CS graduates
-> from Pakistan serving clients globally.
+> Founded in 2024 by Shoaib Liaqat and Hamza Amin — two CS graduates
+> from Pakistan serving clients in the United States, United Kingdom,
+> Canada, Europe, Australia, and Kuwait.
 
 ## Contact
 - Email: devtimize@gmail.com
-- Shoaib: +923016672356
+- Shoaib: +923104745649
 - Hamza: +923026160466
 - Website: https://devtimize.com
 - Instagram: https://www.instagram.com/devtimize/
 - Facebook: https://www.facebook.com/p/Devtimize-61579934221770/
 
 ## Services
-- Web Development: React, MERN, Laravel, Flask, ASP.NET Core, .NET
-- Mobile & Desktop: Flutter (iOS/Android), WPF, Tkinter
-- AI & Automation: Python chatbots, RAG systems, trading bots, TensorFlow, LangChain
-- APIs & Integrations: REST APIs, Stripe, OneSignal, third-party services
-- Cloud & DevOps: AWS, Docker, CI/CD pipelines, Vercel
-- Maintenance & Support: ongoing updates, retainers, bug fixes
+- Web Development (https://devtimize.com/services/web-development): React, MERN, Laravel, Flask, ASP.NET Core, .NET — $150–$5,000
+- Mobile & Desktop (https://devtimize.com/services/mobile-desktop): Flutter (iOS/Android), WPF, Tkinter — $300–$4,000
+- AI & Automation (https://devtimize.com/services/ai-automation): Python chatbots, RAG systems, trading bots, TensorFlow, LangChain — $500–$8,000
+- APIs & Integrations (https://devtimize.com/services/apis-integrations): REST APIs, Stripe, OneSignal, third-party services — $200–$3,000
+- Cloud & DevOps (https://devtimize.com/services/cloud-devops): AWS, Docker, CI/CD pipelines, Vercel — $300–$4,000
+- Maintenance & Support (https://devtimize.com/services/maintenance): ongoing updates, retainers, bug fixes — $100–$1,000/mo
+
+## AI Receptionist (https://devtimize.com/ai-receptionist)
+24/7 AI phone answering and appointment booking for local businesses (HVAC, dentists, lawyers, medspas, roofing, plumbers, restaurants, real estate). Available for businesses in the US, UK, Canada, Europe, Australia, and Kuwait. Setup within 48 hours.
+- Starter — $97/mo: up to 100 calls/month, appointment booking, SMS notifications, basic FAQ answers
+- Growth — $197/mo: up to 300 calls/month, everything in Starter plus CRM integration, custom voice, weekly call reports
+- Elite — $397/mo: unlimited calls, everything in Growth plus priority escalation, multi-location support, dedicated account manager
 
 ## Key Projects Delivered
 - Trading Bot (Backtest + Live): Python algorithmic trading with real-time execution
@@ -31,9 +38,9 @@
 - E-Commerce Website: MERN-based online store with payments
 
 ## Founders
-- Shoaib Liaqat | BSCS, Baba Guru Nanak University
+- Shoaib Liaqat | BSCS, Baba Guru Nanak University — Founder & CEO
   Specializes in Flutter, React, MERN, Flask, .NET, cloud deployments
-- Hamza Amin | BSCS, Islamic University Islamabad
+- Hamza Amin | BSCS, Islamic University Islamabad — Co-founder
   Specializes in Python, AI automation, chatbots, trading bots, RAG
 
 ## Client Testimonials
@@ -46,4 +53,5 @@
 - Simple sites: from $150
 - Web/mobile apps: $500–$2,500
 - AI systems & bots: $2,000+
+- AI Receptionist: $97–$397/mo (see above)
 - Free custom quote: devtimize@gmail.com

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { ogImage } from '@/lib/og';
 import { BlogPostContent } from '@/components/BlogPostContent';
 import { blogPosts } from '@/lib/blog-data';
 
@@ -36,6 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       type: 'article',
       publishedTime: post.date,
       authors: [post.author],
+      images: ogImage(post.title, post.category),
     },
   };
 }

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { projects } from '@/lib/projects-data';
 import { ArrowRight, Code2, Layers } from 'lucide-react';
 
@@ -60,11 +61,12 @@ export const ProjectsPageContent = () => {
                 className="group bg-bg-surface border border-bg-stroke rounded-3xl overflow-hidden hover:border-acid-cyan/20 transition-all duration-500"
               >
                 <div className="aspect-video overflow-hidden relative">
-                  <img 
-                    src={project.image} 
+                  <Image
+                    src={project.image}
                     alt={project.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    referrerPolicy="no-referrer"
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-bg-base/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                     <Link href={`/projects/${project.slug}`} className="px-6 py-3 bg-white text-bg-base font-bold rounded-xl flex items-center gap-2">

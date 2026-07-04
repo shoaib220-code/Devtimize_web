@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import Link from 'next/link';
 import { services } from '@/lib/services-data';
+import { servicesFaqs } from '@/lib/services-faq';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 
 export const ServicesPageContent = () => {
@@ -72,6 +73,20 @@ export const ServicesPageContent = () => {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-24">
+          <h2 className="font-display text-4xl font-bold text-text-primary mb-12 text-center">
+            Common Questions
+          </h2>
+          <div className="space-y-6 max-w-3xl mx-auto">
+            {servicesFaqs.map((faq, i) => (
+              <div key={i} className="p-8 bg-bg-surface border border-bg-stroke rounded-2xl">
+                <h3 className="font-bold text-text-primary mb-3">{faq.q}</h3>
+                <p className="text-text-secondary leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </motion.div>

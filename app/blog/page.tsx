@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { ogImage } from '@/lib/og';
 import { BlogPageContent } from '@/components/BlogPageContent';
 
 export const metadata: Metadata = {
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
     siteName: 'Devtimize',
     locale: 'en_US',
     type: 'website',
+    images: ogImage('Dev Blog', 'Tips, Case Studies & Tutorials'),
   },
 };
 

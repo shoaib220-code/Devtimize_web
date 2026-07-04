@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { CheckCircle2, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
 import { trackCTAClick } from '@/utils/analytics';
+import { pricingTiers, faqs } from '@/lib/ai-receptionist-data';
 
 export const AiReceptionistContent = () => {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
@@ -53,64 +54,6 @@ export const AiReceptionistContent = () => {
     'Plumbers',
     'Restaurants',
     'Real Estate',
-  ];
-
-  const pricingTiers = [
-    {
-      name: 'Starter',
-      price: '97',
-      calls: 'Up to 100 calls/month',
-      features: [
-        'Appointment booking',
-        'SMS notifications',
-        'Basic FAQ answers',
-      ],
-    },
-    {
-      name: 'Growth',
-      price: '197',
-      calls: 'Up to 300 calls/month',
-      features: [
-        'Everything in Starter',
-        'CRM integration',
-        'Custom voice & personality',
-        'Weekly call reports',
-      ],
-    },
-    {
-      name: 'Elite',
-      price: '397',
-      calls: 'Unlimited calls',
-      features: [
-        'Everything in Growth',
-        'Priority escalation',
-        'Multi-location support',
-        'Dedicated account manager',
-      ],
-    },
-  ];
-
-  const faqs = [
-    {
-      q: 'Does it sound like a robot?',
-      a: 'No. Our AI uses natural conversational speech that is warm, professional, and indistinguishable from a real receptionist in most cases.',
-    },
-    {
-      q: 'What happens for complex questions?',
-      a: 'The AI handles common questions automatically. For anything complex, it takes a detailed message and notifies you immediately.',
-    },
-    {
-      q: 'How long does setup take?',
-      a: 'Most businesses are live within 48 hours. We handle the entire setup — you just forward calls.',
-    },
-    {
-      q: 'Can I see a transcript of every call?',
-      a: 'Yes. Every call is transcribed and sent to you with a summary and any action items.',
-    },
-    {
-      q: 'Does it work for my type of business?',
-      a: 'If your business takes phone enquiries or appointment bookings, it works. We\'ve set it up for HVAC, dental, legal, medspa, roofing, restaurants, and more.',
-    },
   ];
 
   return (
@@ -203,6 +146,9 @@ export const AiReceptionistContent = () => {
               </div>
             ))}
           </div>
+          <p className="text-text-secondary text-center mt-8 max-w-2xl mx-auto">
+            Available for clinics, law firms, and local businesses in the United States, United Kingdom, Canada, Europe, Australia, and Kuwait.
+          </p>
         </div>
 
         {/* SECTION 6 - PRICING */}
@@ -249,6 +195,7 @@ export const AiReceptionistContent = () => {
               <div key={i} className="border border-bg-stroke rounded-2xl overflow-hidden bg-bg-surface hover:border-acid-cyan/50 transition-colors">
                 <button
                   onClick={() => setExpandedFaq(expandedFaq === i ? null : i)}
+                  aria-expanded={expandedFaq === i}
                   className="w-full p-6 flex items-center justify-between text-left group"
                 >
                   <h3 className="font-bold text-text-primary group-hover:text-acid-cyan transition-colors">{faq.q}</h3>
@@ -258,11 +205,16 @@ export const AiReceptionistContent = () => {
                     <ChevronDown className="text-text-secondary group-hover:text-acid-cyan transition-colors shrink-0" size={20} />
                   )}
                 </button>
-                {expandedFaq === i && (
-                  <div className="px-6 pb-6 text-text-secondary leading-relaxed border-t border-bg-stroke">
-                    {faq.a}
+                <div
+                  className="grid transition-[grid-template-rows] duration-300 ease-in-out"
+                  style={{ gridTemplateRows: expandedFaq === i ? '1fr' : '0fr' }}
+                >
+                  <div className="overflow-hidden">
+                    <div className="px-6 pb-6 text-text-secondary leading-relaxed border-t border-bg-stroke">
+                      {faq.a}
+                    </div>
                   </div>
-                )}
+                </div>
               </div>
             ))}
           </div>

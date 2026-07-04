@@ -35,9 +35,15 @@ export const ServiceDetailContent = ({ slug }: ServiceDetailContentProps) => {
             <div className="p-4 w-fit rounded-2xl bg-bg-raised border border-bg-stroke text-acid-cyan mb-8">
               {service.icon}
             </div>
-            <h1 className="font-display text-5xl md:text-7xl font-bold text-text-primary mb-8">
+            <h1 className="font-display text-5xl md:text-7xl font-bold text-text-primary mb-6">
               {service.title}
             </h1>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-acid-cyan/10 border border-acid-cyan/20 text-acid-cyan text-sm font-mono mb-8">
+              ${service.minPrice}–${service.maxPrice} typical project cost
+            </div>
+            <p className="text-xl text-text-primary leading-relaxed mb-4 font-medium">
+              {service.desc} Devtimize's {service.title.toLowerCase()} projects typically cost ${service.minPrice}–${service.maxPrice}, depending on scope.
+            </p>
             <p className="text-xl text-text-secondary leading-relaxed mb-10">
               {service.longDesc}
             </p>

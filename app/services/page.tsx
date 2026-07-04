@@ -1,5 +1,20 @@
 import { Metadata } from 'next';
+import { ogImage } from '@/lib/og';
 import { ServicesPageContent } from '@/components/ServicesPageContent';
+import { servicesFaqs } from '@/lib/services-faq';
+
+const FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": servicesFaqs.map((faq) => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a,
+    },
+  })),
+};
 
 export const metadata: Metadata = {
   title: 'Our Services | Expert Software Engineering',
@@ -16,9 +31,18 @@ export const metadata: Metadata = {
     siteName: 'Devtimize',
     locale: 'en_US',
     type: 'website',
+    images: ogImage('Expert Software Engineering'),
   },
 };
 
 export default function ServicesPage() {
-  return <ServicesPageContent />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
+      />
+      <ServicesPageContent />
+    </>
+  );
 }

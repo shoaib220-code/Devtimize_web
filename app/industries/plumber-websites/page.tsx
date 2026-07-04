@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { ogImage } from '@/lib/og';
 import { PlumberContent } from '@/components/industries/PlumberContent';
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
     siteName: 'Devtimize',
     locale: 'en_US',
     type: 'website',
+    images: ogImage('Plumber Websites', 'That Get Emergency Calls'),
   },
 };
 

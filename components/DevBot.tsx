@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MessageSquare, X, Send, Bot, User, GripVertical } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
-import { trackCTAClick, trackFormSubmit } from '../utils/analytics';
+import { trackCTAClick, trackChatbotLead } from '../utils/analytics';
 
 export const DevBot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,7 +64,6 @@ export const DevBot = () => {
       message = message.slice(0, 1000) + "...(truncated)";
     }
 
-    trackFormSubmit('devbot_chat');
     setMessages(prev => [...prev, { role: 'user', content: message }]);
     setInput('');
     setIsLoading(true);
@@ -89,7 +88,11 @@ export const DevBot = () => {
 
       const data = await response.json();
       const reply = data.reply || "I'm sorry, I couldn't process that. Please try again or email us at devtimize@gmail.com.";
-      
+
+      if (data.leadCaptured) {
+        trackChatbotLead();
+      }
+
       setMessages(prev => [...prev, { role: 'bot', content: reply }]);
     } catch (error) {
       console.error('DevBot Error:', error);

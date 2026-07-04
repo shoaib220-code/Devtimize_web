@@ -1,3 +1,5 @@
+import { sendLeadEmail } from '@/lib/send-lead-email';
+
 const DEVBOT_SYSTEM = `You are DevBot, the AI assistant for Devtimize (Shoaib & Hamza Tech Solutions).
 
 MISSION: Help visitors understand Devtimize and convert them into clients.
@@ -63,7 +65,44 @@ YOUR TONE:
 - End every response with a clear next step
 - If unsure: "Reach out directly at devtimize@gmail.com — they'll help fast"
 - NEVER mention competitors
-- Highlight: speed, quality, real AI expertise, budget-friendliness`;
+- Highlight: speed, quality, real AI expertise, budget-friendliness
+
+LEAD CAPTURE (important — this is your main job):
+When a visitor shows buying intent — asks about pricing, timelines, says
+they want to start a project, or asks "how do I get started" — actively
+ask for their name, email, and a one-line description of what they need
+(phone is optional but ask for it too). Ask naturally, one or two things
+at a time, not as a form dump.
+
+Once you have their name, email, and a description of what they need,
+call the submit_lead function immediately with that information. Do not
+ask for permission first — just call it, then tell them you've forwarded
+their details to the team. Never tell them to "email us" instead of
+capturing their info yourself when they're already talking to you.`;
+
+const SUBMIT_LEAD_TOOL = {
+  functionDeclarations: [
+    {
+      name: 'submit_lead',
+      description:
+        "Submit a visitor's captured lead info to the Devtimize team. Call this as soon as you have the visitor's name, email, and a description of what they need.",
+      parameters: {
+        type: 'OBJECT',
+        properties: {
+          name: { type: 'STRING', description: "Visitor's full name" },
+          email: { type: 'STRING', description: "Visitor's email address" },
+          phone: { type: 'STRING', description: "Visitor's phone or WhatsApp number, if provided" },
+          projectType: {
+            type: 'STRING',
+            description: 'Type of project: Web App, Mobile App, Desktop Software, AI/Chatbot, AI Receptionist, Trading Bot, or Other',
+          },
+          description: { type: 'STRING', description: 'Summary of what the visitor needs' },
+        },
+        required: ['name', 'email', 'description'],
+      },
+    },
+  ],
+};
 
 // Track API calls per IP (simple in-memory rate limiting)
 const requestCounts = new Map<string, { count: number; reset: number }>();
@@ -156,6 +195,7 @@ export async function POST(req: Request) {
       },
       body: JSON.stringify({
         contents: contents,
+        tools: [SUBMIT_LEAD_TOOL],
         generationConfig: {
           temperature: 0.7,
           maxOutputTokens: 500
@@ -182,7 +222,42 @@ export async function POST(req: Request) {
     const data = await response.json();
     console.log('Gemini response received');
 
-    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text 
+    const parts = data?.candidates?.[0]?.content?.parts || [];
+    const functionCallPart = parts.find((p: any) => p.functionCall?.name === 'submit_lead');
+
+    if (functionCallPart) {
+      const args = functionCallPart.functionCall.args || {};
+      console.log('DevBot captured a lead:', { name: args.name, email: args.email });
+
+      try {
+        await sendLeadEmail({
+          name: args.name,
+          email: args.email,
+          phone: args.phone,
+          projectType: args.projectType,
+          description: args.description,
+          source: 'DevBot Chat',
+        });
+
+        return Response.json(
+          {
+            reply: `Thanks ${args.name}! I've sent your details to Shoaib & Hamza — they'll reach out to ${args.email} within 24 hours. 🚀`,
+            leadCaptured: true,
+          },
+          { status: 200 }
+        );
+      } catch (leadErr) {
+        console.error('❌ DevBot lead capture failed:', leadErr);
+        return Response.json(
+          {
+            reply: `Thanks ${args.name}! I had trouble sending that automatically — please email devtimize@gmail.com or WhatsApp +923104745649 directly so we don't lose your details.`,
+          },
+          { status: 200 }
+        );
+      }
+    }
+
+    const reply = parts.find((p: any) => p.text)?.text
       || "I'm sorry, I couldn't process that. Please try again or email us at devtimize@gmail.com.";
 
     console.log('Successfully generated response');

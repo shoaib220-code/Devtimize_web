@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 import { trackProjectView, trackCTAClick } from '../utils/analytics';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const projects = [
   {
@@ -182,11 +183,12 @@ export const Projects = () => {
               className="grid lg:grid-cols-2 gap-12 items-center"
             >
               <div className="relative aspect-video rounded-2xl overflow-hidden border border-bg-stroke group/img">
-                <img 
-                  src={filteredProjects[currentIndex]?.image} 
-                  alt={filteredProjects[currentIndex]?.name}
-                  className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700"
-                  referrerPolicy="no-referrer"
+                <Image
+                  src={filteredProjects[currentIndex]?.image || ''}
+                  alt={filteredProjects[currentIndex]?.name || ''}
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover group-hover/img:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-bg-base/80 to-transparent opacity-60" />
               </div>

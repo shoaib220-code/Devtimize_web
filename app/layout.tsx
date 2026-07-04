@@ -8,12 +8,43 @@ import { Loader } from '@/components/Loader';
 import { DevBot } from '@/components/DevBot';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
 import { BackToTop } from '@/components/BackToTop';
+import { ogImage } from '@/lib/og';
 
-const PROFESSIONAL_SERVICE_SCHEMA = {
+const ORGANIZATION_SCHEMA = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
+  "@type": "Organization",
   "name": "Devtimize",
   "url": "https://devtimize.com",
+  "foundingDate": "2024",
+  "description":
+    "Devtimize is a product engineering studio building web apps, mobile & desktop apps, AI automation, and an AI Receptionist product for local businesses.",
+  "founder": [
+    {
+      "@type": "Person",
+      "name": "Shoaib Liaqat",
+      "jobTitle": "Founder & CEO",
+      "sameAs": ["https://pk.linkedin.com/in/shoaib-liaqat-0755363a0"]
+    },
+    {
+      "@type": "Person",
+      "name": "Hamza Amin",
+      "jobTitle": "Co-founder"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/devtimize/",
+    "https://www.facebook.com/p/Devtimize-61579934221770/"
+  ],
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "devtimize@gmail.com",
+      "telephone": "+92-310-4745649",
+      "areaServed": ["US", "GB", "CA", "DE", "FR", "ES", "NL", "SE", "AU", "KW"],
+      "availableLanguage": ["English"]
+    }
+  ],
   "areaServed": [
     {"@type": "Country", "name": "United States"},
     {"@type": "Country", "name": "United Kingdom"},
@@ -23,16 +54,24 @@ const PROFESSIONAL_SERVICE_SCHEMA = {
     {"@type": "Country", "name": "Spain"},
     {"@type": "Country", "name": "Netherlands"},
     {"@type": "Country", "name": "Sweden"},
-    {"@type": "Country", "name": "Australia"}
+    {"@type": "Country", "name": "Australia"},
+    {"@type": "Country", "name": "Kuwait"}
   ],
-  "serviceType": ["Web Development", "Mobile App Development", "SEO Optimization"]
+  "serviceType": [
+    "Web Development",
+    "Mobile & Desktop App Development",
+    "AI & Automation",
+    "APIs & Integrations",
+    "Cloud & DevOps",
+    "AI Receptionist"
+  ]
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://devtimize.com'),
-  title: 'Devtimize | Product engineering studio | USA, UK, Canada & Europe',
+  title: 'Devtimize | Product engineering studio | USA, UK, Canada, Europe & Kuwait',
   description:
-    'Product engineering studio serving USA, UK, Canada, Europe, and Australia with web apps, mobile apps, AI systems, and SEO optimization.',
+    'Product engineering studio serving USA, UK, Canada, Europe, Australia, and Kuwait with web apps, mobile apps, AI automation, and an AI receptionist for local businesses.',
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
@@ -53,18 +92,20 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Devtimize | Web Development Agency | USA, UK, Canada & Europe',
+    title: 'Devtimize | Web & AI Development Agency | USA, UK, Canada, Europe & Kuwait',
     description:
-      'Custom web apps and SEO optimization for global enterprises in the USA, UK, Canada, Europe, and Australia.',
+      'Custom web apps, mobile apps, and AI automation for clients in the USA, UK, Canada, Europe, Australia, and Kuwait.',
     url: 'https://devtimize.com',
     siteName: 'Devtimize',
     type: 'website',
+    images: ogImage('Product Engineering Studio'),
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Devtimize | Web Development Agency | USA, UK, Canada & Europe',
+    title: 'Devtimize | Web & AI Development Agency | USA, UK, Canada, Europe & Kuwait',
     description:
-      'Custom web apps and SEO optimization for global enterprises in the USA, UK, Canada, Europe, and Australia.',
+      'Custom web apps, mobile apps, and AI automation for clients in the USA, UK, Canada, Europe, Australia, and Kuwait.',
+    images: ogImage('Product Engineering Studio'),
   },
 };
 
@@ -83,7 +124,7 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(PROFESSIONAL_SERVICE_SCHEMA) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_SCHEMA) }}
         />
         <Script
           async

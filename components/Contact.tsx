@@ -109,14 +109,14 @@ export const Contact = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         <div className="relative mb-20">
           <span className="font-mono text-[11px] text-acid-cyan tracking-[0.25em] uppercase block mb-4">
-            05 — Contact
+            06 — Contact
           </span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-6xl font-bold text-text-primary">
             Let's Build Something<br />
             <span className="text-text-secondary">Worth Launching.</span>
           </h2>
           <div className="absolute top-0 right-0 font-display text-[120px] md:text-[160px] font-extrabold text-white/[0.02] leading-none pointer-events-none select-none">
-            05
+            06
           </div>
         </div>
 

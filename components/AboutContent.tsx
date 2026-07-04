@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { Github, Linkedin, Mail, Twitter, Award, Code, Rocket, Users } from 'lucide-react';
+import Image from 'next/image';
+import { Linkedin, Mail, Award, Rocket, Users } from 'lucide-react';
 
 export const AboutContent = () => {
   return (
@@ -36,12 +37,13 @@ export const AboutContent = () => {
             </div>
           </div>
           <div className="relative">
-            <div className="aspect-square rounded-3xl overflow-hidden border border-bg-stroke">
-              <img 
-                src="/images/team/shoaib&hamza.png" 
-                alt="Devtimize Founders" 
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                referrerPolicy="no-referrer"
+            <div className="relative aspect-square rounded-3xl overflow-hidden border border-bg-stroke">
+              <Image
+                src="/images/team/shoaib&hamza.png"
+                alt="Devtimize Founders"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
               />
             </div>
             <div className="absolute -bottom-6 -left-6 p-8 bg-bg-surface border border-bg-stroke rounded-2xl shadow-2xl">
@@ -77,22 +79,24 @@ export const AboutContent = () => {
                 name: 'Shoaib Liaqat',
                 role: 'Founder & CEO',
                 edu: 'BSCS · Baba Guru Nanak University',
-                bio: 'Expert in mobile and web ecosystems. Shoaib leads the product engineering efforts, ensuring that every application is built on a solid foundation of modern architecture.',
+                bio: 'Expert in mobile and web ecosystems. Shoaib leads the product engineering efforts, ensuring that every application is built on a solid foundation of modern architecture. Shipped projects include a live-trading bot with backtesting and a Flutter event app with real-time push notifications.',
                 skills: ['Flutter', 'MERN', 'React', 'Flask', '.NET'],
-                image: '/images/team/shoaib.png'
+                image: '/images/team/shoaib.png',
+                linkedin: 'https://pk.linkedin.com/in/shoaib-liaqat-0755363a0',
               },
               {
                 name: 'Hamza Amin',
                 role: 'Co-founder',
                 edu: 'BSCS · Islamic University Islamabad',
-                bio: 'Passionate about intelligent systems. Hamza focuses on AI integrations, RAG systems, and automated trading bots that push the boundaries of what software can do.',
+                bio: 'Passionate about intelligent systems. Hamza focuses on AI integrations, RAG systems, and automated trading bots that push the boundaries of what software can do. Shipped projects include a RAG-based knowledge assistant and a CNN-based real-time emotion detector.',
                 skills: ['Python', 'LangChain', 'TensorFlow', 'Chatbots', 'ML'],
-                image: '/images/team/hamza.png'
+                image: '/images/team/hamza.png',
+                linkedin: undefined as string | undefined,
               }
             ].map((founder, i) => (
               <div key={i} className="bg-bg-surface border border-bg-stroke rounded-3xl p-10 flex flex-col md:flex-row gap-10 items-center md:items-start">
-                <div className="w-40 h-40 rounded-2xl overflow-hidden shrink-0 border border-bg-stroke">
-                  <img src={founder.image} alt={founder.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                <div className="relative w-40 h-40 rounded-2xl overflow-hidden shrink-0 border border-bg-stroke">
+                  <Image src={founder.image} alt={founder.name} fill sizes="160px" className="object-cover" />
                 </div>
                 <div>
                   <h3 className="font-display text-2xl font-bold text-text-primary mb-1">{founder.name}</h3>
@@ -105,9 +109,10 @@ export const AboutContent = () => {
                     ))}
                   </div>
                   <div className="flex gap-4">
-                    <a href="https://pk.linkedin.com/in/shoaib-liaqat-0755363a0" className="text-text-muted hover:text-acid-cyan transition-colors"><Linkedin size={18} /></a>
-                    <a href="#" className="text-text-muted hover:text-acid-cyan transition-colors"><Github size={18} /></a>
-                    <a href="#" className="text-text-muted hover:text-acid-cyan transition-colors"><Mail size={18} /></a>
+                    {founder.linkedin && (
+                      <a href={founder.linkedin} className="text-text-muted hover:text-acid-cyan transition-colors"><Linkedin size={18} /></a>
+                    )}
+                    <a href="mailto:devtimize@gmail.com" className="text-text-muted hover:text-acid-cyan transition-colors"><Mail size={18} /></a>
                   </div>
                 </div>
               </div>

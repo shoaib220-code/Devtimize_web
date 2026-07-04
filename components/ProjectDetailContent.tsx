@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { projects } from '@/lib/projects-data';
 import { ArrowLeft, ExternalLink, CheckCircle2, ArrowRight } from 'lucide-react';
 import { notFound } from 'next/navigation';
@@ -59,8 +60,8 @@ export const ProjectDetailContent = ({ slug }: ProjectDetailContentProps) => {
           </div>
         </div>
 
-        <div className="aspect-video rounded-3xl overflow-hidden border border-bg-stroke mb-24 shadow-2xl">
-          <img src={project.image} alt={project.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+        <div className="relative aspect-video rounded-3xl overflow-hidden border border-bg-stroke mb-24 shadow-2xl">
+          <Image src={project.image} alt={project.name} fill sizes="100vw" className="object-cover" priority />
         </div>
 
         <div className="grid lg:grid-cols-3 gap-16 mb-24">

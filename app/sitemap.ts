@@ -1,31 +1,57 @@
-export default function sitemap() {
-  return [
-    { url: 'https://devtimize.com', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/services', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/projects', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/blog', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/about', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/contact', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/ai-receptionist', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/industries/hvac-websites', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/industries/dentist-websites', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/industries/lawyer-websites', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/industries/medspa-websites', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/industries/roofing-websites', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/industries/plumber-websites', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/industries/restaurant-websites', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/blog/how-to-build-trading-bot-python', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/blog/rag-vs-fine-tuning-chatbots', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/blog/flutter-vs-react-native-2025', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/blog/how-much-does-chatbot-cost', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/blog/hire-developer-from-pakistan', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/blog/best-tech-stack-saas-2025', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/blog/restaurant-website-that-books-reservations', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/blog/why-restaurants-need-professional-website-2026', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/blog/ai-receptionist-for-hvac-companies', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/blog/how-much-does-dentist-website-cost-uk-us', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/blog/ai-receptionist-for-small-business-2026-guide', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/blog/ai-receptionist-for-clinics-medical-practices', lastModified: new Date('2026-05-01') },
-    { url: 'https://devtimize.com/blog/hire-developer-pakistan-complete-vetting-guide', lastModified: new Date('2026-05-01') },
-  ]
+import { MetadataRoute } from 'next';
+import { services } from '@/lib/services-data';
+import { projects } from '@/lib/projects-data';
+import { blogPosts } from '@/lib/blog-data';
+
+const BASE_URL = 'https://devtimize.com';
+
+const INDUSTRY_SLUGS = [
+  'hvac-websites',
+  'dentist-websites',
+  'lawyer-websites',
+  'medspa-websites',
+  'roofing-websites',
+  'plumber-websites',
+  'restaurant-websites',
+];
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const staticPages: MetadataRoute.Sitemap = [
+    { url: `${BASE_URL}/`, priority: 1.0, changeFrequency: 'weekly' },
+    { url: `${BASE_URL}/ai-receptionist`, priority: 0.9, changeFrequency: 'weekly' },
+    { url: `${BASE_URL}/services`, priority: 0.8, changeFrequency: 'monthly' },
+    { url: `${BASE_URL}/projects`, priority: 0.7, changeFrequency: 'monthly' },
+    { url: `${BASE_URL}/blog`, priority: 0.7, changeFrequency: 'weekly' },
+    { url: `${BASE_URL}/team`, priority: 0.6, changeFrequency: 'monthly' },
+    { url: `${BASE_URL}/testimonials`, priority: 0.6, changeFrequency: 'monthly' },
+    { url: `${BASE_URL}/about`, priority: 0.6, changeFrequency: 'monthly' },
+    { url: `${BASE_URL}/contact`, priority: 0.9, changeFrequency: 'monthly' },
+  ];
+
+  const servicePages: MetadataRoute.Sitemap = services.map((service) => ({
+    url: `${BASE_URL}/services/${service.slug}`,
+    priority: 0.8,
+    changeFrequency: 'monthly',
+  }));
+
+  const projectPages: MetadataRoute.Sitemap = projects.map((project) => ({
+    url: `${BASE_URL}/projects/${project.slug}`,
+    priority: 0.7,
+    changeFrequency: 'monthly',
+  }));
+
+  const industryPages: MetadataRoute.Sitemap = INDUSTRY_SLUGS.map((slug) => ({
+    url: `${BASE_URL}/industries/${slug}`,
+    priority: 0.7,
+    changeFrequency: 'monthly',
+  }));
+
+  const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${BASE_URL}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+    priority: 0.7,
+    changeFrequency: 'monthly',
+  }));
+
+  return [...staticPages, ...servicePages, ...projectPages, ...industryPages, ...blogPages];
 }

@@ -11,12 +11,26 @@ interface ServiceDetailContentProps {
   slug: string;
 }
 
+const RELATED_LANDING_PAGES: Record<string, { label: string; href: string }[]> = {
+  'web-development': [
+    { label: 'Web Development in Kuwait', href: '/web-development-kuwait' },
+    { label: 'Web Development in the UK', href: '/web-development-uk' },
+    { label: 'SEO Services in Kuwait', href: '/seo-services-kuwait' },
+    { label: 'SEO Services in the UK', href: '/seo-services-uk' },
+  ],
+  'ai-automation': [
+    { label: 'AI & Automation — Full Pricing & FAQ', href: '/ai-automation-services' },
+  ],
+};
+
 export const ServiceDetailContent = ({ slug }: ServiceDetailContentProps) => {
   const service = services.find(s => s.slug === slug);
 
   if (!service) {
     notFound();
   }
+
+  const relatedLandingPages = RELATED_LANDING_PAGES[slug];
 
   return (
     <motion.div
@@ -85,6 +99,25 @@ export const ServiceDetailContent = ({ slug }: ServiceDetailContentProps) => {
             ))}
           </div>
         </div>
+
+        {relatedLandingPages && (
+          <div className="mb-24">
+            <h2 className="font-display text-2xl font-bold text-text-primary mb-6 text-center">
+              Looking for a Specific Market?
+            </h2>
+            <div className="flex flex-wrap justify-center gap-4">
+              {relatedLandingPages.map((link, i) => (
+                <Link
+                  key={i}
+                  href={link.href}
+                  className="px-5 py-3 bg-bg-surface border border-bg-stroke rounded-xl text-text-secondary hover:text-acid-cyan hover:border-acid-cyan/50 transition-colors text-sm"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div className="bg-grad-brand rounded-3xl p-12 text-center relative overflow-hidden">
           <div className="relative z-10">

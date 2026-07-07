@@ -177,6 +177,30 @@ export const AiReceptionistContent = () => {
           </p>
         </div>
 
+        {/* SECTION 7.5 - EXPLORE BY INDUSTRY & MARKET */}
+        <div className="mb-20">
+          <h2 className="font-display text-2xl font-bold text-text-primary mb-6 text-center">
+            Explore by Industry & Market
+          </h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            {[
+              { label: 'Dental Clinics — Kuwait', href: '/ai-receptionist-dental-clinics-kuwait' },
+              { label: 'Law Firms — Kuwait', href: '/ai-receptionist-law-firms-kuwait' },
+              { label: 'Real Estate — Kuwait', href: '/ai-receptionist-real-estate-kuwait' },
+              { label: 'Dental Clinics — UK', href: '/ai-receptionist-dental-clinics-uk' },
+              { label: 'Law Firms — UK', href: '/ai-receptionist-law-firms-uk' },
+            ].map((link, i) => (
+              <Link
+                key={i}
+                href={link.href}
+                className="px-5 py-3 bg-bg-surface border border-bg-stroke rounded-xl text-text-secondary hover:text-acid-cyan hover:border-acid-cyan/50 transition-colors text-sm"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+
         {/* SECTION 8 - INVESTMENT (price, last, with risk reversal) */}
         <div id="pricing" className="mb-20">
           <h2 className="font-display text-4xl font-bold text-text-primary mb-6 text-center">

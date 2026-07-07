@@ -45,6 +45,7 @@ export const Footer = () => {
               <li><Link href="/industries/roofing-websites" className="hover:text-acid-cyan transition-colors">Roofing</Link></li>
               <li><Link href="/industries/plumber-websites" className="hover:text-acid-cyan transition-colors">Plumbers</Link></li>
               <li><Link href="/industries/restaurant-websites" className="hover:text-acid-cyan transition-colors">Restaurants</Link></li>
+              <li><Link href="/industries/real-estate-websites" className="hover:text-acid-cyan transition-colors">Real Estate</Link></li>
             </ul>
           </div>
 

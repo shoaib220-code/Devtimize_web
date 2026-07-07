@@ -596,7 +596,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">What It Costs vs What You Gain</h2>
       <p class="text-text-secondary mb-8 leading-relaxed">
-        A good AI receptionist for HVAC costs $97–$397 per month depending on how many calls you get. It pays for itself with a single emergency job. If it captures just 2 jobs per month that would have gone to a competitor, you're looking at ROI in the first 30 days.
+        A good AI receptionist for HVAC typically ranges from $1,000–$3,000 setup and $250–$1,200 per month depending on scope — call volume, integrations, and how many locations you run. It pays for itself with a single emergency job. If it captures just 2 jobs per month that would have gone to a competitor, the ROI math works fast — book a call for your exact quote.
       </p>
 
       <h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">Setup Process and What to Expect</h2>

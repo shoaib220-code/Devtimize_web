@@ -55,6 +55,7 @@ export const Navbar = () => {
     { name: 'Roofing', href: '/industries/roofing-websites' },
     { name: 'Plumbers', href: '/industries/plumber-websites' },
     { name: 'Restaurants', href: '/industries/restaurant-websites' },
+    { name: 'Real Estate', href: '/industries/real-estate-websites' },
   ];
 
   return (

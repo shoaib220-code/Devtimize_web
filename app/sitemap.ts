@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import { services } from '@/lib/services-data';
 import { projects } from '@/lib/projects-data';
 import { blogPosts } from '@/lib/blog-data';
+import { landingPages } from '@/lib/landing-pages-data';
 
 const BASE_URL = 'https://devtimize.com';
 
@@ -13,6 +14,7 @@ const INDUSTRY_SLUGS = [
   'roofing-websites',
   'plumber-websites',
   'restaurant-websites',
+  'real-estate-websites',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -53,5 +55,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly',
   }));
 
-  return [...staticPages, ...servicePages, ...projectPages, ...industryPages, ...blogPages];
+  const landingPagesSitemap: MetadataRoute.Sitemap = landingPages.map((page) => ({
+    url: `${BASE_URL}/${page.slug}`,
+    priority: 0.8,
+    changeFrequency: 'monthly',
+  }));
+
+  return [...staticPages, ...servicePages, ...projectPages, ...industryPages, ...blogPages, ...landingPagesSitemap];
 }

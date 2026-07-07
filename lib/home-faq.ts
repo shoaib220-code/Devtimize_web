@@ -1,4 +1,4 @@
-import { pricingTiers } from '@/lib/ai-receptionist-data';
+import { PUBLIC_PRICING_RANGE } from '@/lib/ai-receptionist-data';
 
 export const homeFaqs = [
   {
@@ -10,9 +10,7 @@ export const homeFaqs = [
     a: 'Yes. Devtimize is based in Pakistan and works with clients in the United States, United Kingdom, Canada, Europe, Australia, and Kuwait. All communication happens over email, WhatsApp, and video calls.',
   },
   {
-    q: "What's the difference between the Starter, Growth, and Elite AI Receptionist plans?",
-    a: pricingTiers
-      .map((tier) => `${tier.name} ($${tier.price}/mo) covers ${tier.calls.toLowerCase()} with ${tier.features.join(', ').toLowerCase()}.`)
-      .join(' '),
+    q: 'How much does the AI Receptionist system cost?',
+    a: `Systems typically range from $${PUBLIC_PRICING_RANGE.setupLow.toLocaleString()}-${PUBLIC_PRICING_RANGE.setupHigh.toLocaleString()} setup and $${PUBLIC_PRICING_RANGE.monthlyLow}-${PUBLIC_PRICING_RANGE.monthlyHigh}/month depending on scope — call volume, number of locations, and integrations. Book a call for your exact quote.`,
   },
 ];

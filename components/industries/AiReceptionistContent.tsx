@@ -2,9 +2,10 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { CheckCircle2, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
+import { CheckCircle2, ArrowRight, ChevronDown, ChevronUp, Quote } from 'lucide-react';
 import { trackCTAClick } from '@/utils/analytics';
-import { pricingTiers, faqs } from '@/lib/ai-receptionist-data';
+import { faqs, PUBLIC_PRICING_RANGE } from '@/lib/ai-receptionist-data';
+import { MissedCallCalculator } from '@/components/MissedCallCalculator';
 
 export const AiReceptionistContent = () => {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
@@ -56,10 +57,14 @@ export const AiReceptionistContent = () => {
     'Real Estate',
   ];
 
+  // Monthly range decomposed to a daily figure — math only, no favorable rounding.
+  const dailyLow = Math.round(PUBLIC_PRICING_RANGE.monthlyLow / 30);
+  const dailyHigh = Math.round(PUBLIC_PRICING_RANGE.monthlyHigh / 30);
+
   return (
     <div className="pt-32 pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
-        {/* SECTION 1 - HERO */}
+        {/* SECTION 1 - HERO (the wound) */}
         <div className="mb-20">
           <span className="font-mono text-[11px] text-acid-cyan tracking-[0.25em] uppercase block mb-4">
             AI Receptionist
@@ -76,7 +81,7 @@ export const AiReceptionistContent = () => {
           </a>
         </div>
 
-        {/* SECTION 2 - PROBLEM */}
+        {/* SECTION 2 - PROBLEM (the wound, reinforced) */}
         <div className="mb-20 bg-bg-surface border border-bg-stroke rounded-3xl p-12">
           <h2 className="font-display text-4xl font-bold text-text-primary mb-12 text-center">
             What Happens When You Miss a Call
@@ -93,7 +98,7 @@ export const AiReceptionistContent = () => {
           </div>
         </div>
 
-        {/* SECTION 3 - HOW IT WORKS */}
+        {/* SECTION 3 - HOW IT WORKS (what the system fixes) */}
         <div className="mb-20">
           <h2 className="font-display text-4xl font-bold text-text-primary mb-12 text-center">
             How Our AI Receptionist Works
@@ -119,7 +124,28 @@ export const AiReceptionistContent = () => {
           </div>
         </div>
 
-        {/* SECTION 4 - FEATURES GRID */}
+        {/* SECTION 4 - SOCIAL PROOF (placed before cost-of-inaction and price, not after) */}
+        <div className="mb-20">
+          <div className="bg-bg-surface border border-bg-stroke rounded-3xl p-10 md:p-12 relative overflow-hidden">
+            <Quote className="absolute top-8 right-8 text-acid-cyan/10" size={80} />
+            <p className="text-xl md:text-2xl text-text-primary leading-relaxed mb-6 relative z-10">
+              "Changed the way we work... Highly recommended for anyone looking for serious software development."
+            </p>
+            <p className="text-text-secondary font-mono text-sm mb-8">— Nadeem, IT Care</p>
+            <div className="h-[1px] w-full bg-bg-stroke mb-8" />
+            <p className="text-text-secondary leading-relaxed">
+              We've used this same technical approach to take a client's website from a basic template with zero search visibility to ranking on page 1 for their target local search.{' '}
+              <span className="text-text-muted italic">(Full case study coming soon.)</span>
+            </p>
+          </div>
+        </div>
+
+        {/* SECTION 5 - COST OF INACTION */}
+        <div className="mb-20">
+          <MissedCallCalculator />
+        </div>
+
+        {/* SECTION 6 - VALUE STACK (everything the system does) */}
         <div className="mb-20">
           <h2 className="font-display text-4xl font-bold text-text-primary mb-12 text-center">
             What Your AI Receptionist Can Do
@@ -134,7 +160,7 @@ export const AiReceptionistContent = () => {
           </div>
         </div>
 
-        {/* SECTION 5 - WHO IT'S FOR */}
+        {/* SECTION 7 - WHO IT'S FOR */}
         <div className="mb-20">
           <h2 className="font-display text-4xl font-bold text-text-primary mb-12 text-center">
             Built for Local Businesses That Can't Afford to Miss Calls
@@ -151,41 +177,43 @@ export const AiReceptionistContent = () => {
           </p>
         </div>
 
-        {/* SECTION 6 - PRICING */}
-        <div className="mb-20">
-          <h2 className="font-display text-4xl font-bold text-text-primary mb-12 text-center">
-            Simple Pricing. No Contracts.
+        {/* SECTION 8 - INVESTMENT (price, last, with risk reversal) */}
+        <div id="pricing" className="mb-20">
+          <h2 className="font-display text-4xl font-bold text-text-primary mb-6 text-center">
+            The Investment
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {pricingTiers.map((tier, i) => (
-              <div key={i} className="p-8 bg-bg-surface border border-bg-stroke rounded-3xl flex flex-col">
-                <h3 className="font-display text-2xl font-bold text-text-primary mb-2">{tier.name}</h3>
-                <div className="mb-6">
-                  <span className="font-display text-5xl font-bold text-acid-cyan">${tier.price}</span>
-                  <span className="text-text-secondary">/month</span>
-                </div>
-                <p className="text-text-secondary mb-8">{tier.calls}</p>
-                <ul className="space-y-4 flex-grow">
-                  {tier.features.map((feature, j) => (
-                    <li key={j} className="flex items-start gap-3">
-                      <CheckCircle2 size={16} className="text-jade shrink-0 mt-1" />
-                      <span className="text-text-secondary text-sm">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href={`/contact?package=${encodeURIComponent(tier.name)}#contact`}
-                  className="mt-8 inline-flex items-center justify-center gap-2 px-6 py-3 bg-acid-cyan text-bg-base font-bold rounded-xl hover:gap-4 transition-all w-full"
-                  onClick={() => trackCTAClick(`${tier.name} Package`, 'ai_receptionist_page')}
-                >
-                  Get Started
-                </Link>
-              </div>
-            ))}
+          <p className="text-text-secondary text-center max-w-2xl mx-auto mb-12">
+            A single missed call costing you a client is worth more than what this system replaces it with.
+          </p>
+          <div className="max-w-2xl mx-auto p-10 bg-bg-surface border border-bg-stroke rounded-3xl text-center">
+            <p className="font-display text-3xl md:text-4xl font-bold text-acid-cyan mb-3">
+              ${PUBLIC_PRICING_RANGE.setupLow.toLocaleString()}–${PUBLIC_PRICING_RANGE.setupHigh.toLocaleString()} setup
+            </p>
+            <p className="font-display text-3xl md:text-4xl font-bold text-acid-cyan mb-4">
+              ${PUBLIC_PRICING_RANGE.monthlyLow}–${PUBLIC_PRICING_RANGE.monthlyHigh}/month
+            </p>
+            <p className="text-text-secondary mb-2">
+              Depending on scope — call volume, number of locations, and integrations.
+            </p>
+            <p className="text-text-muted text-sm mb-8">
+              That works out to roughly ${dailyLow}–${dailyHigh}/day — less than most businesses spend on things that don't bring in a single customer.
+            </p>
+            <div className="flex items-center justify-center gap-2 text-jade text-sm font-mono mb-8">
+              <CheckCircle2 size={16} />
+              Month-to-month, no long-term lock-in
+            </div>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-acid-cyan text-bg-base font-bold rounded-xl hover:gap-4 transition-all"
+              onClick={() => trackCTAClick('Book a Call for Quote', 'ai_receptionist_page')}
+            >
+              Book a Call for Your Exact Quote
+              <ArrowRight size={18} />
+            </Link>
           </div>
         </div>
 
-        {/* SECTION 7 - FAQ */}
+        {/* SECTION 9 - FAQ */}
         <div className="mb-20">
           <h2 className="font-display text-4xl font-bold text-text-primary mb-12 text-center">
             Common Questions
@@ -220,7 +248,7 @@ export const AiReceptionistContent = () => {
           </div>
         </div>
 
-        {/* SECTION 8 - CTA */}
+        {/* SECTION 10 - CTA */}
         <div className="bg-grad-brand rounded-3xl p-12 text-center">
           <h2 className="font-display text-4xl font-bold text-white mb-6">
             Wake Up to Booked Appointments Tomorrow

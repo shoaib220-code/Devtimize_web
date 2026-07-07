@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { ogImage } from '@/lib/og';
 import { AiReceptionistContent } from '@/components/industries/AiReceptionistContent';
-import { pricingTiers, faqs } from '@/lib/ai-receptionist-data';
+import { faqs, PUBLIC_PRICING_RANGE } from '@/lib/ai-receptionist-data';
 
 const SERVICE_SCHEMA = {
   "@context": "https://schema.org",
@@ -20,19 +20,16 @@ const SERVICE_SCHEMA = {
     "Spain", "Netherlands", "Sweden", "Australia", "Kuwait",
   ],
   "url": "https://devtimize.com/ai-receptionist/",
-  "offers": pricingTiers.map((tier) => ({
-    "@type": "Offer",
-    "name": tier.name,
-    "price": tier.price,
-    "priceCurrency": "USD",
-    "priceSpecification": {
-      "@type": "UnitPriceSpecification",
-      "price": tier.price,
-      "priceCurrency": "USD",
-      "unitText": "MONTH",
-    },
-    "description": `${tier.calls} — ${tier.features.join(', ')}.`,
-  })),
+  // A range, not a fixed checkout price — AggregateOffer with lowPrice/highPrice is the
+  // schema.org-correct pattern here, not a set of discrete named Offers.
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": PUBLIC_PRICING_RANGE.currency,
+    "lowPrice": PUBLIC_PRICING_RANGE.monthlyLow,
+    "highPrice": PUBLIC_PRICING_RANGE.monthlyHigh,
+    "offerCount": 1,
+    "description": `Monthly cost depends on scope. One-time setup ranges from $${PUBLIC_PRICING_RANGE.setupLow.toLocaleString()}-$${PUBLIC_PRICING_RANGE.setupHigh.toLocaleString()}. Contact for an exact quote.`,
+  },
 };
 
 const FAQ_SCHEMA = {
@@ -61,7 +58,7 @@ export const metadata: Metadata = {
     siteName: 'Devtimize',
     locale: 'en_US',
     type: 'website',
-    images: ogImage('AI Receptionist', 'Never Miss a Call Again — $97/mo'),
+    images: ogImage('AI Receptionist', 'Never Miss a Call Again'),
   },
 };
 

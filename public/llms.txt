@@ -23,9 +23,7 @@
 
 ## AI Receptionist (https://devtimize.com/ai-receptionist)
 24/7 AI phone answering and appointment booking for local businesses (HVAC, dentists, lawyers, medspas, roofing, plumbers, restaurants, real estate). Available for businesses in the US, UK, Canada, Europe, Australia, and Kuwait. Setup within 48 hours.
-- Starter — $97/mo: up to 100 calls/month, appointment booking, SMS notifications, basic FAQ answers
-- Growth — $197/mo: up to 300 calls/month, everything in Starter plus CRM integration, custom voice, weekly call reports
-- Elite — $397/mo: unlimited calls, everything in Growth plus priority escalation, multi-location support, dedicated account manager
+Pricing: systems typically range from $1,000-3,000 setup and $250-1,200/month depending on scope (call volume, number of locations, integrations). No fixed public tiers — book a call for an exact quote.
 
 ## Key Projects Delivered
 - Trading Bot (Backtest + Live): Python algorithmic trading with real-time execution
@@ -53,5 +51,5 @@
 - Simple sites: from $150
 - Web/mobile apps: $500–$2,500
 - AI systems & bots: $2,000+
-- AI Receptionist: $97–$397/mo (see above)
+- AI Receptionist: $1,000-3,000 setup, $250-1,200/month depending on scope — book a call for an exact quote
 - Free custom quote: devtimize@gmail.com

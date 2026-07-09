@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   title: 'Medspa Website Design That Books Treatments | Devtimize',
   description: 'Luxury medspa websites with online booking, treatment galleries, and local SEO. Built to attract high-value clients in USA, UK and Canada.',
   alternates: {
-    canonical: 'https://devtimize.com/industries/medspa-websites/',
+    canonical: 'https://www.devtimize.com/industries/medspa-websites/',
   },
   openGraph: {
     title: 'Medspa Website Design That Books Treatments | Devtimize',
     description: 'Luxury medspa websites with online booking, treatment galleries, and local SEO. Built to attract high-value clients in USA, UK and Canada.',
-    url: 'https://devtimize.com/industries/medspa-websites/',
+    url: 'https://www.devtimize.com/industries/medspa-websites/',
     siteName: 'Devtimize',
     locale: 'en_US',
     type: 'website',

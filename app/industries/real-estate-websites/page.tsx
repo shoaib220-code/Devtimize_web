@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   title: 'Real Estate Website Design That Converts Buyers | Devtimize',
   description: 'We build real estate websites with fast listing pages, AI chat, and instant inquiry capture. Mobile-first, fast, and built to generate leads 24/7.',
   alternates: {
-    canonical: 'https://devtimize.com/industries/real-estate-websites/',
+    canonical: 'https://www.devtimize.com/industries/real-estate-websites/',
   },
   openGraph: {
     title: 'Real Estate Website Design That Converts Buyers | Devtimize',
     description: 'We build real estate websites with fast listing pages, AI chat, and instant inquiry capture. Mobile-first, fast, and built to generate leads 24/7.',
-    url: 'https://devtimize.com/industries/real-estate-websites/',
+    url: 'https://www.devtimize.com/industries/real-estate-websites/',
     siteName: 'Devtimize',
     locale: 'en_US',
     type: 'website',

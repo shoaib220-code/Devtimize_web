@@ -4,7 +4,7 @@ import { projects } from '@/lib/projects-data';
 import { blogPosts } from '@/lib/blog-data';
 import { landingPages } from '@/lib/landing-pages-data';
 
-const BASE_URL = 'https://devtimize.com';
+const BASE_URL = 'https://www.devtimize.com';
 
 const INDUSTRY_SLUGS = [
   'hvac-websites',

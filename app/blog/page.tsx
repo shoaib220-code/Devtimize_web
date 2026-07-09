@@ -7,13 +7,13 @@ export const metadata: Metadata = {
   description:
     'Technical articles from the Devtimize team on AI development, web apps, mobile apps, trading bots, and hiring developers.',
   alternates: {
-    canonical: 'https://devtimize.com/blog/',
+    canonical: 'https://www.devtimize.com/blog/',
   },
   openGraph: {
     title: 'Dev Blog — Tips, Case Studies & Tutorials | Devtimize',
     description:
       'Technical articles from the Devtimize team on AI development, web apps, mobile apps, trading bots, and hiring developers.',
-    url: 'https://devtimize.com/blog/',
+    url: 'https://www.devtimize.com/blog/',
     siteName: 'Devtimize',
     locale: 'en_US',
     type: 'website',

@@ -14,7 +14,7 @@ const ORGANIZATION_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Devtimize",
-  "url": "https://devtimize.com",
+  "url": "https://www.devtimize.com",
   "foundingDate": "2024",
   "description":
     "Devtimize is a product engineering studio building web apps, mobile & desktop apps, AI automation, and an AI Receptionist product for local businesses.",
@@ -68,7 +68,7 @@ const ORGANIZATION_SCHEMA = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://devtimize.com'),
+  metadataBase: new URL('https://www.devtimize.com'),
   title: 'Devtimize | Product engineering studio | USA, UK, Canada, Europe & Kuwait',
   description:
     'Product engineering studio serving USA, UK, Canada, Europe, Australia, and Kuwait with web apps, mobile apps, AI automation, and an AI receptionist for local businesses.',
@@ -95,7 +95,7 @@ export const metadata: Metadata = {
     title: 'Devtimize | Web & AI Development Agency | USA, UK, Canada, Europe & Kuwait',
     description:
       'Custom web apps, mobile apps, and AI automation for clients in the USA, UK, Canada, Europe, Australia, and Kuwait.',
-    url: 'https://devtimize.com',
+    url: 'https://www.devtimize.com',
     siteName: 'Devtimize',
     type: 'website',
     images: ogImage('Product Engineering Studio'),

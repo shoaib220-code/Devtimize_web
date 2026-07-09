@@ -7,13 +7,13 @@ export const metadata: Metadata = {
   description:
     'Learn about Devtimize, a product engineering studio founded by Shoaib Liaqat and Hamza Amin. Discover our mission to build high-quality digital assets.',
   alternates: {
-    canonical: 'https://devtimize.com/about/',
+    canonical: 'https://www.devtimize.com/about/',
   },
   openGraph: {
     title: 'About Devtimize | Our Story & Mission',
     description:
       'Learn about Devtimize, a product engineering studio founded by Shoaib Liaqat and Hamza Amin. Discover our mission to build high-quality digital assets.',
-    url: 'https://devtimize.com/about/',
+    url: 'https://www.devtimize.com/about/',
     siteName: 'Devtimize',
     locale: 'en_US',
     type: 'website',

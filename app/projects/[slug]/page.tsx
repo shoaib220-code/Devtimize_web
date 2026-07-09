@@ -25,12 +25,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${project.name} | Devtimize Case Study`,
     description: project.desc,
     alternates: {
-      canonical: `https://devtimize.com/projects/${project.slug}/`,
+      canonical: `https://www.devtimize.com/projects/${project.slug}/`,
     },
     openGraph: {
       title: `${project.name} | Devtimize Case Study`,
       description: project.desc,
-      url: `https://devtimize.com/projects/${slug}/`,
+      url: `https://www.devtimize.com/projects/${slug}/`,
       images: [
         {
           url: project.image,

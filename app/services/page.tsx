@@ -21,13 +21,13 @@ export const metadata: Metadata = {
   description:
     'Explore our range of services including Web Development, Mobile Apps, AI Integration, and Cloud Infrastructure. Tailored solutions for your business.',
   alternates: {
-    canonical: 'https://devtimize.com/services/',
+    canonical: 'https://www.devtimize.com/services/',
   },
   openGraph: {
     title: 'Our Services | Expert Software Engineering',
     description:
       'Explore our range of services including Web Development, Mobile Apps, AI Integration, and Cloud Infrastructure. Tailored solutions for your business.',
-    url: 'https://devtimize.com/services/',
+    url: 'https://www.devtimize.com/services/',
     siteName: 'Devtimize',
     locale: 'en_US',
     type: 'website',

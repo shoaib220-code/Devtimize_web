@@ -11,7 +11,7 @@ export function getLandingPage(slug: string): LandingPageData {
 }
 
 export function buildLandingPageMetadata(page: LandingPageData): Metadata {
-  const url = `https://devtimize.com/${page.slug}/`;
+  const url = `https://www.devtimize.com/${page.slug}/`;
   return {
     title: page.metaTitle,
     description: page.metaDescription,

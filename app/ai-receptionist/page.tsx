@@ -13,13 +13,13 @@ const SERVICE_SCHEMA = {
   "provider": {
     "@type": "Organization",
     "name": "Devtimize",
-    "url": "https://devtimize.com",
+    "url": "https://www.devtimize.com",
   },
   "areaServed": [
     "United States", "United Kingdom", "Canada", "Germany", "France",
     "Spain", "Netherlands", "Sweden", "Australia", "Kuwait",
   ],
-  "url": "https://devtimize.com/ai-receptionist/",
+  "url": "https://www.devtimize.com/ai-receptionist/",
   // A range, not a fixed checkout price — AggregateOffer with lowPrice/highPrice is the
   // schema.org-correct pattern here, not a set of discrete named Offers.
   "offers": {
@@ -49,12 +49,12 @@ export const metadata: Metadata = {
   title: 'AI Receptionist for Local Businesses | Never Miss a Call | Devtimize',
   description: 'Our AI receptionist handles missed calls 24/7, books appointments, and answers questions. Your clients wake up to booked calls, not voicemails.',
   alternates: {
-    canonical: 'https://devtimize.com/ai-receptionist/',
+    canonical: 'https://www.devtimize.com/ai-receptionist/',
   },
   openGraph: {
     title: 'AI Receptionist for Local Businesses | Never Miss a Call | Devtimize',
     description: 'Our AI receptionist handles missed calls 24/7, books appointments, and answers questions. Your clients wake up to booked calls, not voicemails.',
-    url: 'https://devtimize.com/ai-receptionist/',
+    url: 'https://www.devtimize.com/ai-receptionist/',
     siteName: 'Devtimize',
     locale: 'en_US',
     type: 'website',

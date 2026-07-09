@@ -26,12 +26,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${service.title} | Devtimize`,
     description: service.metaDescription,
     alternates: {
-      canonical: `https://devtimize.com/services/${service.slug}/`,
+      canonical: `https://www.devtimize.com/services/${service.slug}/`,
     },
     openGraph: {
       title: `${service.title} | Devtimize`,
       description: service.metaDescription,
-      url: `https://devtimize.com/services/${slug}/`,
+      url: `https://www.devtimize.com/services/${slug}/`,
       siteName: 'Devtimize',
       locale: 'en_US',
       type: 'website',
@@ -53,13 +53,13 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
     "provider": {
       "@type": "Organization",
       "name": "Devtimize",
-      "url": "https://devtimize.com",
+      "url": "https://www.devtimize.com",
     },
     "areaServed": [
       "United States", "United Kingdom", "Canada", "Germany", "France",
       "Spain", "Netherlands", "Sweden", "Australia", "Kuwait",
     ],
-    "url": `https://devtimize.com/services/${service.slug}/`,
+    "url": `https://www.devtimize.com/services/${service.slug}/`,
     "offers": {
       "@type": "AggregateOffer",
       "priceCurrency": "USD",

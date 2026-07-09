@@ -1,6 +1,6 @@
 export default function robots() {
   return {
     rules: { userAgent: '*', allow: '/' },
-    sitemap: 'https://devtimize.com/sitemap.xml',
+    sitemap: 'https://www.devtimize.com/sitemap.xml',
   }
 }

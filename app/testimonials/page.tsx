@@ -7,13 +7,13 @@ export const metadata: Metadata = {
   description:
     'Read reviews and success stories from our clients. See how Devtimize has helped businesses transform their digital landscape.',
   alternates: {
-    canonical: 'https://devtimize.com/testimonials/',
+    canonical: 'https://www.devtimize.com/testimonials/',
   },
   openGraph: {
     title: 'Client Testimonials | What Our Partners Say',
     description:
       'Read reviews and success stories from our clients. See how Devtimize has helped businesses transform their digital landscape.',
-    url: 'https://devtimize.com/testimonials/',
+    url: 'https://www.devtimize.com/testimonials/',
     siteName: 'Devtimize',
     locale: 'en_US',
     type: 'website',

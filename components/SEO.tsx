@@ -84,7 +84,7 @@ const REVIEW_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Devtimize",
-  "url": "https://devtimize.com",
+  "url": "https://www.devtimize.com",
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5",
@@ -129,26 +129,26 @@ const PROJECT_LIST_SCHEMA = {
   "@type": "ItemList",
   "name": "Devtimize Project Portfolio",
   "description": "Web, mobile, desktop, and AI projects delivered by Devtimize.",
-  "url": "https://devtimize.com/projects/",
+  "url": "https://www.devtimize.com/projects/",
   "numberOfItems": 8,
   "itemListElement": [
     {
       "@type": "ListItem", "position": 1,
       "name": "Restaurant Website",
       "description": "Custom restaurant site with menu management and online ordering.",
-      "url": "https://devtimize.com/projects/restaurant-site/"
+      "url": "https://www.devtimize.com/projects/restaurant-site/"
     },
     {
       "@type": "ListItem", "position": 2,
       "name": "E-Commerce Website",
       "description": "Full-featured e-commerce with product catalog, cart, and payment gateway.",
-      "url": "https://devtimize.com/projects/ecommerce-website/"
+      "url": "https://www.devtimize.com/projects/ecommerce-website/"
     },
     {
       "@type": "ListItem", "position": 3,
       "name": "Trading Bot (Backtest + Live)",
       "description": "Python trading bot with backtesting engine and live trading capabilities.",
-      "url": "https://devtimize.com/projects/trading-bot/"
+      "url": "https://www.devtimize.com/projects/trading-bot/"
     }
   ]
 };

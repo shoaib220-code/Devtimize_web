@@ -29,13 +29,13 @@ export const metadata: Metadata = {
   description:
     'Devtimize builds production-grade web apps, mobile apps, AI chatbots, trading bots, and automation. Python, Flutter, React, .NET. Free quote in 24h.',
   alternates: {
-    canonical: 'https://devtimize.com/',
+    canonical: 'https://www.devtimize.com/',
   },
   openGraph: {
     title: 'Devtimize — Web · Mobile · Desktop · AI Development Studio | Pakistan',
     description:
       'Devtimize builds production-grade web apps, mobile apps, AI chatbots, trading bots, and automation. Python, Flutter, React, .NET. Free quote in 24h.',
-    url: 'https://devtimize.com/',
+    url: 'https://www.devtimize.com/',
     siteName: 'Devtimize',
     locale: 'en_US',
     type: 'website',

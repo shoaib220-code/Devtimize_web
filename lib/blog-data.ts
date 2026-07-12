@@ -1281,4 +1281,54 @@ The best Pakistani developers are genuinely world-class. The vetting process abo
     category: 'Security',
     readTime: '12 min read',
   },
+  {
+    id: '15',
+    slug: 'parker-electrical-solutions-seo-case-study',
+    title: 'From Invisible to Page 1: An SEO Case Study for Parker Electrical Solutions',
+    excerpt: 'Parker Electrical Solutions had a website that was completely invisible in search. Within about 2 months of technical SEO, GEO, and AEO/LLM-based optimization, they reached page 1 for several of their core local search terms.',
+    metaDescription: 'Real case study: how Devtimize took Parker Electrical Solutions from an invisible templated website to page 1 rankings for core local Essex electrician searches in about 2 months.',
+    content: `
+      <p class="text-xl text-text-secondary mb-12 leading-relaxed">
+        Parker Electrical Solutions, a NICEIC-approved electrician serving Essex and London, came to us with a website that was completely invisible in search. Within about 2 months of technical SEO, GEO, and AEO/LLM-based optimization, they reached page 1 for several of their core local search terms. Here's exactly what was broken and what we did.
+      </p>
+
+      <h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">The Starting Point</h2>
+      <p class="text-text-secondary mb-8 leading-relaxed">
+        Before working with Devtimize, Parker Electrical Solutions had a basic, largely templated website. It wasn't ranking for the local searches that actually bring in electrical work — searches like "electrician Essex" or "electrician" plus their service towns. The site existed, but it was effectively invisible to anyone searching for an electrician in their area.
+      </p>
+
+      <h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">What We Did</h2>
+      <p class="text-text-secondary mb-8 leading-relaxed">
+        <strong>Technical SEO fixes:</strong> corrected broken redirects, resolved keyword cannibalization between similar pages, fixed internal linking so search engines could properly discover every page, and cleaned up indexing issues that were quietly blocking the site from ranking at all.
+      </p>
+      <p class="text-text-secondary mb-8 leading-relaxed">
+        <strong>Town and service page expansion:</strong> built out dedicated local pages for the specific towns and services Parker Electrical Solutions actually covers, so the site could compete for real, local buyer-intent searches instead of one generic homepage trying to rank for everything.
+      </p>
+      <p class="text-text-secondary mb-8 leading-relaxed">
+        <strong>GEO and AEO/LLM-based optimization:</strong> structured the content so it answers real buyer questions directly, in the format both traditional search engines and AI answer engines can parse and cite.
+      </p>
+
+      <h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">The Results</h2>
+      <p class="text-text-secondary mb-8 leading-relaxed">
+        Within about 2 months, Parker Electrical Solutions reached page 1 on Google for several of their core local search terms, including "commercial electrician Essex," "electrical services Essex," "electrical solutions Southend," and "electrician Southend." Other terms, including "EV charger installation Essex" and "electrician Grays," moved onto page 2 and are continuing to climb.
+      </p>
+      <p class="text-text-secondary mb-8 leading-relaxed">
+        This is an ongoing project — we're continuing to build on this foundation rather than treating it as a one-time fix.
+      </p>
+
+      <div class="bg-acid-cyan/5 border border-acid-cyan/20 p-8 rounded-2xl my-16">
+        <h3 class="font-display text-2xl font-bold text-text-primary mb-4">Want Results Like This for Your Business?</h3>
+        <p class="text-text-secondary mb-6 leading-relaxed">
+          If your website is invisible in search the way Parker Electrical Solutions' was, the underlying causes are usually fixable. We'd be glad to take a look at yours.
+        </p>
+        <a href="/seo-services-kuwait" class="inline-flex items-center gap-2 text-acid-cyan font-mono text-sm uppercase tracking-widest hover:gap-4 transition-all">
+          See our SEO services →
+        </a>
+      </div>
+    `,
+    author: 'Shoaib Liaqat',
+    date: '2026-07-12',
+    category: 'Case Study',
+    readTime: '5 min read',
+  },
 ];

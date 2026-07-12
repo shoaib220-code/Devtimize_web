@@ -55,7 +55,10 @@ export const LandingPageContent = ({ data }: { data: LandingPageData }) => {
                 <div className="h-[1px] w-full bg-bg-stroke mb-8" />
               </>
             )}
-            <p className="text-text-secondary leading-relaxed">{data.socialProofCaseStudy}</p>
+            <p className="text-text-secondary leading-relaxed mb-4">{data.socialProofCaseStudy}</p>
+            <Link href="/blog/parker-electrical-solutions-seo-case-study" className="text-acid-cyan font-mono text-sm hover:underline">
+              Read the full case study →
+            </Link>
           </div>
         </div>
 

@@ -133,10 +133,12 @@ export const AiReceptionistContent = () => {
             </p>
             <p className="text-text-secondary font-mono text-sm mb-8">— Nadeem, IT Care</p>
             <div className="h-[1px] w-full bg-bg-stroke mb-8" />
-            <p className="text-text-secondary leading-relaxed">
-              We've used this same technical approach to take a client's website from a basic template with zero search visibility to ranking on page 1 for their target local search.{' '}
-              <span className="text-text-muted italic">(Full case study coming soon.)</span>
+            <p className="text-text-secondary leading-relaxed mb-4">
+              We've used this same technical approach to take Parker Electrical Solutions from a basic template with zero search visibility to page 1 for several of their core local search terms in about 2 months.
             </p>
+            <Link href="/blog/parker-electrical-solutions-seo-case-study" className="text-acid-cyan font-mono text-sm hover:underline">
+              Read the full case study →
+            </Link>
           </div>
         </div>
 

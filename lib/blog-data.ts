@@ -1285,16 +1285,28 @@ The best Pakistani developers are genuinely world-class. The vetting process abo
     id: '15',
     slug: 'parker-electrical-solutions-seo-case-study',
     title: 'From Invisible to Page 1: An SEO Case Study for Parker Electrical Solutions',
-    excerpt: 'Parker Electrical Solutions had a website that was completely invisible in search. Within about 2 months of technical SEO, GEO, and AEO/LLM-based optimization, they reached page 1 for several of their core local search terms.',
-    metaDescription: 'Real case study: how Devtimize took Parker Electrical Solutions from an invisible templated website to page 1 rankings for core local Essex electrician searches in about 2 months.',
+    excerpt: 'Parker Electrical Solutions had a website with very little visibility in search. Between May and July 2026, technical SEO, GEO, and AEO/LLM-based optimization took them to page 1 for several of their core local search terms.',
+    metaDescription: 'Real case study: how Devtimize took Parker Electrical Solutions from low search visibility to page 1 rankings for core local Essex electrician searches between May and July 2026.',
     content: `
       <p class="text-xl text-text-secondary mb-12 leading-relaxed">
-        Parker Electrical Solutions, a NICEIC-approved electrician serving Essex and London, came to us with a website that was completely invisible in search. Within about 2 months of technical SEO, GEO, and AEO/LLM-based optimization, they reached page 1 for several of their core local search terms. Here's exactly what was broken and what we did.
+        Parker Electrical Solutions, a NICEIC-approved electrician serving Essex and London, came to us with a website that had very little visibility for its target local searches. Between May and July 2026, technical SEO, GEO, and AEO/LLM-based optimization took them to page 1 for several of their core local search terms. Here's exactly what was broken and what we did.
       </p>
+
+      <div class="bg-acid-cyan/5 border border-acid-cyan/20 p-8 rounded-2xl mb-16">
+        <h3 class="font-display text-xl font-bold text-text-primary mb-4">Results at a Glance</h3>
+        <ul class="space-y-2 text-text-secondary">
+          <li>✅ Page 1 for "commercial electrician Essex"</li>
+          <li>✅ Page 1 for "electrical services Essex"</li>
+          <li>✅ Page 1 for "electrical solutions Southend"</li>
+          <li>✅ Page 1 for "electrician Southend"</li>
+          <li>✅ Page 2 and climbing for "EV charger installation Essex" and "electrician Grays"</li>
+          <li>✅ Full technical SEO overhaul completed, ongoing campaign continuing</li>
+        </ul>
+      </div>
 
       <h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">The Starting Point</h2>
       <p class="text-text-secondary mb-8 leading-relaxed">
-        Before working with Devtimize, Parker Electrical Solutions had a basic, largely templated website. It wasn't ranking for the local searches that actually bring in electrical work — searches like "electrician Essex" or "electrician" plus their service towns. The site existed, but it was effectively invisible to anyone searching for an electrician in their area.
+        Before working with Devtimize, Parker Electrical Solutions had a basic, largely templated website. It wasn't ranking for the local searches that actually bring in electrical work — searches like "electrician Essex" or "electrician" plus their service towns. The site had very little visibility for anyone searching for an electrician in their area.
       </p>
 
       <h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">What We Did</h2>
@@ -1310,7 +1322,10 @@ The best Pakistani developers are genuinely world-class. The vetting process abo
 
       <h2 class="font-display text-3xl font-bold text-text-primary mt-16 mb-6">The Results</h2>
       <p class="text-text-secondary mb-8 leading-relaxed">
-        Within about 2 months, Parker Electrical Solutions reached page 1 on Google for several of their core local search terms, including "commercial electrician Essex," "electrical services Essex," "electrical solutions Southend," and "electrician Southend." Other terms, including "EV charger installation Essex" and "electrician Grays," moved onto page 2 and are continuing to climb.
+        Between May and July 2026, Parker Electrical Solutions reached page 1 on Google for several of their core local search terms, including "commercial electrician Essex," "electrical services Essex," "electrical solutions Southend," and "electrician Southend." Other terms, including "EV charger installation Essex" and "electrician Grays," moved onto page 2 and are continuing to climb.
+      </p>
+      <p class="text-text-secondary mb-8 leading-relaxed">
+        Rankings were manually verified via incognito Google searches to avoid personalization bias, in addition to Google Search Console's own performance data.
       </p>
       <p class="text-text-secondary mb-8 leading-relaxed">
         This is an ongoing project — we're continuing to build on this foundation rather than treating it as a one-time fix.

@@ -1325,7 +1325,7 @@ The best Pakistani developers are genuinely world-class. The vetting process abo
         Between May and July 2026, Parker Electrical Solutions reached page 1 on Google for several of their core local search terms, including "commercial electrician Essex," "electrical services Essex," "electrical solutions Southend," and "electrician Southend." Other terms, including "EV charger installation Essex" and "electrician Grays," moved onto page 2 and are continuing to climb.
       </p>
       <p class="text-text-secondary mb-8 leading-relaxed">
-        Rankings were manually verified via incognito Google searches to avoid personalization bias, in addition to Google Search Console's own performance data.
+        Rankings were manually verified using incognito Google searches to avoid personalization bias. Google Search Console was used to monitor search performance throughout the campaign.
       </p>
       <p class="text-text-secondary mb-8 leading-relaxed">
         This is an ongoing project — we're continuing to build on this foundation rather than treating it as a one-time fix.
@@ -1334,7 +1334,7 @@ The best Pakistani developers are genuinely world-class. The vetting process abo
       <div class="bg-acid-cyan/5 border border-acid-cyan/20 p-8 rounded-2xl my-16">
         <h3 class="font-display text-2xl font-bold text-text-primary mb-4">Want Results Like This for Your Business?</h3>
         <p class="text-text-secondary mb-6 leading-relaxed">
-          If your website is invisible in search the way Parker Electrical Solutions' was, the underlying causes are usually fixable. We'd be glad to take a look at yours.
+          If your business isn't appearing when customers search for your services, we'll identify what's holding it back and show you where the biggest opportunities are.
         </p>
         <a href="/seo-services-kuwait" class="inline-flex items-center gap-2 text-acid-cyan font-mono text-sm uppercase tracking-widest hover:gap-4 transition-all">
           See our SEO services →

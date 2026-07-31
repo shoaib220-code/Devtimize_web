@@ -24,6 +24,7 @@ export interface LandingPageData {
   h1: string;
   painParagraph: string;
   whatItFixes: string;
+  whatItFixesHeading?: string;
   socialProofQuote?: { text: string; author: string };
   socialProofCaseStudy: string;
   costOfInaction: string;
@@ -121,9 +122,10 @@ export const landingPages: LandingPageData[] = [
     ogTitle: 'Virtual Receptionist for Law Firms',
     ogSubtitle: 'Kuwait — AI-Powered, Never Miss a New Client Call',
     kicker: 'Virtual Receptionist & Answering Service · Law Firms · Kuwait',
-    h1: 'A Missed Call Is a Client Calling Your Competitor',
+    h1: 'A Missed Call Is a Client Calling the Next Law Firm',
     painParagraph: 'A prospective client calling a law firm rarely calls back if no one answers — they call the next name on their list.',
-    whatItFixes: "It's a smarter version of a traditional virtual receptionist or answering service — it answers every call, qualifies the inquiry, and books an initial consultation directly into your calendar, day or night.",
+    whatItFixesHeading: 'Why Law Firms in Kuwait Miss Calls',
+    whatItFixes: "This is a legal AI receptionist built for how law firms actually operate — a smarter version of a traditional virtual receptionist or answering service. It answers every call, qualifies the inquiry, and books an initial consultation directly into your calendar, day or night.",
     socialProofQuote: { text: 'Amazing team! Delivered on time and exceeded expectations.', author: 'Riasat Ali' },
     socialProofCaseStudy: PARKER_CASE_STUDY,
     costOfInaction: 'A single new client engagement is often worth thousands — missing even one or two intake calls a month usually costs far more than this system.',
@@ -236,9 +238,10 @@ export const landingPages: LandingPageData[] = [
     ogTitle: 'Virtual Receptionist for Law Firms',
     ogSubtitle: 'UK — AI-Powered, Never Miss a New Client Call',
     kicker: 'Virtual Receptionist & Answering Service · Law Firms · UK',
-    h1: 'A Missed Call Is a Client Calling Your Competitor',
+    h1: 'A Missed Call Is a Client Calling the Next Law Firm',
     painParagraph: "A prospective client who can't reach your firm rarely waits — they call the next one.",
-    whatItFixes: "It's a smarter version of a traditional virtual receptionist or answering service — it answers every call, qualifies the inquiry, books an initial consultation, and flags urgent matters immediately.",
+    whatItFixesHeading: 'Why Law Firms in the UK Miss Calls',
+    whatItFixes: "It's a smarter version of a traditional virtual receptionist or answering service — it answers every call, qualifies the inquiry, books an initial consultation, and flags urgent matters immediately. Think of it as a legal AI receptionist that never puts a prospective client on hold.",
     socialProofQuote: { text: 'Amazing team! Delivered on time and exceeded expectations. Highly professional and easy to communicate with.', author: 'Riasat Ali' },
     socialProofCaseStudy: PARKER_CASE_STUDY,
     costOfInaction: 'A single new engagement is typically worth thousands — missing even one or two calls a month usually costs more than the system does.',

@@ -35,7 +35,7 @@ export const LandingPageContent = ({ data }: { data: LandingPageData }) => {
         {/* WHAT IT FIXES */}
         <div className="mb-20 bg-bg-surface border border-bg-stroke rounded-3xl p-10 md:p-12">
           <h2 className="font-display text-3xl font-bold text-text-primary mb-4">
-            What This Fixes
+            {data.whatItFixesHeading || 'What This Fixes'}
           </h2>
           <p className="text-text-secondary text-lg leading-relaxed">
             {data.whatItFixes}

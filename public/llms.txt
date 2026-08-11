@@ -1,14 +1,13 @@
 # Devtimize
 > A product engineering studio building web apps, mobile apps,
 > desktop software, AI chatbots, trading bots, and automation tools.
-> Founded in 2024 by Shoaib Liaqat and Hamza Amin — two CS graduates
-> from Pakistan serving clients in the United States, United Kingdom,
-> Canada, Europe, Australia, and Kuwait.
+> Founded in 2024 by Shoaib Liaqat, a CS graduate from Pakistan serving
+> clients in the United States, United Kingdom, Canada, Europe,
+> Australia, and Kuwait.
 
 ## Contact
 - Email: devtimize@gmail.com
 - Shoaib: +923104745649
-- Hamza: +923026160466
 - Website: https://www.devtimize.com
 - Instagram: https://www.instagram.com/devtimize/
 - Facebook: https://www.facebook.com/p/Devtimize-61579934221770/
@@ -35,11 +34,9 @@ Pricing: systems typically range from $1,000-3,000 setup and $250-1,200/month de
 - Restaurant Website: Full-featured restaurant web presence
 - E-Commerce Website: MERN-based online store with payments
 
-## Founders
+## Founder
 - Shoaib Liaqat | BSCS, Baba Guru Nanak University — Founder & CEO
   Specializes in Flutter, React, MERN, Flask, .NET, cloud deployments
-- Hamza Amin | BSCS, Islamic University Islamabad — Co-founder
-  Specializes in Python, AI automation, chatbots, trading bots, RAG
 
 ## Client Testimonials
 - 5/5 stars from Abdullah (BGNU) — event app delivered on time with free updates

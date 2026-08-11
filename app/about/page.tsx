@@ -5,14 +5,14 @@ import { AboutContent } from '@/components/AboutContent';
 export const metadata: Metadata = {
   title: 'About Devtimize | Our Story & Mission',
   description:
-    'Learn about Devtimize, a product engineering studio founded by Shoaib Liaqat and Hamza Amin. Discover our mission to build high-quality digital assets.',
+    'Learn about Devtimize, a product engineering studio founded by Shoaib Liaqat. Discover our mission to build high-quality digital assets.',
   alternates: {
     canonical: 'https://www.devtimize.com/about/',
   },
   openGraph: {
     title: 'About Devtimize | Our Story & Mission',
     description:
-      'Learn about Devtimize, a product engineering studio founded by Shoaib Liaqat and Hamza Amin. Discover our mission to build high-quality digital assets.',
+      'Learn about Devtimize, a product engineering studio founded by Shoaib Liaqat. Discover our mission to build high-quality digital assets.',
     url: 'https://www.devtimize.com/about/',
     siteName: 'Devtimize',
     locale: 'en_US',

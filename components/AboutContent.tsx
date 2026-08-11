@@ -23,7 +23,7 @@ export const AboutContent = () => {
               Engineering <span className="gradient-text">Excellence.</span>
             </h1>
             <p className="text-xl text-text-secondary leading-relaxed mb-8">
-              Devtimize was founded by two computer science graduates with a shared vision: to bridge the gap between complex technology and practical business solutions. We don't just write code; we build digital assets that drive growth.
+              Devtimize was founded by Shoaib Liaqat, a computer science graduate with a clear vision: to bridge the gap between complex technology and practical business solutions. We don't just write code; we build digital assets that drive growth.
             </p>
             <div className="grid grid-cols-2 gap-8">
               <div>

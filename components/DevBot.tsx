@@ -96,7 +96,7 @@ export const DevBot = () => {
       setMessages(prev => [...prev, { role: 'bot', content: reply }]);
     } catch (error) {
       console.error('DevBot Error:', error);
-      setMessages(prev => [...prev, { role: 'bot', content: "Oops! Something went wrong. You can reach Shoaib & Hamza directly at devtimize@gmail.com." }]);
+      setMessages(prev => [...prev, { role: 'bot', content: "Oops! Something went wrong. You can reach Shoaib directly at devtimize@gmail.com." }]);
     } finally {
       setIsLoading(false);
     }

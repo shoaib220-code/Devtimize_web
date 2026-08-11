@@ -16,15 +16,6 @@ export const Team = () => {
       image: '/images/team/shoaib.png',
       linkedin: 'https://pk.linkedin.com/in/shoaib-liaqat-0755363a0',
     },
-    {
-      name: 'Hamza Amin',
-      role: 'CO-FOUNDER',
-      edu: 'BSCS · Islamic University Islamabad',
-      skills: 'Python · Chatbots · RAG · Trading Bots · Automation · ML',
-      phone: '+923026160466',
-      image: '/images/team/hamza.png',
-      linkedin: undefined as string | undefined,
-    }
   ];
 
   return (
@@ -35,15 +26,15 @@ export const Team = () => {
             03 — The Team
           </span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-6xl font-bold text-text-primary">
-            Hands-On Founders<br />
-            <span className="text-text-secondary">Who Ship.</span>
+            A Hands-On Founder<br />
+            <span className="text-text-secondary">Who Ships.</span>
           </h2>
           <div className="absolute top-0 right-0 font-display text-[120px] md:text-[160px] font-extrabold text-white/[0.02] leading-none pointer-events-none select-none">
             03
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
+        <div className="grid gap-8 lg:gap-16 max-w-xl mx-auto">
           {founders.map((founder, i) => (
             <motion.div
               key={i}
@@ -95,7 +86,7 @@ export const Team = () => {
 
         <div className="mt-24 text-center">
           <h4 className="font-display text-xl sm:text-2xl md:text-4xl text-text-secondary max-w-3xl mx-auto leading-tight">
-            "Two CS graduates building software<br />
+            "A CS graduate building software<br />
             <span className="text-text-primary">the world actually uses."</span>
           </h4>
         </div>

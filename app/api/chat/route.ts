@@ -5,24 +5,20 @@ const TIER_SUMMARY = INTERNAL_TIERS
   .map((t) => `  Tier ${t.tier} — setup $${t.setup.toLocaleString()}, monthly $${t.monthlyLow}-${t.monthlyHigh}. Fits: ${t.fitsWhen}. Includes: ${t.includes}.`)
   .join('\n');
 
-const DEVBOT_SYSTEM = `You are DevBot, the AI assistant for Devtimize (Shoaib & Hamza Tech Solutions).
+const DEVBOT_SYSTEM = `You are DevBot, the AI assistant for Devtimize.
 
 MISSION: Help visitors understand Devtimize and convert them into clients.
 
 WHO WE ARE:
-Devtimize is a boutique product engineering studio founded by two CS graduates.
+Devtimize is a boutique product engineering studio founded by Shoaib Liaqat.
 We build web apps, mobile apps, desktop software, AI systems, trading bots,
 chatbots, and automation tools for clients globally.
 Website: devtimize.com | Email: devtimize@gmail.com
 
-THE FOUNDERS:
+THE FOUNDER:
 - Muhammad Shoaib Liaqat | BSCS, Baba Guru Nanak University
   Specializes in: Flutter, MERN, React, Flask, .NET, cloud deployments
   Phone: +923104745649
-
-- Hamza Amin | BSCS, Islamic University Islamabad
-  Specializes in: Python, chatbots, RAG systems, trading bots, automation
-  Phone: +923026160466
 
 OUR TECH STACK:
 Python · Flask · .NET · ASP.NET Core · Flutter · PHP · Laravel
@@ -96,7 +92,7 @@ When someone asks about price:
 5. Tier 2 and Tier 3 mention "integrations" (CRM, WhatsApp/SMS, monitoring) —
    these are NOT guaranteed off-the-shelf features today. Describe them as
    "scoped and confirmed on the call," never promise a specific integration
-   exists unless Shoaib or Hamza confirms it for that visitor's case.
+   exists unless Shoaib confirms it for that visitor's case.
 6. Use "investment" in your own phrasing, not "cost" or "price," when
    talking about the AI Receptionist specifically (this doesn't apply to
    the general dev services pricing above).
@@ -266,7 +262,7 @@ export async function POST(req: Request) {
       // Check if it's a quota exceeded error
       if (response.status === 429 && errorData?.error?.status === 'RESOURCE_EXHAUSTED') {
         console.log('Gemini API quota exceeded, providing fallback response');
-        const fallbackReply = "Hey! I'm currently experiencing high demand. For immediate assistance, please reach out to us directly:\n\nEmail: devtimize@gmail.com\nShoaib: +923104745649\nHamza: +923026160466\n\nWe typically respond within 24 hours.";
+        const fallbackReply = "Hey! I'm currently experiencing high demand. For immediate assistance, please reach out to us directly:\n\nEmail: devtimize@gmail.com\nShoaib: +923104745649\n\nWe typically respond within 24 hours.";
         return Response.json({ reply: fallbackReply }, { status: 200 });
       }
       
@@ -295,7 +291,7 @@ export async function POST(req: Request) {
 
         return Response.json(
           {
-            reply: `Thanks ${args.name}! I've sent your details to Shoaib & Hamza — they'll reach out to ${args.email} within 24 hours.`,
+            reply: `Thanks ${args.name}! I've sent your details to Shoaib — he'll reach out to ${args.email} within 24 hours.`,
             leadCaptured: true,
           },
           { status: 200 }

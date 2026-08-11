@@ -66,7 +66,7 @@ const FAQ_SCHEMA = {
       "name": "How quickly does Devtimize respond to inquiries?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Devtimize responds to all project inquiries within 24 hours via email at devtimize@gmail.com or WhatsApp at+923104745649 (Shoaib) or +923026160466 (Hamza)."
+        "text": "Devtimize responds to all project inquiries within 24 hours via email at devtimize@gmail.com or WhatsApp at +923104745649."
       }
     },
     {

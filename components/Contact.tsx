@@ -239,8 +239,7 @@ export const Contact = () => {
                 <div>
                   <p className="text-xs font-mono text-text-muted uppercase tracking-widest mb-1">Call Us</p>
                   <div className="space-y-1">
-                    <a href="tel:+923104745649" className="block text-xl font-display font-bold text-text-primary hover:text-acid-cyan transition-colors">Shoaib: +923104745649</a>
-                    <a href="tel:+923026160466" className="block text-xl font-display font-bold text-text-primary hover:text-acid-cyan transition-colors">Hamza: +923026160466</a>
+                    <a href="tel:+923104745649" className="block text-xl font-display font-bold text-text-primary hover:text-acid-cyan transition-colors">+923104745649</a>
                   </div>
                 </div>
               </div>

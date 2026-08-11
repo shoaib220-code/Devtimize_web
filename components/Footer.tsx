@@ -64,12 +64,11 @@ export const Footer = () => {
 
         <div className="pt-10 border-t border-bg-stroke flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-xs font-mono text-text-muted">
-            © 2026 Shoaib & Hamza Tech Solutions. All rights reserved.
+            © 2026 Devtimize. All rights reserved.
           </div>
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs font-mono text-text-muted">
             <a href="mailto:devtimize@gmail.com" className="hover:text-acid-cyan transition-colors">devtimize@gmail.com</a>
-            <span>Shoaib:+923104745649</span>
-            <span>Hamza: +923026160466</span>
+            <span>+923104745649</span>
           </div>
         </div>
       </div>

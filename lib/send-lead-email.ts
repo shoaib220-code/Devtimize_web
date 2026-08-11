@@ -74,7 +74,7 @@ export async function sendLeadEmail(lead: LeadPayload): Promise<void> {
       <p>You can also reach us directly:</p>
       <ul>
         <li>Email: devtimize@gmail.com</li>
-        <li>WhatsApp: +923104745649 (Shoaib) or +923026160466 (Hamza)</li>
+        <li>WhatsApp: +923104745649</li>
       </ul>
       <p>Best regards,<br>Team Devtimize</p>
     `;

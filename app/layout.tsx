@@ -18,19 +18,12 @@ const ORGANIZATION_SCHEMA = {
   "foundingDate": "2024",
   "description":
     "Devtimize is a product engineering studio building web apps, mobile & desktop apps, AI automation, and an AI Receptionist product for local businesses.",
-  "founder": [
-    {
-      "@type": "Person",
-      "name": "Shoaib Liaqat",
-      "jobTitle": "Founder & CEO",
-      "sameAs": ["https://pk.linkedin.com/in/shoaib-liaqat-0755363a0"]
-    },
-    {
-      "@type": "Person",
-      "name": "Hamza Amin",
-      "jobTitle": "Co-founder"
-    }
-  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Shoaib Liaqat",
+    "jobTitle": "Founder & CEO",
+    "sameAs": ["https://pk.linkedin.com/in/shoaib-liaqat-0755363a0"]
+  },
   "sameAs": [
     "https://www.instagram.com/devtimize/",
     "https://www.facebook.com/p/Devtimize-61579934221770/"

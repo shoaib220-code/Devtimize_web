@@ -2,14 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { MessageSquare, X, Send, Bot, User, GripVertical } from 'lucide-react';
+import { MessageSquare, X, Send, GripVertical, Briefcase, DollarSign, Zap, Phone } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { trackCTAClick, trackChatbotLead } from '../utils/analytics';
 
 export const DevBot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<{ role: 'user' | 'bot'; content: string }[]>([
-    { role: 'bot', content: "Hey! I'm DevBot — ask me anything about Devtimize's work, stack, or pricing. Happy to help 🚀" }
+    { role: 'bot', content: "Hey! I'm DevBot — ask me anything about Devtimize's work, stack, or pricing. Happy to help." }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -131,7 +131,7 @@ export const DevBot = () => {
                   <div className="w-2 h-2 bg-jade rounded-full animate-pulse flex-shrink-0" />
                   <span className="font-display font-semibold text-text-primary text-sm sm:text-base truncate">DevBot</span>
                 </div>
-                <span className="text-xs sm:text-[11px] text-text-secondary uppercase tracking-wider block">Online · Gemini 2.0 Flash</span>
+                <span className="text-xs sm:text-[11px] text-text-secondary uppercase tracking-wider block">Online now</span>
               </div>
               <button 
                 onClick={() => setIsOpen(false)} 
@@ -180,13 +180,19 @@ export const DevBot = () => {
             {/* Input Area */}
             <div className="shrink-0 p-4 sm:p-5 border-t border-bg-stroke bg-bg-page/50 space-y-3">
               <div className="flex gap-2 overflow-x-auto no-scrollbar -mx-1 px-1">
-                {['💼 Projects', '💰 Pricing', '⚡ Tech Stack', '📞 Contact'].map(chip => (
+                {[
+                  { label: 'Projects', icon: Briefcase },
+                  { label: 'Pricing', icon: DollarSign },
+                  { label: 'Tech Stack', icon: Zap },
+                  { label: 'Contact', icon: Phone },
+                ].map(({ label, icon: Icon }) => (
                   <button
-                    key={chip}
-                    onClick={() => handleSend(chip)}
-                    className="shrink-0 px-3 py-1.5 rounded-full bg-bg-raised border border-bg-stroke text-acid-cyan text-xs hover:border-acid-cyan hover:bg-acid-cyan/5 transition-all whitespace-nowrap"
+                    key={label}
+                    onClick={() => handleSend(label)}
+                    className="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-bg-raised border border-bg-stroke text-acid-cyan text-xs hover:border-acid-cyan hover:bg-acid-cyan/5 transition-all whitespace-nowrap"
                   >
-                    {chip}
+                    <Icon size={12} />
+                    {label}
                   </button>
                 ))}
               </div>
@@ -223,7 +229,7 @@ export const DevBot = () => {
               exit={{ opacity: 0, y: 10, scale: 0.8 }}
               className="absolute bottom-20 sm:bottom-24 right-0 bg-bg-raised border border-acid-cyan/30 px-4 py-2 rounded-full text-xs text-acid-cyan whitespace-nowrap shadow-xl"
             >
-              Ask DevBot 👋
+              Ask DevBot
             </motion.div>
           )}
         </AnimatePresence>

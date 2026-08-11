@@ -241,7 +241,7 @@ export async function POST(req: Request) {
       { role: 'user', parts: [{ text: message }] }
     ];
 
-    const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent', {
+    const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -266,7 +266,7 @@ export async function POST(req: Request) {
       // Check if it's a quota exceeded error
       if (response.status === 429 && errorData?.error?.status === 'RESOURCE_EXHAUSTED') {
         console.log('Gemini API quota exceeded, providing fallback response');
-        const fallbackReply = "Hey! I'm currently experiencing high demand. For immediate assistance, please reach out to us directly:\n\n📧 devtimize@gmail.com\n📱 Shoaib: +923104745649\n📱 Hamza: +923026160466\n\nWe typically respond within 24 hours! 🚀";
+        const fallbackReply = "Hey! I'm currently experiencing high demand. For immediate assistance, please reach out to us directly:\n\nEmail: devtimize@gmail.com\nShoaib: +923104745649\nHamza: +923026160466\n\nWe typically respond within 24 hours.";
         return Response.json({ reply: fallbackReply }, { status: 200 });
       }
       
@@ -295,7 +295,7 @@ export async function POST(req: Request) {
 
         return Response.json(
           {
-            reply: `Thanks ${args.name}! I've sent your details to Shoaib & Hamza — they'll reach out to ${args.email} within 24 hours. 🚀`,
+            reply: `Thanks ${args.name}! I've sent your details to Shoaib & Hamza — they'll reach out to ${args.email} within 24 hours.`,
             leadCaptured: true,
           },
           { status: 200 }

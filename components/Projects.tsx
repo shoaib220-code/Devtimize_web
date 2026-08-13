@@ -13,7 +13,7 @@ const projects = [
     slug: 'trading-bot',
     name: 'Trading Bot (Backtest + Live)',
     category: 'AI & Bots',
-    image: '/images/projects/trading-bot.jfif',
+    image: '/images/projects/trading-bot.jpg',
     stack: 'Python · Backtrader · Pandas · Flask',
     features: [
       'Backtesting engine on historical data',
@@ -27,7 +27,7 @@ const projects = [
     slug: 'chatbot-rag',
     name: 'Chatbot & RAG Assistant',
     category: 'AI & Bots',
-    image: '/images/projects/rag-chatbot.jfif',
+    image: '/images/projects/rag-chatbot.jpg',
     stack: 'Python · LangChain · LLMs · Vector DB',
     features: [
       'Vector search for custom knowledge base',
@@ -41,7 +41,7 @@ const projects = [
     slug: 'restaurant-site',
     name: 'Restaurant Website',
     category: 'Web',
-    image: '/images/projects/resturent-website.jfif',
+    image: '/images/projects/resturent-website.jpg',
     stack: 'PHP · Laravel · MySQL · Tailwind',
     features: [
       'Menu management system',
@@ -55,7 +55,7 @@ const projects = [
     slug: 'ecommerce-platform',
     name: 'E-Commerce Platform',
     category: 'Web',
-    image: '/images/projects/ecom-website.jfif',
+    image: '/images/projects/ecom-website.jpg',
     stack: 'MERN · React · Node.js · MongoDB',
     features: [
       'Product catalog with advanced filters',
@@ -83,7 +83,7 @@ const projects = [
     slug: 'emotion-detector',
     name: 'Emotion Detector',
     category: 'Desktop/AI',
-    image: '/images/projects/emotion-detection.jfif',
+    image: '/images/projects/emotion-detection.jpg',
     stack: 'Tkinter · CNN · TensorFlow',
     features: [
       'Real-time face detection',
@@ -97,7 +97,7 @@ const projects = [
     slug: 'vendor-portal',
     name: 'Vendor Shipment Portal',
     category: 'Portals',
-    image: '/images/projects/vendor-shipment-3pl.jfif',
+    image: '/images/projects/vendor-shipment-3pl.jpg',
     stack: '.NET MVC · SQL Server · Azure',
     features: [
       'Shipment tracking & status updates',
@@ -111,7 +111,7 @@ const projects = [
     slug: 'inventory-billing',
     name: 'Inventory & Billing System',
     category: 'Desktop',
-    image: '/images/projects/inventory&billing.jfif',
+    image: '/images/projects/inventory-billing.jpg',
     stack: 'WPF · C# · SQLite',
     features: [
       'Inventory control & low stock alerts',

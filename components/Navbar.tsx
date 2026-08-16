@@ -59,6 +59,7 @@ export const Navbar = () => {
   ];
 
   return (
+    <>
     <nav className={`fixed top-0 left-0 w-full h-[72px] z-[500] transition-all duration-300 ${
       isScrolled ? 'glass-nav border-b-acid-cyan/10' : 'bg-transparent border-b-transparent'
     }`}>
@@ -143,6 +144,7 @@ export const Navbar = () => {
           {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
+    </nav>
 
       {/* Mobile Menu */}
       <AnimatePresence>
@@ -247,6 +249,6 @@ export const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </>
   );
 };

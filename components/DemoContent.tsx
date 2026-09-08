@@ -42,7 +42,7 @@ export const DemoContent = () => {
           <Link
             href="/contact"
             onClick={() => trackCTAClick('Book a Call', 'demo_page')}
-            className="inline-flex items-center gap-3 px-8 py-4 bg-acid-cyan text-bg-base font-bold rounded-xl hover:gap-5 transition-all"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-acid-cyan text-ink font-bold rounded-xl hover:gap-5 transition-all"
           >
             Book a Call
             <ArrowRight size={20} />

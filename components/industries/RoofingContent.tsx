@@ -61,7 +61,7 @@ export const RoofingContent = () => {
           <p className="text-xl text-text-secondary max-w-2xl leading-relaxed mb-10">
             Roofing is a high-ticket, high-competition market. We build roofing company websites that rank locally, load fast, and turn visitors into quote requests around the clock.
           </p>
-          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-acid-cyan text-bg-base font-bold rounded-xl hover:gap-5 transition-all">
+          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-acid-cyan text-ink font-bold rounded-xl hover:gap-5 transition-all">
             Get Your Free Growth Audit
           </a>
         </div>
@@ -107,7 +107,7 @@ export const RoofingContent = () => {
           <p className="text-white/80 mb-8">
             Stop watching jobs go to competitors with better websites. Let's build yours this week.
           </p>
-          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-bg-base font-bold rounded-xl hover:gap-5 transition-all">
+          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-ink font-bold rounded-xl hover:gap-5 transition-all">
             Book a Free Call
             <ArrowRight size={20} />
           </a>

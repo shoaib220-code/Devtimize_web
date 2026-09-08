@@ -38,7 +38,7 @@ export const ProjectsPageContent = () => {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
                   activeCategory === cat 
-                    ? 'bg-acid-cyan text-bg-base' 
+                    ? 'bg-acid-cyan text-ink' 
                     : 'bg-bg-raised border border-bg-stroke text-text-secondary hover:border-acid-cyan/40'
                 }`}
               >
@@ -69,7 +69,7 @@ export const ProjectsPageContent = () => {
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-bg-base/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <Link href={`/projects/${project.slug}`} className="px-6 py-3 bg-white text-bg-base font-bold rounded-xl flex items-center gap-2">
+                    <Link href={`/projects/${project.slug}`} className="px-6 py-3 bg-white text-ink font-bold rounded-xl flex items-center gap-2">
                       View Case Study <ArrowRight size={18} />
                     </Link>
                   </div>

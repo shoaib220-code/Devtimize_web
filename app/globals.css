@@ -22,6 +22,10 @@
   --color-text-primary: #eff6ff;
   --color-text-secondary: #64748b;
   --color-text-muted: #2d4065;
+
+  /* Fixed dark ink for text sitting on bright accent fills (buttons/pills) —
+     deliberately does NOT flip with theme, since accent fills stay bright in both. */
+  --color-ink: #080c14;
 }
 
 :root {
@@ -36,6 +40,79 @@
   --glow-violet: 0 0 32px rgba(124, 58, 237, 0.35);
   --glow-card: 0 4px 24px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 232, 255, 0.08);
   --glow-card-hover: 0 12px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 232, 255, 0.18), 0 0 32px rgba(0, 232, 255, 0.06);
+
+  --glass-nav-bg: rgba(8, 12, 20, 0.82);
+  --glass-nav-border: rgba(29, 45, 71, 0.6);
+}
+
+/* ---------------------------------------------------------------------
+   Light theme — same brand hues, re-tuned for a white canvas:
+   accents deepened for text contrast, elevation direction flipped
+   (page reads soft off-white, cards pop as pure white).
+   Explicit choice (data-theme) always wins over OS preference. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --color-bg-base: #e8ecf3;
+    --color-bg-page: #f7f9fc;
+    --color-bg-surface: #ffffff;
+    --color-bg-raised: #eef1f7;
+    --color-bg-stroke: #dbe1ec;
+
+    --color-acid-cyan: #0092ab;
+    --color-royal-violet: #7c3aed;
+    --color-ember: #d6440f;
+    --color-jade: #00916a;
+    --color-gold: #a3690a;
+
+    --color-text-primary: #0e1420;
+    --color-text-secondary: #4b5568;
+    --color-text-muted: #98a1b4;
+
+    --glass-nav-bg: rgba(255, 255, 255, 0.72);
+    --glass-nav-border: rgba(219, 225, 236, 0.9);
+  }
+}
+
+:root[data-theme="light"] {
+  --color-bg-base: #e8ecf3;
+  --color-bg-page: #f7f9fc;
+  --color-bg-surface: #ffffff;
+  --color-bg-raised: #eef1f7;
+  --color-bg-stroke: #dbe1ec;
+
+  --color-acid-cyan: #0092ab;
+  --color-royal-violet: #7c3aed;
+  --color-ember: #d6440f;
+  --color-jade: #00916a;
+  --color-gold: #a3690a;
+
+  --color-text-primary: #0e1420;
+  --color-text-secondary: #4b5568;
+  --color-text-muted: #98a1b4;
+
+  --glass-nav-bg: rgba(255, 255, 255, 0.72);
+  --glass-nav-border: rgba(219, 225, 236, 0.9);
+}
+
+:root[data-theme="dark"] {
+  --color-bg-base: #080c14;
+  --color-bg-page: #0c1220;
+  --color-bg-surface: #101828;
+  --color-bg-raised: #162035;
+  --color-bg-stroke: #1d2d47;
+
+  --color-acid-cyan: #00e8ff;
+  --color-royal-violet: #7c3aed;
+  --color-ember: #ff4d1c;
+  --color-jade: #00d68f;
+  --color-gold: #f5a623;
+
+  --color-text-primary: #eff6ff;
+  --color-text-secondary: #64748b;
+  --color-text-muted: #2d4065;
+
+  --glass-nav-bg: rgba(8, 12, 20, 0.82);
+  --glass-nav-border: rgba(29, 45, 71, 0.6);
 }
 
 body {
@@ -43,6 +120,23 @@ body {
   color: var(--color-text-primary);
   font-family: var(--font-body);
   overflow-x: hidden;
+}
+
+/* Smooth theme switch: only color-related properties, never transform/opacity,
+   so this never fights Framer Motion's own animations elsewhere on the page. */
+*,
+*::before,
+*::after {
+  transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease,
+    fill 0.35s ease, stroke 0.35s ease, box-shadow 0.35s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none;
+  }
 }
 
 .clash-display {
@@ -68,9 +162,9 @@ body {
 }
 
 .glass-nav {
-  background: rgba(8, 12, 20, 0.82);
+  background: var(--glass-nav-bg);
   backdrop-filter: blur(24px) saturate(1.4);
-  border-bottom: 1px solid rgba(29, 45, 71, 0.6);
+  border-bottom: 1px solid var(--glass-nav-border);
 }
 
 .reveal {

@@ -61,7 +61,7 @@ export const PlumberContent = () => {
           <p className="text-xl text-text-secondary max-w-2xl leading-relaxed mb-10">
             When a pipe bursts at midnight, homeowners call whoever shows up first on Google. We make sure that's you. Fast websites, emergency SEO, and 24/7 lead capture.
           </p>
-          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-acid-cyan text-bg-base font-bold rounded-xl hover:gap-5 transition-all">
+          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-acid-cyan text-ink font-bold rounded-xl hover:gap-5 transition-all">
             Get Your Free Growth Audit
           </a>
         </div>
@@ -107,7 +107,7 @@ export const PlumberContent = () => {
           <p className="text-white/80 mb-8">
             Every missed emergency call is $200 to $2,000 walking away. Let's fix your online presence today.
           </p>
-          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-bg-base font-bold rounded-xl hover:gap-5 transition-all">
+          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-ink font-bold rounded-xl hover:gap-5 transition-all">
             Book a Free Call
             <ArrowRight size={20} />
           </a>

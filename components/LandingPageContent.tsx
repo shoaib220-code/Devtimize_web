@@ -26,7 +26,7 @@ export const LandingPageContent = ({ data }: { data: LandingPageData }) => {
           <Link
             href="/contact"
             onClick={() => trackCTAClick(data.ctaLabel, `landing_${data.slug}`)}
-            className="inline-flex items-center gap-3 px-8 py-4 bg-acid-cyan text-bg-base font-bold rounded-xl hover:gap-5 transition-all"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-acid-cyan text-ink font-bold rounded-xl hover:gap-5 transition-all"
           >
             {data.ctaLabel}
           </Link>
@@ -138,7 +138,7 @@ export const LandingPageContent = ({ data }: { data: LandingPageData }) => {
             </div>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-acid-cyan text-bg-base font-bold rounded-xl hover:gap-4 transition-all"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-acid-cyan text-ink font-bold rounded-xl hover:gap-4 transition-all"
               onClick={() => trackCTAClick(data.ctaLabel, `landing_${data.slug}_pricing`)}
             >
               {data.ctaLabel}
@@ -211,7 +211,7 @@ export const LandingPageContent = ({ data }: { data: LandingPageData }) => {
           <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Stop Losing Business to This?
           </h2>
-          <Link href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-bg-base font-bold rounded-xl hover:gap-5 transition-all">
+          <Link href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-ink font-bold rounded-xl hover:gap-5 transition-all">
             {data.ctaLabel}
             <ArrowRight size={20} />
           </Link>

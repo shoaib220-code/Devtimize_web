@@ -76,7 +76,7 @@ export const AiReceptionistContent = () => {
           <p className="text-xl text-text-secondary max-w-2xl leading-relaxed mb-10">
             Your competitors are open 24/7 — not because they never sleep, but because they have an AI receptionist. We build AI that answers calls, books appointments, and qualifies leads while you focus on the work.
           </p>
-          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-acid-cyan text-bg-base font-bold rounded-xl hover:gap-5 transition-all">
+          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-acid-cyan text-ink font-bold rounded-xl hover:gap-5 transition-all">
             Book a Free Demo
           </a>
         </div>
@@ -230,7 +230,7 @@ export const AiReceptionistContent = () => {
             </div>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-acid-cyan text-bg-base font-bold rounded-xl hover:gap-4 transition-all"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-acid-cyan text-ink font-bold rounded-xl hover:gap-4 transition-all"
               onClick={() => trackCTAClick('Book a Call for Quote', 'ai_receptionist_page')}
             >
               Book a Call for Your Exact Quote
@@ -282,7 +282,7 @@ export const AiReceptionistContent = () => {
           <p className="text-white/80 mb-8 max-w-2xl mx-auto">
             Setup takes 48 hours. The first missed call it catches pays for months of service.
           </p>
-          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-bg-base font-bold rounded-xl hover:gap-5 transition-all">
+          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-ink font-bold rounded-xl hover:gap-5 transition-all">
             Book Your Free Demo
             <ArrowRight size={20} />
           </a>

@@ -105,7 +105,7 @@ export const MissedCallCalculator = () => {
         <a
           href="#pricing"
           onClick={() => trackCTAClick('Calculator Stop Losing Revenue', 'missed_call_calculator')}
-          className="inline-flex items-center gap-3 px-8 py-4 bg-acid-cyan text-bg-base font-bold rounded-xl hover:gap-5 transition-all"
+          className="inline-flex items-center gap-3 px-8 py-4 bg-acid-cyan text-ink font-bold rounded-xl hover:gap-5 transition-all"
         >
           Stop Losing This Revenue <ArrowRight size={20} />
         </a>

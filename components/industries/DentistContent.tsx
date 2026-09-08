@@ -61,7 +61,7 @@ export const DentistContent = () => {
           <p className="text-xl text-text-secondary max-w-2xl leading-relaxed mb-10">
             A new dental patient is worth over $1,000 in lifetime value. We build dental websites that make booking effortless, build trust instantly, and dominate local search.
           </p>
-          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-acid-cyan text-bg-base font-bold rounded-xl hover:gap-5 transition-all">
+          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-acid-cyan text-ink font-bold rounded-xl hover:gap-5 transition-all">
             Get Your Free Growth Audit
           </a>
         </div>
@@ -107,7 +107,7 @@ export const DentistContent = () => {
           <p className="text-white/80 mb-8">
             Every day without a converting dental website is a day you're losing high-value patients to competitors.
           </p>
-          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-bg-base font-bold rounded-xl hover:gap-5 transition-all">
+          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-ink font-bold rounded-xl hover:gap-5 transition-all">
             Book a Free Call
             <ArrowRight size={20} />
           </a>

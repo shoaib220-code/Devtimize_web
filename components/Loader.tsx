@@ -30,7 +30,7 @@ export const Loader = () => {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.04, filter: 'blur(6px)' }}
           transition={{ duration: 0.4 }}
-          className="fixed inset-0 z-[99999] bg-[#080C14] flex items-center justify-center overflow-hidden"
+          className="fixed inset-0 z-[99999] bg-bg-base flex items-center justify-center overflow-hidden"
         >
           <div className="flex flex-col items-center">
             <div className="flex gap-1 md:gap-2">
@@ -47,12 +47,12 @@ export const Loader = () => {
               ))}
             </div>
 
-            <div className="w-40 md:w-60 h-[1.5px] bg-white/5 mt-8 rounded-full overflow-hidden">
+            <div className="w-40 md:w-60 h-[1.5px] bg-bg-stroke mt-8 rounded-full overflow-hidden">
               <motion.div
                 initial={{ width: '0%' }}
                 animate={{ width: '100%' }}
                 transition={{ delay: 0.4, duration: 1.6, ease: [0.4, 0, 0.2, 1] }}
-                className="h-full bg-acid-cyan shadow-[0_0_12px_#00E8FF,0_0_32px_rgba(0,232,255,0.4)]"
+                className="h-full bg-acid-cyan shadow-[0_0_12px_var(--color-acid-cyan)]"
               />
             </div>
 

@@ -61,7 +61,7 @@ export const LawyerContent = () => {
           <p className="text-xl text-text-secondary max-w-2xl leading-relaxed mb-10">
             Personal injury lawyers spend $1,000+ per lead on ads. We build law firm websites that generate leads organically — authority design, local SEO, and consultation booking that converts.
           </p>
-          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-acid-cyan text-bg-base font-bold rounded-xl hover:gap-5 transition-all">
+          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-acid-cyan text-ink font-bold rounded-xl hover:gap-5 transition-all">
             Get Your Free Growth Audit
           </a>
         </div>
@@ -107,7 +107,7 @@ export const LawyerContent = () => {
           <p className="text-white/80 mb-8">
             A converting law firm website pays for itself with a single case. Let's build yours.
           </p>
-          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-bg-base font-bold rounded-xl hover:gap-5 transition-all">
+          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-ink font-bold rounded-xl hover:gap-5 transition-all">
             Book a Free Call
             <ArrowRight size={20} />
           </a>

@@ -123,7 +123,7 @@ export const ServiceDetailContent = ({ slug }: ServiceDetailContentProps) => {
           <div className="relative z-10">
             <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-6">Ready to start your {service.title} project?</h2>
             <p className="text-white/80 text-lg mb-10 max-w-2xl mx-auto">Let's discuss your requirements and build something extraordinary together.</p>
-            <Link href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-bg-base font-bold rounded-xl hover:gap-5 transition-all">
+            <Link href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-ink font-bold rounded-xl hover:gap-5 transition-all">
               Get a Free Quote <ArrowRight size={20} />
             </Link>
           </div>

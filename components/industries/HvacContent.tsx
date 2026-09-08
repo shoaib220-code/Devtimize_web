@@ -62,7 +62,7 @@ export const HvacContent = () => {
           <p className="text-xl text-text-secondary max-w-2xl leading-relaxed mb-10">
             Every day your HVAC website sits outdated, a competitor is booking the job that should be yours. We build fast, mobile-first HVAC websites with AI chat and booking that work while you sleep.
           </p>
-          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-acid-cyan text-bg-base font-bold rounded-xl hover:gap-5 transition-all">
+          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-acid-cyan text-ink font-bold rounded-xl hover:gap-5 transition-all">
             Get Your Free Growth Audit
           </a>
         </div>
@@ -108,7 +108,7 @@ export const HvacContent = () => {
           <p className="text-white/80 mb-8">
             Every week without a proper website is revenue walking to your competitor. Let's fix that.
           </p>
-          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-bg-base font-bold rounded-xl hover:gap-5 transition-all">
+          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-ink font-bold rounded-xl hover:gap-5 transition-all">
             Book a Free Call
             <ArrowRight size={20} />
           </a>

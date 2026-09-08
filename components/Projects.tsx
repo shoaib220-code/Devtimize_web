@@ -162,7 +162,7 @@ export const Projects = () => {
               }}
               className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
                 activeCategory === cat 
-                  ? 'bg-acid-cyan text-bg-base' 
+                  ? 'bg-acid-cyan text-ink' 
                   : 'bg-bg-raised border border-bg-stroke text-text-secondary hover:border-acid-cyan/40'
               }`}
             >

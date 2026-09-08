@@ -61,7 +61,7 @@ export const RestaurantContent = () => {
           <p className="text-xl text-text-secondary max-w-2xl leading-relaxed mb-10">
             We've built websites for restaurant owners that went from zero online presence to consistent reservations. Your menu, your story, your booking — built to convert.
           </p>
-          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-acid-cyan text-bg-base font-bold rounded-xl hover:gap-5 transition-all">
+          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-acid-cyan text-ink font-bold rounded-xl hover:gap-5 transition-all">
             Get Your Free Growth Audit
           </a>
         </div>
@@ -107,7 +107,7 @@ export const RestaurantContent = () => {
           <p className="text-white/80 mb-8">
             We built restaurant websites that started generating online reservations within weeks. Yours could be next.
           </p>
-          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-bg-base font-bold rounded-xl hover:gap-5 transition-all">
+          <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-ink font-bold rounded-xl hover:gap-5 transition-all">
             Book a Free Call
             <ArrowRight size={20} />
           </a>

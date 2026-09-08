@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { ThemeToggle } from './ThemeToggle';
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -127,7 +128,8 @@ export const Navbar = () => {
           </Link>
         </div>
 
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-5">
+          <ThemeToggle />
           <Link
             href="/contact"
             className="px-6 py-2.5 bg-ember text-white text-sm font-semibold rounded-full hover:opacity-90 transition-opacity flex items-center gap-2"
@@ -136,13 +138,16 @@ export const Navbar = () => {
           </Link>
         </div>
 
-        {/* Mobile Toggle */}
-        <button
-          className="md:hidden text-text-primary"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+        {/* Mobile Controls */}
+        <div className="md:hidden flex items-center gap-4">
+          <ThemeToggle />
+          <button
+            className="text-text-primary"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
       </div>
     </nav>
 

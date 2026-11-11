@@ -4,6 +4,9 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { Mail, Phone, Instagram, Facebook, Send, Calendar, ArrowRight } from 'lucide-react';
 import { trackFormSubmit, trackWhatsAppClick } from '../utils/analytics';
+import { TurnstileWidget } from './TurnstileWidget';
+
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
 export const Contact = () => {
   const [name, setName] = useState('');
@@ -14,6 +17,9 @@ export const Contact = () => {
   const [selectedPackage, setSelectedPackage] = useState('');
   const [statusMessage, setStatusMessage] = useState('');
   const [isSending, setIsSending] = useState(false);
+  const [honeypot, setHoneypot] = useState('');
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [captchaKey, setCaptchaKey] = useState(0);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -40,6 +46,11 @@ export const Contact = () => {
       return;
     }
 
+    if (TURNSTILE_SITE_KEY && !captchaToken) {
+      setStatusMessage('Please complete the verification check before sending.');
+      return;
+    }
+
     setIsSending(true);
     setStatusMessage('Sending your quote request...');
 
@@ -51,6 +62,8 @@ export const Contact = () => {
         projectType,
         selectedPackage,
         description: description.trim(),
+        website: honeypot,
+        turnstileToken: captchaToken,
       };
 
       console.log('📤 Sending contact form with payload:', payload);
@@ -101,6 +114,9 @@ export const Contact = () => {
       }
     } finally {
       setIsSending(false);
+      // Turnstile tokens are single-use: always fetch a fresh one after an attempt.
+      setCaptchaToken(null);
+      setCaptchaKey((k) => k + 1);
     }
   };
 
@@ -201,6 +217,28 @@ export const Contact = () => {
                   required
                 />
               </div>
+
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+                className="absolute left-[-9999px] h-0 w-0 opacity-0"
+              />
+
+              {TURNSTILE_SITE_KEY && (
+                <TurnstileWidget
+                  key={captchaKey}
+                  siteKey={TURNSTILE_SITE_KEY}
+                  onToken={setCaptchaToken}
+                  onLoadError={() =>
+                    setStatusMessage('Could not load the verification check. Please refresh the page and try again.')
+                  }
+                />
+              )}
 
               <button
                 type="submit"

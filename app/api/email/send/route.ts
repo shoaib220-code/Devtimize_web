@@ -1,4 +1,5 @@
 import { sendLeadEmail } from '@/lib/send-lead-email';
+import { isTurnstileConfigured, verifyTurnstile } from '@/lib/turnstile';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -11,7 +12,12 @@ export async function POST(req: Request) {
       return Response.json({ error: 'Invalid JSON in request body' }, { status: 400 });
     }
 
-    const { name, email, phone, projectType, selectedPackage, description } = body;
+    const { name, email, phone, projectType, selectedPackage, description, website, turnstileToken } = body;
+
+    // Honeypot: real users never see or fill this field. Pretend success so bots don't adapt.
+    if (typeof website === 'string' && website.trim()) {
+      return Response.json({ message: 'Quote request sent successfully' }, { status: 200 });
+    }
 
     if (!name?.trim()) {
       return Response.json({ error: 'Name is required' }, { status: 400 });
@@ -23,6 +29,17 @@ export async function POST(req: Request) {
 
     if (!description?.trim()) {
       return Response.json({ error: 'Project description is required' }, { status: 400 });
+    }
+
+    if (isTurnstileConfigured()) {
+      const token = typeof turnstileToken === 'string' ? turnstileToken : '';
+      const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim();
+      if (!token || !(await verifyTurnstile(token, ip))) {
+        return Response.json(
+          { error: 'Verification failed. Please complete the check again and resubmit.' },
+          { status: 400 }
+        );
+      }
     }
 
     try {

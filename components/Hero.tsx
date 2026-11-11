@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Rocket } from 'lucide-react';
 import { trackCTAClick } from '../utils/analytics';
+import { projectCount, clientCount } from '../lib/projects-data';
 
 export const Hero = () => {
   return (
@@ -57,10 +58,10 @@ export const Hero = () => {
           <div className="mt-12 flex flex-wrap justify-center lg:justify-start items-center gap-x-8 gap-y-4 text-[13px] font-mono text-text-muted">
             <div className="flex items-center gap-2">
               <span className="text-gold">⭐⭐⭐⭐⭐</span>
-              <span>4 Verified Clients</span>
+              <span>{clientCount} Verified Clients</span>
             </div>
             <div className="w-1 h-1 bg-text-muted rounded-full" />
-            <span>8 Projects Shipped</span>
+            <span>{projectCount} Projects Shipped</span>
             <div className="w-1 h-1 bg-text-muted rounded-full" />
             <span>24h Response</span>
           </div>

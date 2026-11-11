@@ -604,3 +604,9 @@ export const projects: Project[] = [
     client: 'Aneel Dental Clinic'
   }
 ];
+
+// Derived from the data above so site-wide counters never go stale.
+export const projectCount = projects.length;
+export const clientCount = new Set(
+  projects.map((p) => (p.client ?? p.name).trim().toLowerCase())
+).size;

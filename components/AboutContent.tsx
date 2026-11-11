@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react';
 import Image from 'next/image';
+import { projectCount } from '../lib/projects-data';
 import { Linkedin, Mail, Award, Rocket, Users } from 'lucide-react';
 
 export const AboutContent = () => {
@@ -31,7 +32,7 @@ export const AboutContent = () => {
                 <p className="text-sm text-text-muted uppercase tracking-widest">Established</p>
               </div>
               <div>
-                <h3 className="font-display text-4xl font-bold text-acid-cyan mb-2">8+</h3>
+                <h3 className="font-display text-4xl font-bold text-acid-cyan mb-2">{projectCount}+</h3>
                 <p className="text-sm text-text-muted uppercase tracking-widest">Projects Shipped</p>
               </div>
             </div>

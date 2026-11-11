@@ -2,11 +2,12 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
+import { projectCount, clientCount } from '../lib/projects-data';
 
 export const Stats = () => {
   const stats = [
-    { value: '8+', label: 'Projects Shipped' },
-    { value: '4+', label: 'Verified Clients' },
+    { value: `${projectCount}+`, label: 'Projects Shipped' },
+    { value: `${clientCount}+`, label: 'Verified Clients' },
     { value: '2', label: 'CS Graduates' },
     { value: '24h', label: 'Response Time' }
   ];

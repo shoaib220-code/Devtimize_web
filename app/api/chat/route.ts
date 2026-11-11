@@ -226,6 +226,40 @@ function buildSessionContext(lang: unknown, mode: unknown): string {
   return ctx;
 }
 
+export const maxDuration = 30;
+
+const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent';
+const RETRYABLE_STATUSES = new Set([500, 502, 503, 504]);
+
+// Google's API returns occasional temporary 5xx errors ("model overloaded"); one quick retry hides most of them.
+async function callGemini(
+  apiKey: string,
+  body: unknown
+): Promise<{ ok: true; data: any } | { ok: false; status: number }> {
+  let status = 0;
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    if (attempt > 1) await new Promise((r) => setTimeout(r, 600));
+    try {
+      const res = await fetch(GEMINI_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
+        body: JSON.stringify(body),
+        signal: AbortSignal.timeout(12000),
+      });
+      if (res.ok) return { ok: true, data: await res.json() };
+
+      status = res.status;
+      const errorData = await res.json().catch(() => ({}));
+      console.error(`Gemini API error (attempt ${attempt}):`, status, JSON.stringify(errorData).slice(0, 500));
+      if (!RETRYABLE_STATUSES.has(status)) break;
+    } catch (err) {
+      status = 0;
+      console.error(`Gemini request failed (attempt ${attempt}):`, err);
+    }
+  }
+  return { ok: false, status };
+}
+
 // Track API calls per IP (simple in-memory rate limiting)
 const requestCounts = new Map<string, { count: number; reset: number }>();
 
@@ -309,40 +343,34 @@ export async function POST(req: Request) {
       { role: 'user', parts: [{ text: message }] }
     ];
 
-    const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-goog-api-key': apiKey
-      },
-      body: JSON.stringify({
-        contents: contents,
-        tools: [BOT_TOOLS],
-        generationConfig: {
-          temperature: 0.7,
-          maxOutputTokens: 500
-        }
-      })
+    const result = await callGemini(apiKey, {
+      contents: contents,
+      tools: [BOT_TOOLS],
+      generationConfig: {
+        temperature: 0.7,
+        // The model spends part of this budget on hidden "thinking", so a low cap
+        // cuts answers off mid-sentence (worst for Urdu/Arabic, which use more tokens).
+        maxOutputTokens: 2048
+      }
     });
 
-    console.log('Gemini API Response Status:', response.status);
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      console.error('Gemini API Error:', errorData);
-      
-      // Check if it's a quota exceeded error
-      if (response.status === 429 && errorData?.error?.status === 'RESOURCE_EXHAUSTED') {
-        console.log('Gemini API quota exceeded, providing fallback response');
-        const fallbackReply = "Hey! I'm currently experiencing high demand. For immediate assistance, please reach out to us directly:\n\nEmail: devtimize@gmail.com\nShoaib: +923104745649\n\nWe typically respond within 24 hours.";
-        return Response.json({ reply: fallbackReply }, { status: 200 });
-      }
-      
-      throw new Error(`Gemini API error: ${response.status} - ${JSON.stringify(errorData)}`);
+    if (!result.ok) {
+      const isQuota = result.status === 429;
+      console.error('Gemini unavailable, sending fallback reply:', result.status);
+      return Response.json(
+        {
+          reply: isQuota
+            ? "Hey! I'm currently experiencing high demand. For immediate assistance, please reach out to us directly:\n\nEmail: devtimize@gmail.com\nShoaib: +923104745649\n\nWe typically respond within 24 hours."
+            : "I'm having a little trouble answering right now. Please try again in a moment, or reach the team directly at devtimize@gmail.com or WhatsApp +923104745649."
+        },
+        { status: 200 }
+      );
     }
 
-    const data = await response.json();
-    console.log('Gemini response received');
+    const data = result.data;
+    if (data?.candidates?.[0]?.finishReason === 'MAX_TOKENS') {
+      console.warn('Gemini reply hit the token limit (answer may be cut short)');
+    }
 
     const parts = data?.candidates?.[0]?.content?.parts || [];
     const functionCallPart = parts.find(

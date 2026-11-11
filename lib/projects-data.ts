@@ -406,5 +406,201 @@ export const projects: Project[] = [
     outcome: 'Gave the brand a "Royal Taste, Majestic Experience" digital storefront that matches its premium positioning.',
     client: 'Pizza Mahal',
     livePreview: 'https://pizza-mahal.vercel.app/'
+  },
+  {
+    id: '21',
+    slug: 'adil-art-studio',
+    name: 'Aadil Bhai Fine Art Studio',
+    category: 'Web',
+    image: '/images/projects/adil-art-studio.jpg',
+    stack: ['React', 'TypeScript', 'Tailwind CSS', 'Express', 'Gemini AI'],
+    desc: 'A fine-art storefront and academy site with certificate verification and an AI art advisor.',
+    longDesc: 'A website for a hand-painted fine art studio and academy, built to sell original paintings and custom commissions with trust at the centre: every piece ships with a serialized Certificate of Authenticity that visitors can verify online, and an AI Art Advisor answers questions about pricing and proof of process.',
+    features: [
+      'Ready Masterpieces Gallery & Custom Commission Flow',
+      'Online Certificate of Authenticity Verification',
+      'AI Art Advisor Chat Assistant',
+      'Multi-Currency Pricing (PKR, USD, AED, GBP)',
+      'Art Academy Classes & Direct WhatsApp Ordering'
+    ],
+    outcome: 'Gave the studio a credible, collector-ready online presence where authenticity, pricing and commissions are all handled in one place.',
+    client: 'Aadil Bhai Fine Art Studio',
+    livePreview: 'https://adil-art-studio.vercel.app/'
+  },
+  {
+    id: '22',
+    slug: 'apna-laptop',
+    name: 'Apna Laptop Store',
+    category: 'Web',
+    image: '/images/projects/apna-laptop.jpg',
+    stack: ['React', 'TypeScript', 'Tailwind CSS', 'Firebase', 'Gemini AI'],
+    desc: 'A verified laptop store with order tracking, loyalty points and an admin panel.',
+    longDesc: 'A full online store for a laptop dealer in Nankana Sahib: a curated hub of fixed-price, checked stock with cart and checkout, order tracking, discount codes and loyalty points, plus buyer tools like a price calculator, laptop finder quiz and upgrade advisor. A Firebase-backed admin panel runs inventory, orders and customers.',
+    features: [
+      'Fixed-Price Verified Laptop Hub with Cart & Checkout',
+      'Order Tracking, Discount Codes & Loyalty Points',
+      'Price Calculator, Laptop Finder & Upgrade Advisor',
+      'AI Order Assistant (Roman Urdu Supported)',
+      'Firebase Admin Panel for Stock, Orders & Customers'
+    ],
+    outcome: 'Moved a local laptop business from chat-and-phone sales to a trackable online store the owner can manage without a developer.',
+    client: 'Apna Laptop',
+    livePreview: 'https://apna-laptop-site.vercel.app/'
+  },
+  {
+    id: '23',
+    slug: 'defence-cooling-centre',
+    name: 'Defence Cooling Centre',
+    category: 'Web',
+    image: '/images/projects/defence-cooling-centre.jpg',
+    stack: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Gemini AI'],
+    desc: 'A lead-capture site for an AC repair and used-appliance trade business in Faisalabad.',
+    longDesc: 'A bilingual (English and Urdu) website for an HVAC repair and used appliance buy-and-sell business, built around two goals: booking doorstep AC repairs and collecting photos for instant buy-back valuations. An AI price and service assistant handles first-contact questions and falls back to local answers when offline.',
+    features: [
+      'Doorstep AC Repair & Service Booking',
+      'Sell-Your-Old-Appliance Valuation Flow',
+      'Used AC Buy & Sell Listings',
+      'AI Price & Service Bot (Urdu / English)',
+      'One-Tap WhatsApp & Call Hotline'
+    ],
+    outcome: 'Turned a word-of-mouth repair shop into a lead-generating site that serves both repair customers and appliance sellers.',
+    client: 'Defence Cooling Centre',
+    livePreview: 'https://defence-colling-system.vercel.app/'
+  },
+  {
+    id: '24',
+    slug: 'fatima-cooling-repairing',
+    name: 'Fatima Cooling & Repairing',
+    category: 'Web',
+    image: '/images/projects/fatima-cooling-repairing.jpg',
+    stack: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Express'],
+    desc: 'A doorstep AC repair and servicing site for Lahore with AI-guided booking.',
+    longDesc: 'A conversion-focused website for a Lahore AC service company covering inverter and non-inverter repair, servicing, installation and gas charging. Visitors can book on WhatsApp, call directly, or use an AI booking assistant that works in Urdu and English.',
+    features: [
+      'Inverter vs Conventional AC Service Pages',
+      'Quick Service Booking (Repair, Service, Gas Refill)',
+      'AI AC Booking Assistant (Urdu / English)',
+      'Lahore Service Areas & Technician Booking',
+      'Click-to-Call and WhatsApp Booking'
+    ],
+    outcome: 'Gave the business a clear, mobile-first booking funnel for doorstep service across Lahore.',
+    client: 'Fatima Cooling & Repairing Center',
+    livePreview: 'https://fatima-cooling-repairing.vercel.app/'
+  },
+  {
+    id: '25',
+    slug: 'parker-electrical-solutions',
+    name: 'Parker Electrical Solutions',
+    category: 'Web',
+    image: '/images/projects/parker-electrical-solutions.jpg',
+    stack: ['React', 'TypeScript', 'Tailwind CSS', 'Express', 'Gemini AI', 'SendGrid'],
+    desc: 'A local-SEO electrician website for Essex with quote emails and an AI chat assistant.',
+    longDesc: 'A website for an NICEIC-approved electrical contractor serving Essex and Greater London, structured for local search with service and area pages, a project gallery, and a 24/7 emergency call banner. Quote requests are sent straight to the owner by email, and an AI chat assistant handles common questions.',
+    features: [
+      'Service & Area Pages Built for Local SEO',
+      'Quote Request Form with Email Delivery',
+      'AI Chat Assistant',
+      '24/7 Emergency Call-Out Banner',
+      'Project Gallery & Trust Badges'
+    ],
+    outcome: 'Delivered a professional, search-ready presence that routes emergency calls and quote requests directly to the contractor.',
+    client: 'Parker Electrical Solutions Ltd',
+    livePreview: 'https://joe-parker-website.vercel.app/'
+  },
+  {
+    id: '26',
+    slug: 'mbc-friseur-berlin',
+    name: 'MBC Friseur Berlin',
+    category: 'Web',
+    image: '/images/projects/mbc-friseur-berlin.jpg',
+    stack: ['React', 'TypeScript', 'Vite', 'Gemini AI'],
+    desc: 'An editorial luxury barber site for Berlin-Charlottenburg with booking and an AI style consultant.',
+    longDesc: 'A German-language brand site for a master barber in Berlin-Charlottenburg, designed with an editorial serif look, a heritage story section, a team showcase and an integrated booking flow. An AI style consultant helps visitors choose a cut before they book.',
+    features: [
+      'Editorial Luxury Design with Heritage Storytelling',
+      'Integrated Appointment Booking Flow',
+      'AI Style Consultant',
+      'Services & Portfolio Showcase',
+      'German-Language Content'
+    ],
+    outcome: 'Positioned the salon as a premium Berlin destination with a booking path built into the brand experience.',
+    client: 'MBC Friseur',
+    livePreview: 'https://mbc-salon-web.vercel.app/'
+  },
+  {
+    id: '27',
+    slug: 'maha-fragrances',
+    name: 'Maha Fragrances',
+    category: 'Web',
+    image: '/images/projects/maha-fragrances.jpg',
+    stack: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    desc: 'A luxury perfume storefront with a scent finder, journal and bilingual content.',
+    longDesc: 'A dark, editorial storefront for a Pakistani perfume brand, with a four-fragrance catalogue, a guided scent finder, fragrance families and notes library, and a journal in English and Urdu. Pricing, delivery estimates and brand details are managed from simple config files.',
+    features: [
+      'Guided Scent Finder & Fragrance Families',
+      'Notes Library & Journal (English / Urdu)',
+      'Cart with Cash on Delivery Across Pakistan',
+      'Free Delivery Threshold Messaging',
+      'Easy-to-Edit Catalogue & Brand Config'
+    ],
+    outcome: 'Gave the brand a premium, story-led storefront that matches the feel of its product.',
+    client: 'Maha Fragrances'
+  },
+  {
+    id: '28',
+    slug: 'stay-strong-gym',
+    name: 'Stay Strong Gym',
+    category: 'Web',
+    image: '/images/projects/stay-strong-gym.jpg',
+    stack: ['HTML5', 'CSS3', 'JavaScript'],
+    desc: 'A high-energy marketing site for a fitness club with trainers, reviews and free-session booking.',
+    longDesc: 'A fast, lightweight single-page website for a Pakistani gym, built to turn visitors into free-session bookings. It covers the club, services, trainers, member reviews and contact details behind a bold hero.',
+    features: [
+      'Free Session Booking Call-to-Action',
+      'Services & Trainers Sections',
+      'Member Reviews',
+      'Contact & Location Details',
+      'Lightweight Static Build'
+    ],
+    outcome: 'A quick-loading, conversion-focused landing site that gives the gym a clear path from visitor to free trial.',
+    client: 'Stay Strong Gym'
+  },
+  {
+    id: '29',
+    slug: 'rising-star-of-islam',
+    name: 'The Rising Star of Islam',
+    category: 'Web',
+    image: '/images/projects/rising-star-of-islam.jpg',
+    stack: ['HTML5', 'CSS3', 'JavaScript'],
+    desc: 'An admissions-focused website for an Islamic school with programs and enquiry flow.',
+    longDesc: 'A polished website for an Islamic education institute that presents its mission, programs and admission process, with an animated preloader and clear Apply Now and Contact calls to action for prospective parents.',
+    features: [
+      'Programs & Admission Information',
+      'Apply Now and Contact Calls to Action',
+      'Animated Preloader',
+      'Mission, Values & Facilities Section',
+      'Responsive Layout'
+    ],
+    outcome: 'Gave the institute a credible online front door that explains its programs and makes enquiries easy.',
+    client: 'The Rising Star of Islam'
+  },
+  {
+    id: '30',
+    slug: 'aneel-dental-clinic',
+    name: 'Aneel Dental Clinic Manager',
+    category: 'Desktop',
+    image: '/images/projects/aneel-dental-clinic.jpg',
+    stack: ['Python', 'Flask', 'SQLite', 'pywebview', 'ReportLab'],
+    desc: 'An offline Windows app for patient records, appointments, payments and backups.',
+    longDesc: 'A desktop clinic-management app packaged as a Windows executable. It keeps patient records, medical history, visits, appointments and payments in a local SQLite database, so the clinic can run without internet, with printable reports, Excel export and one-click backup and restore.',
+    features: [
+      'Patient Records & Medical History',
+      'Appointment Scheduling with Reminders',
+      'Visit Charges & Payment Tracking',
+      'PDF Printouts & Excel Export',
+      'One-Click Database Backup & Restore'
+    ],
+    outcome: 'Replaced paper registers with a single offline app the clinic staff can run on their own computer.',
+    client: 'Aneel Dental Clinic'
   }
 ];

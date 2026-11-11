@@ -1,10 +1,15 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { MessageSquare, X, Send, GripVertical, Briefcase, DollarSign, Zap, Phone } from 'lucide-react';
+import { MessageSquare, X, Send, GripVertical, Briefcase, DollarSign, Zap, Phone, Mic, AudioLines } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { trackCTAClick, trackChatbotLead } from '../utils/analytics';
+import { useVoiceChat } from '@/lib/use-voice-chat';
+import { defaultVoiceLanguage, VOICE_LANGUAGES } from '@/lib/voice';
+import { VoicePanel } from './VoicePanel';
+
+const LANG_STORAGE_KEY = 'dtz-voice-lang';
 
 export const DevBot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,6 +23,19 @@ export const DevBot = () => {
   const [customHeight, setCustomHeight] = useState(550);
   // simple rate limiter: max 5 sends in 5 seconds
   const [sendCount, setSendCount] = useState(0);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [mode, setMode] = useState<'chat' | 'voice'>('chat');
+  const modeChosenByUser = useRef(false);
+  const [voiceLang, setVoiceLang] = useState('en-US');
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(LANG_STORAGE_KEY);
+      setVoiceLang(saved && VOICE_LANGUAGES.some((l) => l.code === saved) ? saved : defaultVoiceLanguage());
+    } catch {
+      setVoiceLang(defaultVoiceLanguage());
+    }
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => setShowPill(true), 8000);
@@ -49,14 +67,20 @@ export const DevBot = () => {
     }
   }, [isResizing]);
 
-  const handleSend = async (text?: string) => {
-    let message = text || input;
-    if (!message.trim() || isLoading) return;
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  }, [messages, isLoading, isOpen]);
+
+  // Shared by typing and voice. Returns the bot's reply so voice mode can speak it.
+  const sendMessage = async (raw: string, clearInput = true): Promise<string | null> => {
+    let message = raw;
+    if (!message.trim() || isLoading) return null;
 
     // enforce rate limit
     if (sendCount >= 5) {
-      setMessages(prev => [...prev, { role: 'bot', content: "I'm getting a bit overwhelmed – please wait a few seconds before sending more messages." }]);
-      return;
+      const reply = "I'm getting a bit overwhelmed – please wait a few seconds before sending more messages.";
+      setMessages(prev => [...prev, { role: 'bot', content: reply }]);
+      return reply;
     }
 
     // cap message length to avoid giant payloads
@@ -65,7 +89,7 @@ export const DevBot = () => {
     }
 
     setMessages(prev => [...prev, { role: 'user', content: message }]);
-    setInput('');
+    if (clearInput) setInput('');
     setIsLoading(true);
 
     // bump counter and schedule decrement
@@ -78,7 +102,9 @@ export const DevBot = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           messages: messages,
-          userMessage: message
+          userMessage: message,
+          lang: voiceLang,
+          mode
         })
       });
 
@@ -94,13 +120,50 @@ export const DevBot = () => {
       }
 
       setMessages(prev => [...prev, { role: 'bot', content: reply }]);
+      return reply;
     } catch (error) {
       console.error('DevBot Error:', error);
-      setMessages(prev => [...prev, { role: 'bot', content: "Oops! Something went wrong. You can reach Shoaib directly at devtimize@gmail.com." }]);
+      const reply = "Oops! Something went wrong. You can reach Shoaib directly at devtimize@gmail.com.";
+      setMessages(prev => [...prev, { role: 'bot', content: reply }]);
+      return reply;
     } finally {
       setIsLoading(false);
     }
   };
+
+  const handleSend = (text?: string) => {
+    sendMessage(text || input);
+  };
+
+  const voice = useVoiceChat((text) => sendMessage(text, false), voiceLang);
+  const stopVoice = voice.stop;
+
+  useEffect(() => {
+    if (!isOpen) stopVoice();
+  }, [isOpen, stopVoice]);
+
+  // Voice is the default mode wherever the browser supports it; typing remains one tap away.
+  useEffect(() => {
+    if (voice.supported && !modeChosenByUser.current) setMode('voice');
+  }, [voice.supported]);
+
+  const switchMode = (next: 'chat' | 'voice') => {
+    modeChosenByUser.current = true;
+    if (next === 'chat') voice.stop();
+    setMode(next);
+  };
+
+  const changeLanguage = (code: string) => {
+    voice.stop();
+    setVoiceLang(code);
+    try {
+      localStorage.setItem(LANG_STORAGE_KEY, code);
+    } catch {
+      // storage unavailable — the choice just won't persist
+    }
+  };
+
+  const voiceMode = mode === 'voice' && voice.supported;
 
   return (
     <>
@@ -133,8 +196,45 @@ export const DevBot = () => {
                 </div>
                 <span className="text-xs sm:text-[11px] text-text-secondary uppercase tracking-wider block">Online now</span>
               </div>
-              <button 
-                onClick={() => setIsOpen(false)} 
+              {voice.supported && (
+                <div
+                  role="tablist"
+                  aria-label="Conversation mode"
+                  className="flex-shrink-0 flex rounded-full bg-bg-page border border-bg-stroke p-0.5"
+                >
+                  {([
+                    { id: 'chat', label: 'Chat', icon: MessageSquare },
+                    { id: 'voice', label: 'Voice', icon: AudioLines },
+                  ] as const).map(({ id, label, icon: Icon }) => (
+                    <button
+                      key={id}
+                      type="button"
+                      role="tab"
+                      aria-selected={mode === id}
+                      onClick={() => {
+                        if (mode !== id && id === 'voice') trackCTAClick('Switch to Voice', 'devbot_header');
+                        switchMode(id);
+                      }}
+                      className={cn(
+                        'relative flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors',
+                        mode === id ? 'text-ink' : 'text-text-secondary hover:text-acid-cyan'
+                      )}
+                    >
+                      {mode === id && (
+                        <motion.span
+                          layoutId="devbot-mode-pill"
+                          className="absolute inset-0 rounded-full bg-acid-cyan"
+                          transition={{ type: 'spring', stiffness: 500, damping: 36 }}
+                        />
+                      )}
+                      <Icon size={13} className="relative" />
+                      <span className="relative">{label}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+              <button
+                onClick={() => setIsOpen(false)}
                 className="flex-shrink-0 text-text-secondary hover:text-acid-cyan transition-colors p-1"
                 aria-label="Close"
               >
@@ -157,7 +257,7 @@ export const DevBot = () => {
                       "max-w-xs sm:max-w-sm md:max-w-md px-3 py-2 sm:px-4 sm:py-3 rounded-2xl text-xs sm:text-sm leading-relaxed break-words",
                       m.role === 'bot' 
                         ? "bg-bg-raised border border-bg-stroke text-text-primary rounded-tl-none" 
-                        : "bg-grad-cta text-white rounded-tr-none"
+                        : "bg-[image:var(--grad-cta)] text-white rounded-tr-none"
                     )}
                   >
                     <ReactMarkdown>{m.content}</ReactMarkdown>
@@ -175,9 +275,23 @@ export const DevBot = () => {
                   </div>
                 </div>
               )}
+              <div ref={messagesEndRef} />
             </div>
 
-            {/* Input Area */}
+            {voiceMode ? (
+              <VoicePanel
+                active={voice.active}
+                state={voice.state}
+                interim={voice.interim}
+                error={voice.error}
+                notice={voice.notice}
+                lang={voiceLang}
+                onLangChange={changeLanguage}
+                onTapOrb={voice.active ? voice.tapOrb : voice.start}
+                onStop={voice.stop}
+              />
+            ) : (
+            /* Input Area */
             <div className="shrink-0 p-4 sm:p-5 border-t border-bg-stroke bg-bg-page/50 space-y-3">
               <div className="flex gap-2 overflow-x-auto no-scrollbar -mx-1 px-1">
                 {[
@@ -202,19 +316,37 @@ export const DevBot = () => {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                  placeholder="Type message..."
+                  placeholder={voice.dictating ? 'Listening…' : 'Type message...'}
                   className="flex-1 min-w-0 bg-bg-raised border border-bg-stroke rounded-lg px-3 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm text-text-primary outline-none focus:border-acid-cyan transition-colors"
                 />
+                {voice.supported && (
+                  <button
+                    type="button"
+                    onClick={() => voice.toggleDictation(input, setInput)}
+                    aria-pressed={voice.dictating}
+                    aria-label={voice.dictating ? 'Stop dictation' : 'Dictate message'}
+                    className={cn(
+                      'shrink-0 p-2 sm:p-2.5 rounded-lg border transition-colors flex items-center justify-center',
+                      voice.dictating
+                        ? 'bg-acid-cyan border-acid-cyan text-ink animate-pulse'
+                        : 'bg-bg-raised border-bg-stroke text-acid-cyan hover:border-acid-cyan'
+                    )}
+                  >
+                    <Mic size={18} className="sm:w-5 sm:h-5" />
+                  </button>
+                )}
                 <button
                   onClick={() => handleSend()}
                   disabled={isLoading}
-                  className="shrink-0 bg-grad-cta p-2 sm:p-2.5 rounded-lg text-white hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center"
+                  className="shrink-0 bg-[image:var(--grad-cta)] p-2 sm:p-2.5 rounded-lg text-white hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center"
                   aria-label="Send"
                 >
                   <Send size={18} className="sm:w-5 sm:h-5" />
                 </button>
               </div>
+              {voice.error && <p className="text-xs text-ember">{voice.error}</p>}
             </div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

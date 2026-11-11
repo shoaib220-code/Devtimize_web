@@ -33,15 +33,33 @@ export interface LeadPayload {
   selectedPackage?: string;
   description: string;
   source: string;
+  appointment?: string;
 }
 
-export async function sendLeadEmail(lead: LeadPayload): Promise<void> {
+function esc(value: string): string {
+  return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+export async function sendLeadEmail(input: LeadPayload): Promise<void> {
   validateSmtpConfig();
   const transporter = createTransporter();
   const { SMTP_FROM_EMAIL, SMTP_FROM_NAME } = process.env;
 
+  // Everything here may come from a public visitor, so escape before it goes into HTML.
+  const lead = {
+    name: esc(input.name),
+    email: esc(input.email),
+    phone: input.phone ? esc(input.phone) : undefined,
+    projectType: input.projectType ? esc(input.projectType) : undefined,
+    selectedPackage: input.selectedPackage ? esc(input.selectedPackage) : undefined,
+    description: esc(input.description),
+    source: esc(input.source),
+    appointment: input.appointment ? esc(input.appointment) : undefined,
+  };
+
   const teamEmailHtml = `
-    <h2>New Lead from ${lead.source}</h2>
+    <h2>${lead.appointment ? 'Appointment request' : 'New Lead'} from ${lead.source}</h2>
+    ${lead.appointment ? `<p><strong>Requested time:</strong> ${lead.appointment} (not yet confirmed — reply to the visitor to confirm or propose another time)</p>` : ''}
     <p><strong>Name:</strong> ${lead.name}</p>
     <p><strong>Email:</strong> ${lead.email}</p>
     <p><strong>Phone:</strong> ${lead.phone || 'Not provided'}</p>
@@ -56,17 +74,23 @@ export async function sendLeadEmail(lead: LeadPayload): Promise<void> {
   await transporter.sendMail({
     from: `${SMTP_FROM_NAME || 'Devtimize'} <${SMTP_FROM_EMAIL}>`,
     to: 'devtimize@gmail.com',
-    subject: `New Lead (${lead.source}): ${lead.projectType || 'General'} - ${lead.name}`,
+    subject: lead.appointment
+      ? `Appointment request (${input.source}): ${input.appointment} - ${input.name}`
+      : `New Lead (${input.source}): ${input.projectType || 'General'} - ${input.name}`,
     html: teamEmailHtml,
-    replyTo: lead.email,
+    replyTo: input.email,
   });
 
   // Best-effort client confirmation — a failure here must not fail lead capture
   try {
     const clientEmailHtml = `
-      <h2>Thank you for reaching out!</h2>
+      <h2>${lead.appointment ? 'We received your appointment request' : 'Thank you for reaching out!'}</h2>
       <p>Hi ${lead.name},</p>
-      <p>We received your details and will get back to you within 24 hours.</p>
+      <p>${
+        lead.appointment
+          ? `You asked for <strong>${lead.appointment}</strong>. This is a request, not a confirmed booking yet — we will confirm that time or suggest another within 24 hours.`
+          : 'We received your details and will get back to you within 24 hours.'
+      }</p>
       <ul>
         <li><strong>Project Type:</strong> ${lead.projectType || 'Not specified'}</li>
         <li><strong>Details:</strong> ${lead.description.replace(/\n/g, '<br>')}</li>
@@ -81,8 +105,8 @@ export async function sendLeadEmail(lead: LeadPayload): Promise<void> {
 
     await transporter.sendMail({
       from: `${SMTP_FROM_NAME || 'Devtimize'} <${SMTP_FROM_EMAIL}>`,
-      to: lead.email,
-      subject: 'We received your request',
+      to: input.email,
+      subject: lead.appointment ? 'We received your appointment request' : 'We received your request',
       html: clientEmailHtml,
     });
   } catch (err) {

@@ -1,5 +1,8 @@
 import { sendLeadEmail } from '@/lib/send-lead-email';
 import { INTERNAL_TIERS, PUBLIC_PRICING_RANGE } from '@/lib/ai-receptionist-data';
+import { buildKnowledgeBase } from '@/lib/knowledge-base';
+
+const KNOWLEDGE_BASE = buildKnowledgeBase();
 
 const TIER_SUMMARY = INTERNAL_TIERS
   .map((t) => `  Tier ${t.tier} — setup $${t.setup.toLocaleString()}, monthly $${t.monthlyLow}-${t.monthlyHigh}. Fits: ${t.fitsWhen}. Includes: ${t.includes}.`)
@@ -33,15 +36,7 @@ OUR SERVICES:
 5. Cloud & DevOps — deployment, CI/CD pipelines, server setup, hosting
 6. Maintenance & Support — bug fixes, updates, new features added anytime
 
-REAL PROJECTS WE'VE SHIPPED:
-- Restaurant Website (web)
-- E-Commerce Website (web)
-- Trading Bot with backtest + live trading (Python, AI)
-- Chatbot & RAG Assistant (Python, LangChain, LLMs)
-- Event Push App — Flutter + OneSignal notifications (mobile)
-- Emotion Detector — Tkinter desktop app + CNN model (desktop/AI)
-- Vendor Shipment Portal — .NET MVC (web portal)
-- Inventory & Billing System — WPF + SQLite (desktop)
+${KNOWLEDGE_BASE}
 
 REAL CLIENT TESTIMONIALS:
 - Abdullah & team (BGNU): delivered event app on time + gave free updates
@@ -128,9 +123,35 @@ Once you have their name, email, and a description of what they need,
 call the submit_lead function immediately with that information. Do not
 ask for permission first — just call it, then tell them you've forwarded
 their details to the team. Never tell them to "email us" instead of
-capturing their info yourself when they're already talking to you.`;
+capturing their info yourself when they're already talking to you.
 
-const SUBMIT_LEAD_TOOL = {
+BOOKING APPOINTMENTS / CALLS:
+When a visitor wants a call, meeting or demo, collect: their name, email,
+a preferred day and time, and their timezone or country (phone optional),
+plus a one-line topic. Ask for one or two missing things at a time.
+- You cannot see a live calendar. This is an appointment REQUEST that the
+  team confirms by email or WhatsApp within 24 hours. Never say a slot is
+  "booked" or "confirmed" — say it has been requested.
+- Founder is based in Pakistan (PKT, UTC+5). Mention this only if the visitor
+  asks about availability, and never promise a specific slot is free.
+- Convert relative days ("tomorrow", "next Monday") into a real date using
+  the current date given below, and repeat the full date back to the visitor.
+- Before calling book_appointment, read the email address back to the visitor
+  and get a yes. For voice conversations, ask them to spell it if unsure.
+- Then call book_appointment immediately — do not ask permission again.
+
+LANGUAGE:
+Reply in the same language the visitor writes or speaks. If they switch
+language, switch with them. Keep product names, emails and phone numbers in
+Latin characters.`;
+
+const CONFIRMATION_PARAM = {
+  type: 'STRING',
+  description:
+    "One or two short sentences to say to the visitor after submitting, written in the visitor's own language. Say the details were sent to the team and that they will reply within 24 hours. For appointments say the time was REQUESTED, not confirmed.",
+};
+
+const BOT_TOOLS = {
   functionDeclarations: [
     {
       name: 'submit_lead',
@@ -147,12 +168,63 @@ const SUBMIT_LEAD_TOOL = {
             description: 'Type of project: Web App, Mobile App, Desktop Software, AI/Chatbot, AI Receptionist, Trading Bot, or Other',
           },
           description: { type: 'STRING', description: 'Summary of what the visitor needs' },
+          confirmationMessage: CONFIRMATION_PARAM,
         },
         required: ['name', 'email', 'description'],
       },
     },
+    {
+      name: 'book_appointment',
+      description:
+        'Request a call or meeting with the Devtimize team. Call once you have name, email, preferred date, preferred time and timezone, and the visitor has confirmed their email.',
+      parameters: {
+        type: 'OBJECT',
+        properties: {
+          name: { type: 'STRING', description: "Visitor's full name" },
+          email: { type: 'STRING', description: "Visitor's email address (confirmed with them)" },
+          phone: { type: 'STRING', description: "Visitor's phone or WhatsApp number, if provided" },
+          preferredDate: { type: 'STRING', description: 'Preferred date as YYYY-MM-DD' },
+          preferredTime: { type: 'STRING', description: 'Preferred time, e.g. 15:00 or 3 PM' },
+          timezone: { type: 'STRING', description: "Visitor's timezone or country, e.g. Asia/Kuwait, UK, EST" },
+          topic: { type: 'STRING', description: 'What the call is about' },
+          confirmationMessage: CONFIRMATION_PARAM,
+        },
+        required: ['name', 'email', 'preferredDate', 'preferredTime', 'topic'],
+      },
+    },
   ],
 };
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function cleanConfirmation(value: unknown, fallback: string): string {
+  if (typeof value !== 'string') return fallback;
+  const text = value.trim();
+  return text.length > 0 && text.length <= 400 ? text : fallback;
+}
+
+const LANGUAGE_NAMES: Record<string, string> = {
+  en: 'English', ur: 'Urdu', ar: 'Arabic', hi: 'Hindi', fr: 'French',
+  es: 'Spanish', de: 'German', nl: 'Dutch', sv: 'Swedish',
+};
+
+function buildSessionContext(lang: unknown, mode: unknown): string {
+  const now = new Date();
+  const base = typeof lang === 'string' ? lang.split('-')[0].toLowerCase() : 'en';
+  const language = LANGUAGE_NAMES[base] ?? 'English';
+
+  let ctx = `\n\nSESSION CONTEXT:\n- Current date/time (UTC): ${now.toISOString()} (${now.toUTCString()}).\n- Visitor's selected language: ${language}.`;
+
+  if (mode === 'voice') {
+    ctx += `
+- This is a VOICE conversation: your reply will be read aloud by a female voice.
+  Speak like a warm, natural woman on a phone call: at most 2-3 short sentences,
+  no markdown, no lists, no emojis, no URLs read out (say "on our website"
+  instead). Say numbers and prices naturally. In languages with grammatical
+  gender, refer to yourself in the feminine. Ask only one question at a time.`;
+  }
+  return ctx;
+}
 
 // Track API calls per IP (simple in-memory rate limiting)
 const requestCounts = new Map<string, { count: number; reset: number }>();
@@ -192,7 +264,7 @@ export async function POST(req: Request) {
       );
     }
 
-    const { messages, userMessage } = await req.json();
+    const { messages, userMessage, lang, mode } = await req.json();
 
     if (!userMessage || typeof userMessage !== 'string') {
       return Response.json(
@@ -229,7 +301,7 @@ export async function POST(req: Request) {
     
     // Build conversation history
     const contents = [
-      { role: 'user', parts: [{ text: DEVBOT_SYSTEM }] },
+      { role: 'user', parts: [{ text: DEVBOT_SYSTEM + buildSessionContext(lang, mode) }] },
       ...messages.map((m: any) => ({
         role: m.role === 'user' ? 'user' : 'model',
         parts: [{ text: m.content }]
@@ -245,7 +317,7 @@ export async function POST(req: Request) {
       },
       body: JSON.stringify({
         contents: contents,
-        tools: [SUBMIT_LEAD_TOOL],
+        tools: [BOT_TOOLS],
         generationConfig: {
           temperature: 0.7,
           maxOutputTokens: 500
@@ -273,26 +345,61 @@ export async function POST(req: Request) {
     console.log('Gemini response received');
 
     const parts = data?.candidates?.[0]?.content?.parts || [];
-    const functionCallPart = parts.find((p: any) => p.functionCall?.name === 'submit_lead');
+    const functionCallPart = parts.find(
+      (p: any) => p.functionCall?.name === 'submit_lead' || p.functionCall?.name === 'book_appointment'
+    );
 
     if (functionCallPart) {
-      const args = functionCallPart.functionCall.args || {};
-      console.log('DevBot captured a lead:', { name: args.name, email: args.email });
+      const { name: toolName, args = {} } = functionCallPart.functionCall;
+      const str = (v: unknown, max = 500) => (typeof v === 'string' ? v.trim().slice(0, max) : '');
+      const isAppointment = toolName === 'book_appointment';
+
+      const leadName = str(args.name, 100);
+      const email = str(args.email, 200);
+      console.log(isAppointment ? 'DevBot appointment request:' : 'DevBot captured a lead:', { name: leadName, email });
+
+      if (!leadName || !EMAIL_REGEX.test(email)) {
+        return Response.json(
+          { reply: "I couldn't catch a valid email address. Could you say or type it again, please?" },
+          { status: 200 }
+        );
+      }
+
+      let appointment: string | undefined;
+      if (isAppointment) {
+        const date = str(args.preferredDate, 20);
+        const time = str(args.preferredTime, 40);
+        const timezone = str(args.timezone, 60);
+        const parsed = Date.parse(date);
+        if (Number.isNaN(parsed) || parsed < Date.now() - 24 * 60 * 60 * 1000 || !time) {
+          return Response.json(
+            { reply: 'Which day and time would suit you? Please give me an upcoming date and a time.' },
+            { status: 200 }
+          );
+        }
+        appointment = [date, time, timezone].filter(Boolean).join(' ');
+      }
 
       try {
         await sendLeadEmail({
-          name: args.name,
-          email: args.email,
-          phone: args.phone,
-          projectType: args.projectType,
-          description: args.description,
-          source: 'DevBot Chat',
+          name: leadName,
+          email,
+          phone: str(args.phone, 40) || undefined,
+          projectType: isAppointment ? 'Appointment Request' : str(args.projectType, 60) || undefined,
+          description: isAppointment ? `Appointment request. Topic: ${str(args.topic, 500)}` : str(args.description, 1000),
+          source: isAppointment ? 'DevBot Appointment' : 'DevBot Chat',
+          appointment,
         });
+
+        const fallback = isAppointment
+          ? `Thanks ${leadName}! I've requested ${appointment} for you — the team will confirm by email within 24 hours.`
+          : `Thanks ${leadName}! I've sent your details to Shoaib — he'll reach out to ${email} within 24 hours.`;
 
         return Response.json(
           {
-            reply: `Thanks ${args.name}! I've sent your details to Shoaib — he'll reach out to ${args.email} within 24 hours.`,
+            reply: cleanConfirmation(args.confirmationMessage, fallback),
             leadCaptured: true,
+            appointmentRequested: isAppointment,
           },
           { status: 200 }
         );
@@ -300,7 +407,7 @@ export async function POST(req: Request) {
         console.error('❌ DevBot lead capture failed:', leadErr);
         return Response.json(
           {
-            reply: `Thanks ${args.name}! I had trouble sending that automatically — please email devtimize@gmail.com or WhatsApp +923104745649 directly so we don't lose your details.`,
+            reply: `Thanks ${leadName}! I had trouble sending that automatically — please email devtimize@gmail.com or WhatsApp +923104745649 directly so we don't lose your details.`,
           },
           { status: 200 }
         );

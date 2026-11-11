@@ -248,6 +248,16 @@ export const Projects = () => {
             </button>
           </div>
         </div>
+
+        <div className="mt-12 flex justify-center">
+          <Link
+            href="/projects"
+            onClick={() => trackCTAClick('View More Projects', 'home_projects')}
+            className="px-8 py-4 bg-bg-raised border border-bg-stroke rounded-xl text-text-primary font-bold hover:border-acid-cyan hover:text-acid-cyan transition-all flex items-center gap-2 group/more"
+          >
+            View more projects <ArrowRight size={18} className="group-hover/more:translate-x-1 transition-transform" />
+          </Link>
+        </div>
       </div>
     </section>
   );

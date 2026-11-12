@@ -13,6 +13,9 @@ import {
 export type VoiceState = 'idle' | 'listening' | 'thinking' | 'speaking';
 
 const MAX_SILENT_TURNS = 2;
+// Browsers end a non-continuous recognition after ~1s of quiet and the bot would start
+// answering mid-thought. Instead we keep listening and only submit after this much silence.
+const END_OF_SPEECH_MS = 1800;
 
 export function useVoiceChat(onUtterance: (text: string) => Promise<string | null>, lang: string) {
   const [supported, setSupported] = useState(false);
@@ -94,24 +97,41 @@ export function useVoiceChat(onUtterance: (text: string) => Promise<string | nul
     const turn = ++turnRef.current;
     const rec = new Ctor();
     rec.lang = langRef.current;
-    rec.continuous = false;
+    rec.continuous = true;
     rec.interimResults = true;
     rec.maxAlternatives = 1;
 
-    let finalText = '';
+    let heard = '';
     let failed = false;
+    let silenceTimer: ReturnType<typeof setTimeout> | null = null;
+    const clearSilenceTimer = () => {
+      if (silenceTimer) clearTimeout(silenceTimer);
+      silenceTimer = null;
+    };
 
     rec.onresult = (e) => {
-      let interimText = '';
-      for (let i = e.resultIndex; i < e.results.length; i++) {
+      let finalPart = '';
+      let interimPart = '';
+      for (let i = 0; i < e.results.length; i++) {
         const result = e.results[i];
-        if (result.isFinal) finalText += result[0].transcript;
-        else interimText += result[0].transcript;
+        if (result.isFinal) finalPart += result[0].transcript;
+        else interimPart += result[0].transcript;
       }
-      setInterim((finalText + interimText).trim());
+      heard = (finalPart + interimPart).trim();
+      setInterim(heard);
+      // Every new word restarts the countdown; only a real pause ends the turn.
+      clearSilenceTimer();
+      silenceTimer = setTimeout(() => {
+        try {
+          rec.stop();
+        } catch {
+          // already stopped
+        }
+      }, END_OF_SPEECH_MS);
     };
 
     rec.onerror = (e) => {
+      clearSilenceTimer();
       if (e.error === 'not-allowed' || e.error === 'service-not-allowed') {
         failed = true;
         setError('Microphone access is blocked. Allow it in your browser settings to talk to DevBot.');
@@ -125,8 +145,9 @@ export function useVoiceChat(onUtterance: (text: string) => Promise<string | nul
     };
 
     rec.onend = async () => {
+      clearSilenceTimer();
       if (failed || turn !== turnRef.current || !activeRef.current) return;
-      const text = finalText.trim();
+      const text = heard.trim();
       setInterim('');
 
       if (!text) {

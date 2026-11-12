@@ -232,29 +232,38 @@ const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemi
 const RETRYABLE_STATUSES = new Set([500, 502, 503, 504]);
 
 // Google's API returns occasional temporary 5xx errors ("model overloaded"); one quick retry hides most of them.
+// A timed-out request is NOT retried: that would double the visitor's wait before they see an error.
 async function callGemini(
   apiKey: string,
-  body: unknown
+  body: any
 ): Promise<{ ok: true; data: any } | { ok: false; status: number }> {
   let status = 0;
+  let payload = body;
   for (let attempt = 1; attempt <= 2; attempt++) {
-    if (attempt > 1) await new Promise((r) => setTimeout(r, 600));
+    if (attempt > 1) await new Promise((r) => setTimeout(r, 300));
     try {
       const res = await fetch(GEMINI_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
-        body: JSON.stringify(body),
-        signal: AbortSignal.timeout(12000),
+        body: JSON.stringify(payload),
+        signal: AbortSignal.timeout(10000),
       });
       if (res.ok) return { ok: true, data: await res.json() };
 
       status = res.status;
       const errorData = await res.json().catch(() => ({}));
       console.error(`Gemini API error (attempt ${attempt}):`, status, JSON.stringify(errorData).slice(0, 500));
+      // If the model rejects the reduced-thinking setting, retry once without it rather than failing the chat.
+      if (status === 400 && payload.generationConfig?.thinkingConfig) {
+        const { thinkingConfig, ...rest } = payload.generationConfig;
+        payload = { ...payload, generationConfig: rest };
+        continue;
+      }
       if (!RETRYABLE_STATUSES.has(status)) break;
     } catch (err) {
       status = 0;
       console.error(`Gemini request failed (attempt ${attempt}):`, err);
+      break;
     }
   }
   return { ok: false, status };
@@ -333,24 +342,28 @@ export async function POST(req: Request) {
 
     console.log('Calling Gemini API...');
     
-    // Build conversation history
+    // Only the recent turns matter; resending a long history just slows every reply down.
+    const history = messages.slice(-12);
     const contents = [
-      { role: 'user', parts: [{ text: DEVBOT_SYSTEM + buildSessionContext(lang, mode) }] },
-      ...messages.map((m: any) => ({
+      ...history.map((m: any) => ({
         role: m.role === 'user' ? 'user' : 'model',
-        parts: [{ text: m.content }]
+        parts: [{ text: String(m.content ?? '') }]
       })),
       { role: 'user', parts: [{ text: message }] }
     ];
 
+    const isVoice = mode === 'voice';
     const result = await callGemini(apiKey, {
-      contents: contents,
+      systemInstruction: { parts: [{ text: DEVBOT_SYSTEM + buildSessionContext(lang, mode) }] },
+      contents,
       tools: [BOT_TOOLS],
       generationConfig: {
         temperature: 0.7,
-        // The model spends part of this budget on hidden "thinking", so a low cap
-        // cuts answers off mid-sentence (worst for Urdu/Arabic, which use more tokens).
-        maxOutputTokens: 2048
+        // Voice replies are 2-3 spoken sentences, so a smaller cap finishes sooner.
+        // Thinking tokens count against this cap, so keep some headroom.
+        maxOutputTokens: isVoice ? 700 : 1500,
+        // Chat answers don't need long hidden reasoning; this is the biggest single latency win.
+        thinkingConfig: { thinkingLevel: 'minimal' }
       }
     });
 
